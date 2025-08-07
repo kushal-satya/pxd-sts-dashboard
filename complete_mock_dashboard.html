@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Seed Variety Dashboard</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-green: #6abeb4;
+            --dark-green: #00594a;
+            --light-accent: #b5dfda;
+        }
+        
+        .bg-primary-green { background-color: var(--primary-green); }
+        .bg-dark-green { background-color: var(--dark-green); }
+        .text-dark-green { color: var(--dark-green); }
+        
+        .hover-lift {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table-container {
+            max-height: 700px;
+            overflow-y: auto;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        .table-container::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 4px;
+        }
+        
+        .stress-badge-yes { 
+            background: linear-gradient(135deg, #10b981, #059669); 
+            color: white; 
+        }
+        
+        .stress-badge-no { 
+            background: linear-gradient(135deg, #ef4444, #dc2626); 
+            color: white; 
+        }
+        
+        .btn-show-details {
+            background: var(--primary-green);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-show-details:hover {
+            background: var(--dark-green);
+        }
+        
+        .details-panel {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary-green);
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+        
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div>
+                    <h1 class="text-3xl font-bold text-dark-green">India Seed Variety Dashboard</h1>
+                    <p class="text-gray-600 mt-1">Stress Tolerance Identification Dashboard</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-primary-green text-white px-4 py-2 rounded-lg">
+                        <span class="font-semibold" id="totalSeeds">Loading...</span>
+                        <span class="text-sm ml-1">varieties</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 gap-8">
+            
+            <!-- Filters Card -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover-lift transition-all">
+                <h2 class="text-xl font-semibold text-dark-green mb-4">Filters</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <!-- State Filter -->
+                    <div>
+                        <label for="stateFilter" class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                        <select id="stateFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent">
+                            <option value="">All States</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Crop Type Filter -->
+                    <div>
+                        <label for="cropFilter" class="block text-sm font-medium text-gray-700 mb-2">Crop Type</label>
+                        <select id="cropFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent">
+                            <option value="">All Crops</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Year Filter -->
+                    <div>
+                        <label for="yearFilter" class="block text-sm font-medium text-gray-700 mb-2">Year of Release</label>
+                        <select id="yearFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent">
+                            <option value="">All Years</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Search Input -->
+                    <div>
+                        <label for="searchInput" class="block text-sm font-medium text-gray-700 mb-2">Search Seeds</label>
+                        <input type="text" id="searchInput" placeholder="Search by seed name or variety..." 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent">
+                    </div>
+                </div>
+                
+                <!-- Clear Filters Button -->
+                <div class="mt-4">
+                    <button id="clearFilters" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-200">
+                        Clear All Filters
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Data Table -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover-lift transition-all">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold text-dark-green">Seed Data Details</h2>
+                    <div class="text-sm text-gray-600">
+                        Showing <span id="filteredCount">0</span> of <span id="totalCount">0</span> varieties
+                    </div>
+                </div>
+                
+                <!-- Table Container -->
+                <div class="table-container">
+                    <table class="min-w-full">
+                        <thead class="bg-dark-green text-white sticky top-0">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Crop</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Variety Name</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Year of Release</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Stress Tolerance</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Key Attributes</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">State Acronyms</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Seasons</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Days to Maturity</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="seedTableBody" class="bg-white divide-y divide-gray-200">
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Loading State -->
+                <div id="loadingState" class="text-center py-8">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-green mx-auto"></div>
+                    <p class="text-gray-600 mt-4">Loading seed varieties...</p>
+                </div>
+                
+                <!-- Empty State -->
+                <div id="emptyState" class="text-center py-8 hidden">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <p class="text-lg font-medium text-gray-600">No seed varieties found</p>
+                    <p class="text-sm text-gray-500">Try adjusting your filters or search terms</p>
+                </div>
+                
+            </div>
+            
+        </div>
+    </main>
+
+    <script>
+        // Complete mock data with all the requested features
+        const mockSeedData = [
+            {
+                id: "rice_1",
+                crop: "Rice",
+                varietyName: "Pusa Basmati 1121",
+                yearOfRelease: 2005,
+                stressTolerance: "Yes",
+                keyAttributes: "Drought tolerant, High yield, Aromatic",
+                stateAcronyms: "PB, HR, UP",
+                seasons: "Kharif",
+                daysToMaturity: 135,
+                details: {
+                    fullStateNames: "Punjab, Haryana, Uttar Pradesh",
+                    releaseInstitution: "IARI, New Delhi",
+                    breederName: "Dr. A.K. Singh",
+                    geneticMarkers: "QTL for drought tolerance, Sub1 gene for submergence",
+                    evidenceQuality: "High",
+                    briefSummary: "High-yielding basmati rice variety with excellent drought tolerance and moderate heat resistance. Developed through marker-assisted breeding.",
+                    stressToleranceProfile: "Drought: High, Heat: Moderate, Flood: Low, Salinity: Low",
+                    potentialYield: "6.5 t/ha",
+                    averageYield: "5.8 t/ha",
+                    referenceLinks: [
+                        "https://icar.org.in/publications/pusa-basmati-1121",
+                        "https://pubmed.ncbi.nlm.nih.gov/12345678",
+                        "https://researchgate.net/publication/123456789"
+                    ]
+                }
+            },
+            {
+                id: "wheat_1",
+                crop: "Wheat",
+                varietyName: "HD 2967",
+                yearOfRelease: 2011,
+                stressTolerance: "Yes",
+                keyAttributes: "Rust resistant, High protein, Early maturity",
+                stateAcronyms: "HR, PB, UP, MP",
+                seasons: "Rabi",
+                daysToMaturity: 110,
+                details: {
+                    fullStateNames: "Haryana, Punjab, Uttar Pradesh, Madhya Pradesh",
+                    releaseInstitution: "CCS HAU, Hisar",
+                    breederName: "Dr. R.K. Gupta",
+                    geneticMarkers: "Lr24 gene for leaf rust resistance, Yr10 for stripe rust",
+                    evidenceQuality: "Medium",
+                    briefSummary: "High-yielding wheat variety with good resistance to rust diseases and moderate drought tolerance.",
+                    stressToleranceProfile: "Drought: Moderate, Heat: Moderate, Disease: High, Pest: Medium",
+                    potentialYield: "5.2 t/ha",
+                    averageYield: "4.6 t/ha",
+                    referenceLinks: [
+                        "https://hau.ac.in/varieties/hd-2967",
+                        "https://springer.com/article/10.1007/s12345-678-9"
+                    ]
+                }
+            },
+            {
+                id: "maize_1",
+                crop: "Maize",
+                varietyName: "PMH 1",
+                yearOfRelease: 2013,
+                stressTolerance: "Yes",
+                keyAttributes: "Bt hybrid, Drought tolerant, High yield",
+                stateAcronyms: "GJ, MH, MP, RJ",
+                seasons: "Kharif, Rabi",
+                daysToMaturity: 95,
+                details: {
+                    fullStateNames: "Gujarat, Maharashtra, Madhya Pradesh, Rajasthan",
+                    releaseInstitution: "PAU, Ludhiana",
+                    breederName: "Dr. S.S. Gosal",
+                    geneticMarkers: "QTL for drought tolerance, Bt gene for pest resistance",
+                    evidenceQuality: "High",
+                    briefSummary: "Hybrid maize variety with excellent drought tolerance and built-in pest resistance through Bt technology.",
+                    stressToleranceProfile: "Drought: High, Heat: High, Pest: High, Disease: Medium",
+                    potentialYield: "8.5 t/ha",
+                    averageYield: "7.2 t/ha",
+                    referenceLinks: [
+                        "https://pau.edu/varieties/pmh-1",
+                        "https://nature.com/articles/s41598-123-45678"
+                    ]
+                }
+            },
+            {
+                id: "cotton_1",
+                crop: "Cotton",
+                varietyName: "Bollgard II",
+                yearOfRelease: 2006,
+                stressTolerance: "Yes",
+                keyAttributes: "Bt cotton, Dual gene, Pest resistant",
+                stateAcronyms: "MH, GJ, MP, KA",
+                seasons: "Kharif",
+                daysToMaturity: 150,
+                details: {
+                    fullStateNames: "Maharashtra, Gujarat, Madhya Pradesh, Karnataka",
+                    releaseInstitution: "Monsanto India",
+                    breederName: "Dr. Ramesh Kumar",
+                    geneticMarkers: "Cry1Ac and Cry2Ab genes for bollworm resistance",
+                    evidenceQuality: "High",
+                    briefSummary: "Bt cotton variety with dual gene technology for enhanced pest resistance and moderate drought tolerance.",
+                    stressToleranceProfile: "Pest: High, Drought: Medium, Heat: Medium, Disease: Low",
+                    potentialYield: "2.8 t/ha",
+                    averageYield: "2.3 t/ha",
+                    referenceLinks: [
+                        "https://monsanto.com/bollgard-ii",
+                        "https://sciencedirect.com/science/article/pii/S123456789"
+                    ]
+                }
+            },
+            {
+                id: "pulses_1",
+                crop: "Chickpea",
+                varietyName: "Pusa 256",
+                yearOfRelease: 2010,
+                stressTolerance: "Yes",
+                keyAttributes: "Drought tolerant, Wilt resistant, High protein",
+                stateAcronyms: "RJ, MP, UP, MH",
+                seasons: "Rabi",
+                daysToMaturity: 120,
+                details: {
+                    fullStateNames: "Rajasthan, Madhya Pradesh, Uttar Pradesh, Maharashtra",
+                    releaseInstitution: "IARI, New Delhi",
+                    breederName: "Dr. N.P. Singh",
+                    geneticMarkers: "QTL for drought tolerance, Fusarium wilt resistance genes",
+                    evidenceQuality: "Medium",
+                    briefSummary: "Drought-tolerant chickpea variety with resistance to Fusarium wilt and good yield stability.",
+                    stressToleranceProfile: "Drought: High, Disease: High, Heat: Medium, Pest: Medium",
+                    potentialYield: "2.2 t/ha",
+                    averageYield: "1.8 t/ha",
+                    referenceLinks: [
+                        "https://icar.org.in/pusa-256",
+                        "https://researchgate.net/publication/987654321"
+                    ]
+                }
+            },
+            {
+                id: "vegetables_1",
+                crop: "Tomato",
+                varietyName: "Pusa Hybrid 4",
+                yearOfRelease: 2015,
+                stressTolerance: "Yes",
+                keyAttributes: "Virus resistant, Heat tolerant, High yield",
+                stateAcronyms: "KA, TN, AP, TG",
+                seasons: "Kharif, Rabi",
+                daysToMaturity: 85,
+                details: {
+                    fullStateNames: "Karnataka, Tamil Nadu, Andhra Pradesh, Telangana",
+                    releaseInstitution: "IIVR, Varanasi",
+                    breederName: "Dr. M.K. Pandey",
+                    geneticMarkers: "Ty-2 gene for TYLCV resistance, heat tolerance QTL",
+                    evidenceQuality: "Medium",
+                    briefSummary: "Hybrid tomato variety with resistance to viral diseases and moderate heat tolerance.",
+                    stressToleranceProfile: "Disease: High, Heat: Medium, Drought: Medium, Pest: Medium",
+                    potentialYield: "45 t/ha",
+                    averageYield: "38 t/ha",
+                    referenceLinks: [
+                        "https://iivr.org.in/pusa-hybrid-4",
+                        "https://hindawi.com/journals/123456"
+                    ]
+                }
+            },
+            {
+                id: "fruits_1",
+                crop: "Mango",
+                varietyName: "Amrapali",
+                yearOfRelease: 1971,
+                stressTolerance: "No",
+                keyAttributes: "Dwarf variety, High quality, Traditional",
+                stateAcronyms: "BR, UP, JH, WB",
+                seasons: "Summer",
+                daysToMaturity: 120,
+                details: {
+                    fullStateNames: "Bihar, Uttar Pradesh, Jharkhand, West Bengal",
+                    releaseInstitution: "IARI, New Delhi",
+                    breederName: "Dr. R.N. Singh",
+                    geneticMarkers: "Traditional variety, limited molecular markers",
+                    evidenceQuality: "Low",
+                    briefSummary: "Traditional dwarf mango variety with good fruit quality but limited stress tolerance.",
+                    stressToleranceProfile: "Drought: Low, Heat: Low, Disease: Medium, Pest: Low",
+                    potentialYield: "16 t/ha",
+                    averageYield: "12 t/ha",
+                    referenceLinks: [
+                        "https://icar.org.in/amrapali-mango",
+                        "https://biomedcentral.com/articles/10.1186/123456"
+                    ]
+                }
+            },
+            {
+                id: "sugarcane_1",
+                crop: "Sugarcane",
+                varietyName: "Co 0238",
+                yearOfRelease: 2012,
+                stressTolerance: "Yes",
+                keyAttributes: "Drought tolerant, Red rot resistant, High sugar",
+                stateAcronyms: "TN, KA, AP, MH",
+                seasons: "Year-round",
+                daysToMaturity: 365,
+                details: {
+                    fullStateNames: "Tamil Nadu, Karnataka, Andhra Pradesh, Maharashtra",
+                    releaseInstitution: "SBI, Coimbatore",
+                    breederName: "Dr. N. Balasundaram",
+                    geneticMarkers: "Drought tolerance QTL, red rot resistance genes",
+                    evidenceQuality: "High",
+                    briefSummary: "High-yielding sugarcane variety with excellent drought tolerance and resistance to red rot disease.",
+                    stressToleranceProfile: "Drought: High, Disease: High, Heat: Medium, Pest: Medium",
+                    potentialYield: "120 t/ha",
+                    averageYield: "105 t/ha",
+                    referenceLinks: [
+                        "https://sugarcane.org.in/co-0238",
+                        "https://plos.org/articles/10.1371/journal.pone.123456"
+                    ]
+                }
+            }
+        ];
+
+        // Global variables
+        let filteredData = [...mockSeedData];
+        let expandedRows = new Set();
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            populateFilters();
+            renderTable();
+            updateStats();
+            setupEventListeners();
+            
+            // Hide loading state
+            document.getElementById('loadingState').style.display = 'none';
+        });
+
+        function populateFilters() {
+            // Populate state filter
+            const states = [...new Set(mockSeedData.map(item => item.stateAcronyms.split(', ')[0]))].sort();
+            const stateFilter = document.getElementById('stateFilter');
+            states.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                stateFilter.appendChild(option);
+            });
+
+            // Populate crop filter
+            const crops = [...new Set(mockSeedData.map(item => item.crop))].sort();
+            const cropFilter = document.getElementById('cropFilter');
+            crops.forEach(crop => {
+                const option = document.createElement('option');
+                option.value = crop;
+                option.textContent = crop;
+                cropFilter.appendChild(option);
+            });
+
+            // Populate year filter
+            const years = [...new Set(mockSeedData.map(item => item.yearOfRelease))].sort((a, b) => b - a);
+            const yearFilter = document.getElementById('yearFilter');
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+        }
+
+        function setupEventListeners() {
+            // Filter event listeners
+            document.getElementById('stateFilter').addEventListener('change', filterData);
+            document.getElementById('cropFilter').addEventListener('change', filterData);
+            document.getElementById('yearFilter').addEventListener('change', filterData);
+            document.getElementById('searchInput').addEventListener('input', filterData);
+            
+            // Clear filters
+            document.getElementById('clearFilters').addEventListener('click', clearAllFilters);
+        }
+
+        function filterData() {
+            const stateFilter = document.getElementById('stateFilter').value;
+            const cropFilter = document.getElementById('cropFilter').value;
+            const yearFilter = document.getElementById('yearFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            filteredData = mockSeedData.filter(item => {
+                const matchesState = !stateFilter || item.stateAcronyms.includes(stateFilter);
+                const matchesCrop = !cropFilter || item.crop === cropFilter;
+                const matchesYear = !yearFilter || item.yearOfRelease.toString() === yearFilter;
+                const matchesSearch = !searchTerm || 
+                    item.varietyName.toLowerCase().includes(searchTerm) ||
+                    item.crop.toLowerCase().includes(searchTerm);
+
+                return matchesState && matchesCrop && matchesYear && matchesSearch;
+            });
+
+            renderTable();
+            updateStats();
+        }
+
+        function clearAllFilters() {
+            document.getElementById('stateFilter').value = '';
+            document.getElementById('cropFilter').value = '';
+            document.getElementById('yearFilter').value = '';
+            document.getElementById('searchInput').value = '';
+            
+            filteredData = [...mockSeedData];
+            renderTable();
+            updateStats();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('seedTableBody');
+            tbody.innerHTML = '';
+
+            if (filteredData.length === 0) {
+                document.getElementById('emptyState').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('emptyState').classList.add('hidden');
+
+            filteredData.forEach(item => {
+                const row = createTableRow(item);
+                tbody.appendChild(row);
+            });
+        }
+
+        function createTableRow(item) {
+            const row = document.createElement('tr');
+            row.className = 'hover:bg-gray-50 transition-colors duration-150';
+            
+            const stressClass = item.stressTolerance === 'Yes' ? 'stress-badge-yes' : 'stress-badge-no';
+            
+            row.innerHTML = `
+                <td class="px-4 py-3 text-sm text-gray-900 font-medium">${item.crop}</td>
+                <td class="px-4 py-3 text-sm text-gray-900 font-medium">${item.varietyName}</td>
+                <td class="px-4 py-3 text-sm text-gray-900">${item.yearOfRelease}</td>
+                <td class="px-4 py-3">
+                    <span class="${stressClass} px-2 py-1 text-xs font-medium rounded-full">
+                        ${item.stressTolerance}
+                    </span>
+                </td>
+                <td class="px-4 py-3 text-sm text-gray-900">${item.keyAttributes}</td>
+                <td class="px-4 py-3 text-sm text-gray-900">${item.stateAcronyms}</td>
+                <td class="px-4 py-3 text-sm text-gray-900">${item.seasons}</td>
+                <td class="px-4 py-3 text-sm text-gray-900">${item.daysToMaturity}</td>
+                <td class="px-4 py-3 text-sm">
+                    <button class="btn-show-details" onclick="toggleDetails('${item.id}')">
+                        Details
+                    </button>
+                </td>
+            `;
+
+            // Add details row
+            const detailsRow = createDetailsRow(item);
+            row.appendChild(detailsRow);
+
+            return row;
+        }
+
+        function createDetailsRow(item) {
+            const detailsRow = document.createElement('tr');
+            detailsRow.id = `details-${item.id}`;
+            detailsRow.className = 'details-panel hidden';
+            detailsRow.innerHTML = `
+                <td colspan="9" class="px-6 py-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Release Information</h4>
+                                <p class="text-sm text-gray-600"><strong>Full State Names:</strong> ${item.details.fullStateNames}</p>
+                                <p class="text-sm text-gray-600"><strong>Release Institution:</strong> ${item.details.releaseInstitution}</p>
+                                <p class="text-sm text-gray-600"><strong>Breeder Name:</strong> ${item.details.breederName}</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Technical Details</h4>
+                                <p class="text-sm text-gray-600"><strong>Genetic Markers:</strong> ${item.details.geneticMarkers}</p>
+                                <p class="text-sm text-gray-600"><strong>Evidence Quality:</strong> ${item.details.evidenceQuality}</p>
+                                <p class="text-sm text-gray-600"><strong>Potential Yield:</strong> ${item.details.potentialYield}</p>
+                                <p class="text-sm text-gray-600"><strong>Average Yield:</strong> ${item.details.averageYield}</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Stress Profile</h4>
+                                <p class="text-sm text-gray-600"><strong>Stress Tolerance Profile:</strong> ${item.details.stressToleranceProfile}</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Summary</h4>
+                                <p class="text-sm text-gray-600">${item.details.briefSummary}</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">References</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${item.details.referenceLinks.map((link, index) => 
+                                        `<a href="${link}" target="_blank" class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs hover:bg-primary-green hover:text-white transition-colors">${index + 1}</a>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            `;
+
+            return detailsRow;
+        }
+
+        function toggleDetails(itemId) {
+            const detailsRow = document.getElementById(`details-${itemId}`);
+            const button = event.target;
+            
+            if (expandedRows.has(itemId)) {
+                // Hide details
+                detailsRow.classList.add('hidden');
+                expandedRows.delete(itemId);
+                button.textContent = 'Details';
+                button.className = 'btn-show-details';
+            } else {
+                // Show details
+                detailsRow.classList.remove('hidden');
+                expandedRows.add(itemId);
+                button.textContent = 'Hide';
+                button.className = 'btn-show-details bg-red-600 hover:bg-red-700';
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('totalSeeds').textContent = mockSeedData.length;
+            document.getElementById('filteredCount').textContent = filteredData.length;
+            document.getElementById('totalCount').textContent = mockSeedData.length;
+        }
+    </script>
+</body>
+</html> 
