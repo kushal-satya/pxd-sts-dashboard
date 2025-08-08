@@ -17,9 +17,12 @@
 
   async function loadEnhancedData(){
     try {
+      console.log('Attempting to load data from:', JSON_PATH);
       const res = await fetch(JSON_PATH);
-      if (!res.ok) throw new Error('Enhanced data not found');
+      console.log('Fetch response status:', res.status, res.ok);
+      if (!res.ok) throw new Error(`HTTP ${res.status}: Enhanced data not found`);
       ALL_ITEMS = await res.json();
+      console.log('Data loaded successfully. Items count:', ALL_ITEMS.length);
       FILTERED = [...ALL_ITEMS];
       updateCountsLabel();
       setLastUpdated();
@@ -30,6 +33,9 @@
       ALL_ITEMS = [];
       FILTERED = [];
       updateCountsLabel();
+      // Show error to user
+      const totalEl = document.getElementById('total-varieties');
+      if (totalEl) totalEl.textContent = 'Error';
     }
   }
 
