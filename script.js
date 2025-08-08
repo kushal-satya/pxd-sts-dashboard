@@ -1,585 +1,493 @@
-// Application State
-let allData = [];
-let filteredData = [];
-let map = null;
-let geoJsonLayer = null;
-let selectedState = null;
+// Enhanced Dashboard JavaScript with Dual-View Modal System
+(function(){
+  const JSON_PATH = 'varieties_complete.json';
+  let ALL_ITEMS = [];
+  let FILTERED = [];
+  let SORT = { key: null, dir: 'asc' };
+  let VISIBLE = { crop:true,variety:true,year:true,stress:true,attributes:true,states:true,seasons:true,maturity:true,evidence:true };
+  let PAGE = { size: 25, index: 1 };
 
-// Initialize Application on DOM Load
-document.addEventListener('DOMContentLoaded', function() {
-    initializeApp();
-});
-
-// Main Application Initialization
-async function initializeApp() {
-    try {
-        showLoadingState();
-        await loadSeedData();
-        await initializeMap();
-        setupEventListeners();
-        updateCounts();
-        renderTable();
-        hideLoadingState();
-    } catch (error) {
-        console.error('Error initializing application:', error);
-        showErrorState('Failed to load application data. Please refresh the page.');
-    }
-}
-
-// Load and Parse JSON Data
-async function loadSeedData() {
-    try {
-        // Load both JSON files
-        const [response1, response2] = await Promise.all([
-            fetch('sample_results_20250729_185047.json'),
-            fetch('sample_results_20250729_190724.json')
-        ]);
-        
-        if (!response1.ok || !response2.ok) {
-            throw new Error('Failed to load JSON files');
-        }
-        
-        const data1 = await response1.json();
-        const data2 = await response2.json();
-        
-        // Combine and process the data
-        const combinedData = [...data1, ...data2];
-        allData = processJSONData(combinedData);
-        filteredData = [...allData];
-        
-        populateFilters();
-        
-    } catch (error) {
-        console.error('Error loading JSON data:', error);
-        throw error;
-    }
-}
-
-// Process the raw JSON data into a format suitable for the dashboard
-function processJSONData(rawData) {
-    return rawData.map(item => {
-        const seednetData = item.original_data?.seednet_data || {};
-        const analysisResult = item.analysis_result || {};
-        const stressProfile = analysisResult.stress_tolerance_profile || {};
-        
-        // Extract stress tolerance information
-        const stressTolerances = [];
-        if (stressProfile.drought_tolerance?.tolerance_level !== 'unknown') {
-            stressTolerances.push('Drought');
-        }
-        if (stressProfile.heat_tolerance?.temperature_thresholds !== 'unknown') {
-            stressTolerances.push('Heat');
-        }
-        if (stressProfile.salinity_tolerance?.salt_concentration_tolerance !== 'unknown') {
-            stressTolerances.push('Salinity');
-        }
-        if (stressProfile.flood_tolerance?.waterlogging_duration !== 'unknown') {
-            stressTolerances.push('Flood');
-        }
-        if (stressProfile.disease_resistance?.specific_pathogens !== 'unknown') {
-            stressTolerances.push('Disease');
-        }
-        if (stressProfile.pest_resistance?.target_insects !== 'unknown') {
-            stressTolerances.push('Pest');
-        }
-        
-        // Process recommended states
-        const recommendedStates = seednetData['Recommended States'] || 'Not specified';
-        const primaryState = recommendedStates.split(',')[0]?.trim() || 'Unknown';
-        
-        // Extract seasons from adaptation info
-        const adaptationInfo = seednetData['Adaptation and recommended ecology'] || '';
-        const seasons = extractSeasons(adaptationInfo);
-        
-        return {
-            id: item.variety_id || Math.random().toString(36).substr(2, 9),
-            Seed_Name: seednetData['Variety Name'] || 'Unknown Variety',
-            Crop_Type: seednetData['Crop Name'] || 'Unknown',
-            Primary_State: primaryState,
-            Year_of_Release: seednetData['Year of Release'] || 'Unknown',
-            Stressors_Broadly_Defined: stressTolerances.join(', ') || 'Not specified',
-            In_Depth_Stress_Tolerance_Notes: analysisResult.variety_analysis?.overall_assessment || 'No detailed analysis available',
-            Breeder_Origin_Institution: seednetData['Institution Responsible for developing Breeder Seed'] || 'Not specified',
-            Crop_Value_Chain: seednetData['Group Name'] || 'Not specified',
-            Crop_Season: seasons,
-            Is_Stresstolerant: stressTolerances.length > 0 ? 'Yes' : 'Unknown',
-            Unique_Genetic_Marker_STS: 'Analysis pending',
-            Variety: seednetData['Variety Name'] || 'Unknown',
-            notificationDate: seednetData['Notification Date'] || 'Not specified',
-            averageYield: seednetData['Average Yield (Kg/Ha)'] || 'Not specified',
-            maturityDays: seednetData['Maturity (in days)'] || 'Not specified',
-            seedRate: seednetData['Seed Rate (Kg/Ha)'] || 'Not specified',
-            parentage: seednetData['Parentage'] || 'Not specified'
-        };
-    });
-}
-
-// Extract seasons from adaptation text
-function extractSeasons(adaptationText) {
-    const seasons = [];
-    const text = adaptationText.toLowerCase();
-    
-    if (text.includes('kharif')) seasons.push('Kharif');
-    if (text.includes('rabi')) seasons.push('Rabi');
-    if (text.includes('summer')) seasons.push('Summer');
-    if (text.includes('winter')) seasons.push('Winter');
-    if (text.includes('monsoon')) seasons.push('Monsoon');
-    
-    return seasons.length > 0 ? seasons.join(', ') : 'Not specified';
-}
-
-// Initialize Leaflet Map with India GeoJSON
-async function initializeMap() {
-    try {
-        // Initialize map
-        map = L.map('map').setView([22.5, 78.0], 4);
-        
-        // Add CartoDB Positron base layer
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '© OpenStreetMap contributors © CARTO',
-            maxZoom: 19
-        }).addTo(map);
-
-        // Load India states GeoJSON
-        const response = await fetch('https://code.highcharts.com/mapdata/countries/in/in-all.geo.json');
-        const geoData = await response.json();
-
-        // Add GeoJSON layer with interaction
-        geoJsonLayer = L.geoJSON(geoData, {
-            style: function(feature) {
-                return {
-                    fillColor: '#f0f0f0',
-                    weight: 1,
-                    opacity: 1,
-                    color: '#666',
-                    dashArray: '',
-                    fillOpacity: 0.7
-                };
-            },
-            onEachFeature: function(feature, layer) {
-                const stateName = feature.properties.name || feature.properties.NAME;
-                
-                layer.on({
-                    mouseover: function(e) {
-                        highlightStateOnHover(e.target, stateName);
-                    },
-                    mouseout: function(e) {
-                        resetStateHighlight(e.target);
-                    },
-                    click: function(e) {
-                        selectStateFromMap(stateName, e.target);
-                    }
-                });
-                
-                // Create popup with variety count
-                const varietyCount = getVarietyCountForState(stateName);
-                layer.bindPopup(`
-                    <div class="p-3">
-                        <h3 class="font-bold text-dark-green text-lg">${stateName}</h3>
-                        <p class="text-sm text-gray-600 mt-1">
-                            <strong>${varietyCount}</strong> seed varieties available
-                        </p>
-                        <button onclick="selectStateFromPopup('${stateName}')" 
-                                class="mt-2 bg-primary-green text-white px-3 py-1 rounded text-sm hover:bg-dark-green transition-colors">
-                            Filter by this state →
-                        </button>
-                    </div>
-                `);
-            }
-        }).addTo(map);
-        
-    } catch (error) {
-        console.error('Error initializing map:', error);
-        // If map fails to load, continue without it
-        document.getElementById('map').innerHTML = '<div class="text-center py-8 text-gray-500">Map unavailable</div>';
-    }
-}
-
-// Map Interaction Functions
-function highlightStateOnHover(layer, stateName) {
-    if (!isStateSelected(layer)) {
-        layer.setStyle({
-            weight: 2,
-            color: '#666',
-            dashArray: '',
-            fillOpacity: 0.9,
-            fillColor: '#b2d8d8'
-        });
-    }
-}
-
-function resetStateHighlight(layer) {
-    if (!isStateSelected(layer)) {
-        layer.setStyle({
-            weight: 1,
-            color: '#666',
-            dashArray: '',
-            fillOpacity: 0.7,
-            fillColor: '#f0f0f0'
-        });
-    }
-}
-
-function isStateSelected(layer) {
-    return layer.options.fillColor === '#008080';
-}
-
-function selectStateFromMap(stateName, layer) {
-    // Reset all states first
-    resetAllStates();
-    
-    // Highlight selected state
-    layer.setStyle({
-        weight: 2,
-        color: '#004d4d',
-        dashArray: '',
-        fillOpacity: 0.9,
-        fillColor: '#008080'
-    });
-    
-    selectedState = stateName;
-    
-    // Update dropdown and apply filters
-    document.getElementById('stateFilter').value = stateName;
-    applyFilters();
-}
-
-function selectStateFromPopup(stateName) {
-    // Find the layer for this state
-    if (geoJsonLayer) {
-        geoJsonLayer.eachLayer(function(layer) {
-            const layerStateName = layer.feature.properties.name || layer.feature.properties.NAME;
-            if (layerStateName === stateName) {
-                selectStateFromMap(stateName, layer);
-            }
-        });
-    }
-    
-    // Close popup
-    if (map) map.closePopup();
-}
-
-function resetAllStates() {
-    if (geoJsonLayer) {
-        geoJsonLayer.eachLayer(function(layer) {
-            layer.setStyle({
-                weight: 1,
-                color: '#666',
-                fillOpacity: 0.7,
-                fillColor: '#f0f0f0'
-            });
-        });
-    }
-    selectedState = null;
-}
-
-// Setup Event Listeners
-function setupEventListeners() {
-    document.getElementById('searchInput').addEventListener('input', debounce(applyFilters, 300));
-    document.getElementById('stateFilter').addEventListener('change', onStateFilterChange);
-    document.getElementById('cropFilter').addEventListener('change', applyFilters);
-    document.getElementById('yearFilter').addEventListener('change', applyFilters);
-    document.getElementById('clearFilters').addEventListener('click', clearAllFilters);
-}
-
-// State filter change handler (for dropdown)
-function onStateFilterChange() {
-    const selectedStateFromDropdown = document.getElementById('stateFilter').value;
-    
-    // Update map selection
-    resetAllStates();
-    
-    if (selectedStateFromDropdown && geoJsonLayer) {
-        geoJsonLayer.eachLayer(function(layer) {
-            const layerStateName = layer.feature.properties.name || layer.feature.properties.NAME;
-            if (layerStateName === selectedStateFromDropdown) {
-                layer.setStyle({
-                    weight: 2,
-                    color: '#004d4d',
-                    fillOpacity: 0.9,
-                    fillColor: '#008080'
-                });
-                selectedState = selectedStateFromDropdown;
-            }
-        });
-    }
-    
-    applyFilters();
-}
-
-// Apply All Filters
-function applyFilters() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const stateFilter = document.getElementById('stateFilter').value;
-    const cropFilter = document.getElementById('cropFilter').value;
-    const yearFilter = document.getElementById('yearFilter').value;
-
-    filteredData = allData.filter(item => {
-        const matchesSearch = !searchTerm || 
-            item.Seed_Name.toLowerCase().includes(searchTerm) ||
-            item.Crop_Type.toLowerCase().includes(searchTerm) ||
-            item.Breeder_Origin_Institution.toLowerCase().includes(searchTerm) ||
-            item.Crop_Value_Chain.toLowerCase().includes(searchTerm) ||
-            item.Stressors_Broadly_Defined.toLowerCase().includes(searchTerm) ||
-            item.In_Depth_Stress_Tolerance_Notes.toLowerCase().includes(searchTerm);
-        
-        const matchesState = !stateFilter || item.Primary_State === stateFilter;
-        const matchesCrop = !cropFilter || item.Crop_Type === cropFilter;
-        const matchesYear = !yearFilter || item.Year_of_Release === yearFilter;
-
-        return matchesSearch && matchesState && matchesCrop && matchesYear;
-    });
-
-    updateCascadingFilters();
-    updateCounts();
-    renderTable();
-}
-
-// Update dependent filters based on current selection
-function updateCascadingFilters() {
-    const stateFilter = document.getElementById('stateFilter').value;
-    const relevantData = stateFilter ? 
-        allData.filter(item => item.Primary_State === stateFilter) : 
-        allData;
-
-    // Update crop filter
-    updateSelectOptions('cropFilter', relevantData, 'Crop_Type', 'All Crops');
-    
-    // Update year filter
-    updateSelectOptions('yearFilter', relevantData, 'Year_of_Release', 'All Years');
-}
-
-// Generic function to update select options
-function updateSelectOptions(selectId, data, field, defaultText) {
-    const select = document.getElementById(selectId);
-    const currentValue = select.value;
-    const uniqueValues = [...new Set(data.map(item => item[field]))].sort();
-    
-    select.innerHTML = `<option value="">${defaultText}</option>` +
-        uniqueValues.map(value => 
-            `<option value="${value}" ${value === currentValue ? 'selected' : ''}>${value}</option>`
-        ).join('');
-}
-
-// Populate initial filter options
-function populateFilters() {
-    // Populate state filter
-    const states = [...new Set(allData.map(item => item.Primary_State))].sort();
-    const stateSelect = document.getElementById('stateFilter');
-    stateSelect.innerHTML = '<option value="">All States</option>' +
-        states.map(state => `<option value="${state}">${state}</option>`).join('');
-
-    // Populate other filters
-    updateSelectOptions('cropFilter', allData, 'Crop_Type', 'All Crops');
-    updateSelectOptions('yearFilter', allData, 'Year_of_Release', 'All Years');
-}
-
-// Clear all filters and reset state
-function clearAllFilters() {
-    // Reset form inputs
-    document.getElementById('searchInput').value = '';
-    document.getElementById('stateFilter').value = '';
-    document.getElementById('cropFilter').value = '';
-    document.getElementById('yearFilter').value = '';
-    
-    // Reset map
-    resetAllStates();
-    
-    // Repopulate filters and apply
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadEnhancedData();
     populateFilters();
-    applyFilters();
-}
+    updateStats();
+    filterData();
+    setupEvents();
+  });
 
-// Render data table with expandable rows
-function renderTable() {
-    const tbody = document.getElementById('seedTableBody');
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  async function loadEnhancedData(){
+    try {
+      const res = await fetch(JSON_PATH);
+      if (!res.ok) throw new Error('Enhanced data not found');
+      ALL_ITEMS = await res.json();
+      FILTERED = [...ALL_ITEMS];
+      updateCountsLabel();
+      setLastUpdated();
+      const totalEl = document.getElementById('total-varieties');
+      if (totalEl) totalEl.textContent = String(ALL_ITEMS.length);
+    } catch(e){
+      console.error('Failed to load enhanced data', e);
+      ALL_ITEMS = [];
+      FILTERED = [];
+      updateCountsLabel();
+    }
+  }
+
+  function setupEvents(){
+    byId('search-box').addEventListener('input', filterData);
+    byId('crop-filter').addEventListener('change', filterData);
+    byId('state-filter').addEventListener('change', filterData);
+    byId('stress-filter').addEventListener('change', filterData);
+    byId('evidence-filter').addEventListener('change', filterData);
+    byId('stress-type-filter').addEventListener('change', filterData);
+    byId('btn-reset').addEventListener('click', () => { resetFilters(); filterData(); });
+    byId('btn-reload').addEventListener('click', async () => { await loadEnhancedData(); populateFilters(); filterData(); updateStats(); });
+    byId('btn-about').addEventListener('click', showAboutModal);
+
+    document.querySelectorAll('#varieties-table thead th.sortable').forEach(th => {
+      th.addEventListener('click', ()=> onSort(th.dataset.key));
+      th.addEventListener('keydown', (e)=>{ if (e.key==='Enter'||e.key===' '){ e.preventDefault(); onSort(th.dataset.key);} });
+    });
+    const btnCols = byId('btn-columns'); const menuCols = byId('columns-menu');
+    btnCols.addEventListener('click', ()=> menuCols.classList.toggle('hidden'));
+    menuCols.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', ()=>{ VISIBLE[cb.dataset.col]=cb.checked; renderTable(); }));
+    document.addEventListener('click', (e)=>{ if (!menuCols.contains(e.target) && e.target!==btnCols) menuCols.classList.add('hidden'); });
+
+    byId('page-size').addEventListener('change', (e)=>{ PAGE.size=parseInt(e.target.value,10); PAGE.index=1; renderTable(); });
+    byId('page-prev').addEventListener('click', ()=>{ if (PAGE.index>1){ PAGE.index--; renderTable(); } });
+    byId('page-next').addEventListener('click', ()=>{ const totalPages=Math.max(1,Math.ceil(FILTERED.length/PAGE.size)); if (PAGE.index<totalPages){ PAGE.index++; renderTable(); } });
+    byId('btn-export-csv').addEventListener('click', exportCSV);
+
+    const closeBtn = document.getElementsByClassName('close')[0];
+    closeBtn.onclick = () => byId('variety-modal').style.display='none';
+    window.addEventListener('click',(e)=>{ if (e.target===byId('variety-modal')) byId('variety-modal').style.display='none'; });
+  }
+
+  function showAboutModal(){
+    const modalBody = byId('modal-body');
+    modalBody.innerHTML = `
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-dark-green">PxD Stress-Tolerant Seed Varieties Dashboard</h2>
+        <p class="text-gray-700">This enhanced dashboard presents a comprehensive dual-source view of crop varieties with both official government data from Seednet and AI-enhanced research insights.</p>
+        
+        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+          <h3 class="font-semibold text-green-800 mb-2">Official Seednet Data</h3>
+          <p class="text-green-700 text-sm">Direct links to government portal with verified variety information, notification details, and agricultural specifications.</p>
+        </div>
+        
+        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+          <h3 class="font-semibold text-blue-800 mb-2">AI-Enhanced Research</h3>
+          <p class="text-blue-700 text-sm">Advanced search analysis across multiple databases to identify stress tolerance evidence, field trials, and commercial availability.</p>
+        </div>
+        
+        <div class="mt-4">
+          <h3 class="font-semibold text-dark-green mb-2">Key Features</h3>
+          <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+            <li>Dual-view system for official vs research data</li>
+            <li>Advanced stress tolerance filtering</li>
+            <li>Direct Seednet portal integration</li>
+            <li>Evidence quality assessment</li>
+            <li>Comprehensive search across ${ALL_ITEMS.length} varieties</li>
+          </ul>
+        </div>
+        
+        <div class="text-xs text-gray-500 mt-4">
+          Enhanced with AI-powered research aggregation • Data sources: Seednet Portal + Research Databases
+        </div>
+      </div>`;
+    byId('variety-modal').style.display='block';
+  }
+
+  function populateFilters(){
+    fillMulti('crop-filter', unique(ALL_ITEMS.map(i=>i.crop)));
     
-    if (filteredData.length === 0) {
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="6" class="px-4 py-8 text-center text-gray-500">
-                    <div class="empty-state">
-                        <div class="text-4xl mb-4">🌱</div>
-                        <p class="text-lg font-medium">No varieties found</p>
-                        <p class="text-sm">Try adjusting your filters or search terms</p>
-                    </div>
-                </td>
-            </tr>
-        `;
-        document.getElementById('emptyState').classList.remove('hidden');
-        return;
+    // Handle comma-separated states more efficiently
+    const states = unique(ALL_ITEMS.flatMap(i => {
+      const stateStr = String(i.states_acronyms || '');
+      return stateStr.split(',').map(s=>s.trim()).filter(s => s && s !== 'Unknown' && s.length <= 3);
+    }));
+    fillMulti('state-filter', states);
+    
+    // Populate stress type filter from actual data
+    const allStressTypes = unique(ALL_ITEMS.flatMap(i => i.stress_types || []));
+    const stressTypeSelect = byId('stress-type-filter');
+    if (stressTypeSelect) {
+      stressTypeSelect.innerHTML = allStressTypes.map(type => `<option value="${type}">${type}</option>`).join('');
+    }
+  }
+
+  function resetFilters(){
+    ['crop-filter','state-filter','stress-filter','evidence-filter','stress-type-filter'].forEach(id => {
+      const el = byId(id);
+      if (!el) return;
+      Array.from(el.options).forEach(opt => opt.selected = false);
+    });
+    const sb = byId('search-box'); if (sb) sb.value = '';
+  }
+
+  function filterData(){
+    const q = (byId('search-box')?.value||'').toLowerCase();
+    const cropsSel = getMulti('crop-filter');
+    const statesSel = getMulti('state-filter');
+    const stressSel = getMulti('stress-filter');
+    const evSel = getMulti('evidence-filter');
+    const stressTypesSel = getMulti('stress-type-filter');
+
+    FILTERED = ALL_ITEMS.filter(i => {
+      const matchesQ = !q || i.variety_name.toLowerCase().includes(q) || i.crop.toLowerCase().includes(q) || (i.key_attributes||'').toLowerCase().includes(q);
+      const matchesCrop = cropsSel.length===0 || cropsSel.includes(i.crop);
+      
+      // Handle comma-separated states
+      const itemStates = String(i.states_acronyms||'').split(',').map(s=>s.trim()).filter(Boolean);
+      const matchesState = statesSel.length===0 || statesSel.some(s=> itemStates.includes(s));
+      
+      const matchesStress = stressSel.length===0 || stressSel.includes(i.stress_tolerance);
+      const matchesEv = evSel.length===0 || evSel.includes(i.evidence_quality);
+      const matchesStressTypes = stressTypesSel.length===0 || (i.stress_types && i.stress_types.some(t => stressTypesSel.includes(t)));
+      
+      return matchesQ && matchesCrop && matchesState && matchesStress && matchesEv && matchesStressTypes;
+    });
+    PAGE.index = 1;
+    updateCountsLabel();
+    renderTable();
+    updateStats();
+  }
+
+  function renderTable(){
+    const tbody = byId('varieties-tbody');
+    let data = [...FILTERED];
+    if (SORT.key){ const dir=SORT.dir==='asc'?1:-1; data.sort((a,b)=> compareByKey(a,b,SORT.key)*dir); }
+    const totalPages = Math.max(1, Math.ceil(data.length / PAGE.size));
+    if (PAGE.index>totalPages) PAGE.index=totalPages;
+    const start=(PAGE.index-1)*PAGE.size; const pageItems=data.slice(start, start+PAGE.size);
+    const pageInfo = byId('page-info'); if (pageInfo) pageInfo.textContent = `Page ${PAGE.index} / ${totalPages}`;
+
+    if (!pageItems.length){
+      tbody.innerHTML = `<tr><td colspan="9" class="px-6 py-12 text-center text-gray-500"><div class="text-4xl mb-4">🌱</div><p class="text-xl font-medium">No varieties found</p><p class="text-sm">Try adjusting your filters or search terms</p></td></tr>`;
+      return;
     }
 
-    document.getElementById('emptyState').classList.add('hidden');
+    tbody.innerHTML = pageItems.map((item, idx) => {
+      const realIdx = start + idx;
+      const seednetBadge = item.seednet_available ? '<span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-1">Seednet ✓</span>' : '';
+      const stressTypes = (item.stress_types || []).slice(0, 3).map(type => `<span class="inline-block bg-amber-100 text-amber-800 text-xs px-1 py-0.5 rounded mr-1">${type}</span>`).join('');
+      
+      return `
+      <tr class="hover:bg-gray-50 transition-colors cursor-pointer variety-row" data-idx="${realIdx}">
+        ${VISIBLE.crop?`<td class="px-4 py-3">${item.crop}</td>`:''}
+        ${VISIBLE.variety?`<td class="px-4 py-3"><div class="font-medium">${item.variety_name}</div><div class="text-xs text-gray-500">${seednetBadge}Evidence: ${item.evidence_quality}</div></td>`:''}
+        ${VISIBLE.year?`<td class="px-4 py-3">${item.year_of_release}</td>`:''}
+        ${VISIBLE.stress?`<td class="px-4 py-3"><span class="stress-${item.stress_tolerance.toLowerCase()}">${item.stress_tolerance}</span></td>`:''}
+        ${VISIBLE.attributes?`<td class="px-4 py-3 text-sm"><div>${item.key_attributes}</div><div class="mt-1">${stressTypes}</div></td>`:''}
+        ${VISIBLE.states?`<td class="px-4 py-3 text-sm">${item.states_acronyms}</td>`:''}
+        ${VISIBLE.seasons?`<td class="px-4 py-3 text-sm">${item.seasons}</td>`:''}
+        ${VISIBLE.maturity?`<td class="px-4 py-3 text-sm">${item.days_to_maturity}</td>`:''}
+        ${VISIBLE.evidence?`<td class="px-4 py-3"><span class="evidence-${item.evidence_quality.toLowerCase()}">${item.evidence_quality}</span></td>`:''}
+      </tr>`;
+    }).join('');
 
-    tbody.innerHTML = filteredData.map((item, index) => `
-        <tr class="border-b hover:bg-gray-50 transition-colors" id="row-${index}">
-            <td class="px-4 py-3">
-                <div class="font-medium text-dark-green">
-                    ${highlightSearch(item.Seed_Name, searchTerm)}
-                </div>
-                <div class="text-xs text-gray-500 mt-1">
-                    ${highlightSearch(item.Breeder_Origin_Institution, searchTerm)}
-                </div>
-            </td>
-            <td class="px-4 py-3">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                    ${highlightSearch(item.Crop_Type, searchTerm)}
-                </span>
-                <div class="text-xs text-gray-600 mt-1">
-                    ${highlightSearch(item.Crop_Value_Chain, searchTerm)}
-                </div>
-            </td>
-            <td class="px-4 py-3 font-medium">
-                ${highlightSearch(item.Primary_State, searchTerm)}
-            </td>
-            <td class="px-4 py-3">
-                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                    ${item.Year_of_Release}
-                </span>
-            </td>
-            <td class="px-4 py-3">
-                <div class="text-sm text-gray-700">
-                    ${highlightSearch(truncateText(item.Stressors_Broadly_Defined, 50), searchTerm)}
-                </div>
-                <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800 mt-1">
-                    ${item.Crop_Season}
-                </span>
-            </td>
-            <td class="px-4 py-3 space-y-1">
-                <button onclick="toggleNotes(${index})" 
-                        class="btn-show-notes" 
-                        id="notes-btn-${index}">
-                    Show Notes
-                </button>
-                <br>
-                <a href="https://www.google.com/search?q=${encodeURIComponent(item.Seed_Name + ' ' + item.Variety + ' seed variety stress tolerance')}" 
-                   target="_blank" 
-                   class="details-link text-sm">
-                    Details →
-                </a>
-            </td>
-        </tr>
-        <tr id="notes-row-${index}" class="hidden expanded-row">
-            <td colspan="6" class="px-4 py-0">
-                <div class="notes-content">
-                    <h4 class="font-semibold text-dark-green mb-2">Detailed Stress Tolerance Profile</h4>
-                    <p class="text-sm text-gray-700 mb-3">
-                        ${highlightSearch(item.In_Depth_Stress_Tolerance_Notes, searchTerm)}
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                        <div>
-                            <span class="font-medium text-dark-green">Variety:</span>
-                            <span class="text-gray-600">${item.Variety}</span>
-                        </div>
-                        <div>
-                            <span class="font-medium text-dark-green">Stress Tolerant:</span>
-                            <span class="px-2 py-1 rounded-full text-xs ${item.Is_Stresstolerant === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
-                                ${item.Is_Stresstolerant}
-                            </span>
-                        </div>
-                        <div>
-                            <span class="font-medium text-dark-green">Yield:</span>
-                            <span class="text-gray-600">${item.averageYield}</span>
-                        </div>
-                        <div>
-                            <span class="font-medium text-dark-green">Maturity:</span>
-                            <span class="text-gray-600">${item.maturityDays}</span>
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    `).join('');
-}
+    // Add click handlers to table rows
+    Array.from(tbody.querySelectorAll('.variety-row')).forEach(tr=>{
+      tr.addEventListener('click', ()=>{
+        const idx = Number(tr.getAttribute('data-idx'));
+        showDualViewModal(idx);
+      });
+    });
+  }
 
-// Toggle expandable notes for table rows
-function toggleNotes(index) {
-    const notesRow = document.getElementById(`notes-row-${index}`);
-    const button = document.getElementById(`notes-btn-${index}`);
+  function showDualViewModal(index){
+    const item = FILTERED[index];
+    const modalBody = byId('modal-body'); 
+    if(!item||!modalBody) return;
     
-    if (notesRow.classList.contains('hidden')) {
-        notesRow.classList.remove('hidden');
-        button.textContent = 'Hide Notes';
-        button.className = 'btn-hide-notes';
-    } else {
-        notesRow.classList.add('hidden');
-        button.textContent = 'Show Notes';
-        button.className = 'btn-show-notes';
-    }
-}
-
-// Utility Functions
-function highlightSearch(text, searchTerm) {
-    if (!searchTerm || !text) return text;
+    const seednetEnabled = item.seednet_available && item.seednet_url;
+    const seednetBtnClass = seednetEnabled ? 'tab-seednet enabled' : 'tab-seednet disabled';
     
-    const regex = new RegExp(`(${escapeRegex(searchTerm)})`, 'gi');
-    return text.replace(regex, '<span class="highlight">$1</span>');
-}
-
-function escapeRegex(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function truncateText(text, maxLength) {
-    if (!text) return '';
-    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
-}
-
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Update counts in UI
-function updateCounts() {
-    const totalCount = allData.length;
-    const filteredCount = filteredData.length;
-    
-    document.getElementById('totalSeeds').textContent = totalCount;
-    document.getElementById('totalCount').textContent = totalCount;
-    document.getElementById('filteredCount').textContent = filteredCount;
-}
-
-// Get variety count for a specific state
-function getVarietyCountForState(stateName) {
-    return allData.filter(item => item.Primary_State === stateName).length;
-}
-
-// Loading and Error States
-function showLoadingState() {
-    document.getElementById('loadingState').classList.remove('hidden');
-    document.getElementById('emptyState').classList.add('hidden');
-}
-
-function hideLoadingState() {
-    document.getElementById('loadingState').classList.add('hidden');
-}
-
-function showErrorState(message) {
-    const tbody = document.getElementById('seedTableBody');
-    tbody.innerHTML = `
-        <tr>
-            <td colspan="6" class="px-4 py-8 text-center">
-                <div class="error-message">
-                    <div class="text-4xl mb-4">⚠️</div>
-                    <p class="text-lg font-medium">Error Loading Data</p>
-                    <p class="text-sm">${message}</p>
-                </div>
-            </td>
-        </tr>
+    modalBody.innerHTML = `
+      <div class="mb-4">
+        <h2 class="text-2xl font-bold text-dark-green">${item.variety_name}</h2>
+        <div class="text-sm text-gray-600 flex items-center gap-2">
+          <span>${item.crop} • ${item.year_of_release}</span>
+          ${seednetEnabled ? '<span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Seednet Available</span>' : '<span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">No Seednet Data</span>'}
+          <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">AI Enhanced</span>
+        </div>
+      </div>
+      
+      <div class="tabs mb-4">
+        <button id="tab-seednet" class="tab-btn ${seednetBtnClass}" ${!seednetEnabled ? 'disabled' : ''}>
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Seednet Details
+          </span>
+          <span class="tab-badge">OFFICIAL SOURCE</span>
+        </button>
+        <button id="tab-research" class="tab-btn tab-research">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg>
+            Research Details
+          </span>
+          <span class="tab-badge">AI-ENHANCED RESEARCH</span>
+        </button>
+      </div>
+      
+      <div id="panel-seednet" class="tab-panel ${seednetEnabled ? 'active' : ''}">
+        ${seednetEnabled ? renderSeednetPanel(item) : '<div class="text-center py-8 text-gray-500"><div class="text-4xl mb-2">🏛️</div><p class="font-medium">No Official Seednet Data Available</p><p class="text-sm">This variety has not been found in the official Seednet portal database.</p></div>'}
+      </div>
+      
+      <div id="panel-research" class="tab-panel ${seednetEnabled ? '' : 'active'}">
+        ${renderResearchPanel(item)}
+      </div>
+      
+      <div class="mt-6 pt-4 border-t border-gray-200">
+        <h3 class="font-semibold text-dark-green mb-2">Genetic Marker Databases</h3>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <a href="https://www.ncbi.nlm.nih.gov/" target="_blank" class="text-primary-green hover:underline">NCBI GenBank</a>
+          <a href="https://gramene.org/" target="_blank" class="text-primary-green hover:underline">Gramene</a>
+          <a href="https://plantgdb.org/" target="_blank" class="text-primary-green hover:underline">PlantGDB</a>
+          <a href="https://www.ipk-gatersleben.de/" target="_blank" class="text-primary-green hover:underline">IPK Gatersleben</a>
+        </div>
+      </div>
     `;
-    hideLoadingState();
-}
+    
+    // Setup tab switching
+    const tabSeed = byId('tab-seednet'); const tabRes = byId('tab-research');
+    const panSeed = byId('panel-seednet'); const panRes = byId('panel-research');
+    
+    if (seednetEnabled && tabSeed) {
+      tabSeed.addEventListener('click', () => {
+        panSeed.classList.add('active'); panRes.classList.remove('active');
+        tabSeed.classList.add('active'); tabRes.classList.remove('active');
+      });
+    }
+    
+    if (tabRes) {
+      tabRes.addEventListener('click', () => {
+        panRes.classList.add('active'); panSeed.classList.remove('active');
+        tabRes.classList.add('active'); tabSeed.classList.remove('active');
+      });
+    }
+    
+    byId('variety-modal').style.display='block';
+  }
 
-// Make functions globally available for onclick handlers
-window.toggleNotes = toggleNotes;
-window.selectStateFromPopup = selectStateFromPopup;
+  function renderSeednetPanel(item) {
+    const seednet = item.seednet_fields || {};
+    const constructSeednetUrl = (varietyId) => {
+      return `https://seednet.gov.in/SeedVarieties/ssrsVarietydetail.aspx?varietycd=${varietyId}`;
+    };
+    
+    return `
+      <div class="bg-green-50 rounded-lg p-4 mb-4 border border-green-200">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h3 class="font-semibold text-green-800">Official Government Data</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <h4 class="font-medium text-green-700 mb-2">Basic Information</h4>
+            <div class="space-y-1 text-sm">
+              <div><span class="text-gray-600">Variety Name:</span> ${seednet['Variety Name'] || item.variety_name}</div>
+              <div><span class="text-gray-600">Notification Number:</span> ${seednet['Notification Number'] || 'Not specified'}</div>
+              <div><span class="text-gray-600">Notification Date:</span> ${seednet['Notification Date'] || 'Not specified'}</div>
+              <div><span class="text-gray-600">Year of Release:</span> ${seednet['Year of Release'] || item.year_of_release}</div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-medium text-green-700 mb-2">Development Details</h4>
+            <div class="space-y-1 text-sm">
+              <div><span class="text-gray-600">Institution:</span> ${seednet['Institution Responsible for developing Breeder Seed'] || 'Not specified'}</div>
+              <div><span class="text-gray-600">Parentage:</span> ${seednet['Parentage'] || 'Not specified'}</div>
+              <div><span class="text-gray-600">Maturity:</span> ${seednet['Maturity (in days)'] || 'Not specified'}</div>
+              <div><span class="text-gray-600">Average Yield:</span> ${seednet['Average Yield (Kg/Ha)'] || 'Not specified'}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <h4 class="font-medium text-green-700 mb-2">Agricultural Characteristics</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <div class="mb-2"><span class="text-gray-600">Morphological Characteristics:</span><br>${seednet['General Morphological Characteristics'] || 'Not specified'}</div>
+              <div><span class="text-gray-600">Disease Reaction:</span><br>${seednet['Reaction to Major Diseases'] || 'Not specified'}</div>
+            </div>
+            <div>
+              <div class="mb-2"><span class="text-gray-600">Pest Reaction:</span><br>${seednet['Reaction to Major Pests'] || 'Not specified'}</div>
+              <div><span class="text-gray-600">Stress Reaction:</span><br>${seednet['Reaction to Stress'] || 'Not specified'}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex gap-2">
+          <a href="${item.seednet_url || constructSeednetUrl(item.seednet_variety_id)}" target="_blank" rel="noopener" 
+             class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 10-2 0v1H5V7h1a1 1 0 000-2H5z"/></svg>
+            VIEW ON SEEDNET PORTAL
+          </a>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderResearchPanel(item) {
+    const research = item.research_data || {};
+    const stressEvidence = research.stress_tolerance_evidence || {};
+    const stressTypes = Object.keys(stressEvidence).map(type => 
+      `<span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded mr-1 mb-1">${type}</span>`
+    ).join('');
+    
+    const enhancementFeatures = (research.enhancement_features || []).map(feature => 
+      `<span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-1 mb-1">${feature}</span>`
+    ).join('');
+
+    return `
+      <div class="bg-blue-50 rounded-lg p-4 mb-4 border border-blue-200">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg>
+          <h3 class="font-semibold text-blue-800">AI-Enhanced Research Analysis</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <h4 class="font-medium text-blue-700 mb-2">Basic Information</h4>
+            <div class="space-y-1 text-sm">
+              <div><span class="text-gray-600">Crop:</span> ${research.basic_info?.crop || item.crop}</div>
+              <div><span class="text-gray-600">Variety:</span> ${research.basic_info?.variety_name || item.variety_name}</div>
+              <div><span class="text-gray-600">Data Source:</span> ${research.basic_info?.data_source || 'enhanced_batch'}</div>
+              <div><span class="text-gray-600">Institution:</span> ${research.basic_info?.institution || 'Not specified'}</div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-medium text-blue-700 mb-2">Research Summary</h4>
+            <div class="space-y-1 text-sm">
+              <div class="text-3xl font-bold text-blue-600">${research.search_results_summary || 0}</div>
+              <div class="text-gray-600">Total research results found</div>
+              <div class="text-sm text-gray-500">Across multiple academic databases</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <h4 class="font-medium text-blue-700 mb-2">Stress Tolerance Evidence</h4>
+          <div class="mb-2">
+            ${stressTypes || '<span class="text-gray-500 text-sm">No stress tolerance evidence detected</span>'}
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+            <div class="bg-white p-2 rounded border">
+              <div class="font-medium text-gray-700">Disease Resistance</div>
+              <div class="text-lg font-bold text-primary-green">${research.disease_pest_resistance?.disease?.count || 0}</div>
+            </div>
+            <div class="bg-white p-2 rounded border">
+              <div class="font-medium text-gray-700">Pest Resistance</div>
+              <div class="text-lg font-bold text-primary-green">${research.disease_pest_resistance?.pest?.count || 0}</div>
+            </div>
+            <div class="bg-white p-2 rounded border">
+              <div class="font-medium text-gray-700">Field Trials</div>
+              <div class="text-lg font-bold text-primary-green">${research.field_trials || 0}</div>
+            </div>
+            <div class="bg-white p-2 rounded border">
+              <div class="font-medium text-gray-700">Commercial Availability</div>
+              <div class="text-lg font-bold text-primary-green">${research.commercial_availability || 0}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <h4 class="font-medium text-blue-700 mb-2">AI Enhancement Features</h4>
+          <div>${enhancementFeatures || '<span class="text-gray-500 text-sm">Standard processing applied</span>'}</div>
+        </div>
+        
+        <div>
+          <h4 class="font-medium text-blue-700 mb-2">Quick Research Links</h4>
+          <div class="flex flex-wrap gap-2">
+            ${createResearchLink(`${item.variety_name} ${item.crop} stress tolerance research`)}
+            ${createResearchLink(`${item.variety_name} ${item.crop} drought tolerance studies`)}
+            ${createResearchLink(`${item.variety_name} ${item.crop} field trials`)}
+            ${createResearchLink(`${item.variety_name} ${item.crop} seed availability`)}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function createResearchLink(query){
+    const u = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    return `<a href="${u}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-primary-green hover:underline text-sm"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/></svg>${query}</a>`;
+  }
+
+  function onSort(key){
+    SORT.key===key ? (SORT.dir = SORT.dir==='asc'?'desc':'asc') : (SORT.key=key,SORT.dir='asc');
+    renderTable();
+  }
+  
+  function compareByKey(a,b,key){
+    const map={crop:'crop',variety:'variety_name',year:'year_of_release',stress:'stress_tolerance',attributes:'key_attributes',states:'states_acronyms',seasons:'seasons',maturity:'days_to_maturity',evidence:'evidence_quality'};
+    const ka=map[key]; const va=(a[ka]||'').toString().toLowerCase(); const vb=(b[ka]||'').toString().toLowerCase();
+    if(!isNaN(parseFloat(va))&&!isNaN(parseFloat(vb))) return parseFloat(va)-parseFloat(vb);
+    return va.localeCompare(vb);
+  }
+
+  function exportCSV(){
+    const rows = FILTERED.map(i=>({
+      crop: i.crop,
+      variety_name: i.variety_name,
+      year_of_release: i.year_of_release,
+      stress_tolerance: i.stress_tolerance,
+      key_attributes: i.key_attributes,
+      states: i.states_acronyms,
+      seasons: i.seasons,
+      days_to_maturity: i.days_to_maturity,
+      evidence_quality: i.evidence_quality,
+      seednet_available: i.seednet_available ? 'Yes' : 'No',
+      seednet_url: i.seednet_url || '',
+      total_research_results: i.research_data?.search_results_summary || 0
+    }));
+    const header = Object.keys(rows[0]||{});
+    const csv=[header.join(','),...rows.map(r=>header.map(h=>`"${String(r[h]||'').replace(/"/g,'""')}"`).join(','))].join('\n');
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url=URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download='enhanced_varieties_export.csv'; a.click(); URL.revokeObjectURL(url);
+  }
+
+  function updateStats(){
+    const st = document.getElementById('stress-tolerant');
+    const he = document.getElementById('high-evidence');
+    const tc = document.getElementById('total-crops');
+    if (st) st.textContent = String(ALL_ITEMS.filter(i=>i.stress_tolerance==='Yes').length);
+    if (he) he.textContent = String(ALL_ITEMS.filter(i=>i.evidence_quality==='High').length);
+    if (tc) tc.textContent = String(new Set(ALL_ITEMS.map(i=>i.crop)).size);
+  }
+  
+  function updateCountsLabel(){ 
+    const fc = document.getElementById('filtered-count'); 
+    const tc = document.getElementById('total-count'); 
+    if (fc) fc.textContent = String(FILTERED.length||0); 
+    if (tc) tc.textContent = String(ALL_ITEMS.length||0); 
+  }
+  
+  function setLastUpdated(){ 
+    const d = new Date(); 
+    const el = document.getElementById('last-updated'); 
+    if (el) el.textContent = d.toISOString().split('T')[0]; 
+  }
+
+  function fillMulti(id, values){ 
+    const el = document.getElementById(id); 
+    if (!el) return; 
+    el.innerHTML = values.map(v=>`<option value="${v}">${v}</option>`).join(''); 
+  }
+  
+  function getMulti(id){ 
+    const el = document.getElementById(id); 
+    return Array.from(el?.selectedOptions||[]).map(o=>o.value); 
+  }
+  
+  function unique(a){ 
+    return Array.from(new Set(a)).filter(Boolean).sort(); 
+  }
+  
+  function byId(id){ 
+    return document.getElementById(id); 
+  }
+})();
