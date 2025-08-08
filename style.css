@@ -46,10 +46,12 @@
     background: var(--pxd-primary); 
     color: #fff; 
     border-color: var(--pxd-primary);
+    box-shadow: 0 2px 4px rgba(0, 89, 74, 0.2);
 }
 
 .tab-seednet.enabled.active {
-    border-bottom: 3px solid var(--dark-green);
+    border-bottom: 3px solid var(--pxd-secondary);
+    background: var(--dark-green);
 }
 
 .tab-seednet.disabled { 
@@ -60,13 +62,15 @@
 }
 
 .tab-research { 
-    background: linear-gradient(135deg, #1976D2, #2196F3); 
+    background: var(--pxd-secondary); 
     color: #fff; 
-    border-color: #1976D2;
+    border-color: var(--pxd-secondary);
+    box-shadow: 0 2px 4px rgba(106, 190, 180, 0.2);
 }
 
 .tab-research.active {
-    border-bottom: 3px solid #0D47A1;
+    border-bottom: 3px solid var(--pxd-primary);
+    background: #5aa8a1;
 }
 
 .tab-badge { 
@@ -241,6 +245,21 @@ input:focus, select:focus {
 
 .animate-spin {
     animation: spin 1s linear infinite;
+}
+
+/* Table Header Styling */
+.main-table thead th {
+    background-color: var(--pxd-primary) !important;
+    color: white !important;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--pxd-secondary);
+}
+
+.main-table thead th.sortable:hover {
+    background-color: var(--dark-green) !important;
+    cursor: pointer;
 }
 
 /* Enhanced Badge Styling */

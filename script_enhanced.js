@@ -221,6 +221,9 @@
       return;
     }
 
+    // Update table headers visibility
+    updateTableHeaders();
+    
     tbody.innerHTML = pageItems.map((item, idx) => {
       const realIdx = start + idx;
       const seednetBadge = item.seednet_available ? '<span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded mr-1">Seednet ✓</span>' : '';
@@ -569,6 +572,44 @@
     return Array.from(new Set(a)).filter(Boolean).sort(); 
   }
   
+  function updateTableHeaders() {
+    const headers = document.querySelectorAll('#varieties-table thead th');
+    const headerMap = ['crop', 'variety', 'year', 'stress', 'attributes', 'states', 'seasons', 'maturity', 'evidence'];
+    
+    headers.forEach((th, index) => {
+      const key = headerMap[index];
+      if (key && VISIBLE.hasOwnProperty(key)) {
+        th.style.display = VISIBLE[key] ? '' : 'none';
+      }
+    });
+  }
+
+  function clearAllFilters() {
+    // Clear search box
+    const searchBox = byId('search-box');
+    if (searchBox) searchBox.value = '';
+    
+    // Clear all multi-select filters
+    ['crop-filter', 'state-filter', 'stress-filter', 'stress-type-filter', 'evidence-filter'].forEach(id => {
+      const element = byId(id);
+      if (element) {
+        Array.from(element.options).forEach(option => option.selected = false);
+      }
+    });
+    
+    // Clear stress search
+    const stressSearch = byId('stress-search');
+    if (stressSearch) {
+      stressSearch.value = '';
+      // Show all stress type options
+      const stressOptions = byId('stress-type-filter')?.querySelectorAll('option');
+      stressOptions?.forEach(option => option.style.display = 'block');
+    }
+    
+    // Reapply filters (which will show all data)
+    filterData();
+  }
+
   function byId(id){ 
     return document.getElementById(id); 
   }
@@ -587,15 +628,19 @@
     byId('btn-export-csv')?.addEventListener('click', exportCSV);
     byId('btn-reload')?.addEventListener('click', ()=>window.location.reload());
     byId('btn-about')?.addEventListener('click', showAbout);
+    byId('clear-filters-btn')?.addEventListener('click', clearAllFilters);
 
     // Modal close
     document.querySelector('.close')?.addEventListener('click', ()=>byId('variety-modal').style.display='none');
     window.addEventListener('click', (e)=>{ if (e.target.classList.contains('modal')) e.target.style.display='none'; });
 
-    // Column visibility toggles
+    // Column visibility toggles - initialize checkboxes to match VISIBLE state
     document.querySelectorAll('input[data-col]').forEach(cb=>{
+      const col = cb.dataset.col;
+      cb.checked = VISIBLE[col];
       cb.addEventListener('change', (e)=>{
         VISIBLE[e.target.dataset.col] = e.target.checked;
+        updateTableHeaders();
         renderTable();
       });
     });
@@ -639,6 +684,15 @@
             Since 2008, we have been collecting and analyzing seed variety data from official government sources and research institutions. 
             Our platform provides comprehensive information on stress-tolerant seed varieties to support farmers and agricultural decision-making.
           </p>
+          
+          <div class="mb-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+            <h4 class="font-semibold text-yellow-800 mb-1">Important Disclaimer</h4>
+            <p class="text-sm text-yellow-700">
+              This dashboard contains data from approved seed varieties notified by the India Government/Gazette and is intended for 
+              <strong>research purposes only</strong>. Please consult official government sources and agricultural extension services 
+              for farming decisions. Variety performance may vary based on local conditions.
+            </p>
+          </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div class="p-4 border rounded-lg" style="border-color: var(--pxd-secondary);">
