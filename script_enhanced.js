@@ -29,13 +29,58 @@
       const totalEl = document.getElementById('total-varieties');
       if (totalEl) totalEl.textContent = String(ALL_ITEMS.length);
     } catch(e){
-      console.error('Failed to load enhanced data', e);
-      ALL_ITEMS = [];
-      FILTERED = [];
-      updateCountsLabel();
-      // Show error to user
-      const totalEl = document.getElementById('total-varieties');
-      if (totalEl) totalEl.textContent = 'Error';
+      console.error('Failed to load enhanced data, trying fallback...', e);
+      // Try fallback with original JSON files
+      try {
+        const [response1, response2] = await Promise.all([
+          fetch('sample_results_20250729_185047.json'),
+          fetch('sample_results_20250729_190724.json')
+        ]);
+        
+        if (response1.ok && response2.ok) {
+          const [data1, data2] = await Promise.all([
+            response1.json(),
+            response2.json()
+          ]);
+          
+          // Convert original format to enhanced format
+          const combinedData = [...data1, ...data2];
+          ALL_ITEMS = combinedData.map(item => {
+            const seednetData = item.original_data?.seednet_data || {};
+            return {
+              variety_id: item.variety_id || 'unknown',
+              crop: seednetData['Crop Name'] || 'Unknown',
+              variety_name: seednetData['Variety Name'] || 'Unknown',
+              year_of_release: seednetData['Year of Release'] || 'Unknown',
+              stress_tolerance: 'Unknown',
+              key_attributes: 'Basic attributes',
+              states_acronyms: 'Multiple',
+              seasons: 'Unknown',
+              days_to_maturity: seednetData['Maturity (in days)'] || null,
+              evidence_quality: 'Medium',
+              stress_types: [],
+              seednet_available: true
+            };
+          });
+          
+          console.log('Fallback data loaded successfully. Items count:', ALL_ITEMS.length);
+          FILTERED = [...ALL_ITEMS];
+          updateCountsLabel();
+          setLastUpdated();
+          const totalEl = document.getElementById('total-varieties');
+          if (totalEl) totalEl.textContent = String(ALL_ITEMS.length);
+        } else {
+          throw new Error('Fallback data also failed to load');
+        }
+      } catch(fallbackError) {
+        console.error('Fallback loading also failed', fallbackError);
+        ALL_ITEMS = [];
+        FILTERED = [];
+        updateCountsLabel();
+        // Show error to user
+        const totalEl = document.getElementById('total-varieties');
+        if (totalEl) totalEl.textContent = 'Error';
+      }
     }
   }
 
