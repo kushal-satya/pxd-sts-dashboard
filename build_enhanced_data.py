@@ -80,30 +80,25 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
     crop_type = original_data.get('crop_type', original_data.get('crop', 'Unknown'))
     year_of_release = original_data.get('extracted_year', original_data.get('year', ''))
     
-    # Extract state information - handle comma-separated states
+    # Extract state information - keep both full names and short form
     states_raw = original_data.get('state_zone', original_data.get('state_zone_standardized', ''))
+    states_full_list: List[str] = []
     if isinstance(states_raw, str):
-        # Clean up state names and create abbreviated format
-        states = [s.strip() for s in states_raw.split(',') if s.strip() and s.strip() != 'Not Specified']
-        states_cleaned = []
-        for state in states:
-            # Convert full state names to abbreviations where possible
-            state_mapping = {
-                'Andhra Pradesh': 'AP', 'Arunachal Pradesh': 'AR', 'Assam': 'AS',
-                'Bihar': 'BR', 'Chhattisgarh': 'CG', 'Goa': 'GA', 'Gujarat': 'GJ',
-                'Haryana': 'HR', 'Himachal Pradesh': 'HP', 'Jharkhand': 'JH',
-                'Karnataka': 'KA', 'Kerala': 'KL', 'Madhya Pradesh': 'MP',
-                'Maharashtra': 'MH', 'Manipur': 'MN', 'Meghalaya': 'ML',
-                'Mizoram': 'MZ', 'Nagaland': 'NL', 'Odisha': 'OR', 'Punjab': 'PB',
-                'Rajasthan': 'RJ', 'Sikkim': 'SK', 'Tamil Nadu': 'TN',
-                'Telangana': 'TG', 'Tripura': 'TR', 'Uttar Pradesh': 'UP',
-                'Uttarakhand': 'UK', 'West Bengal': 'WB', 'Delhi': 'DL',
-                'Puducherry': 'PY', 'Jammu and Kashmir': 'JK', 'Ladakh': 'LA'
-            }
-            states_cleaned.append(state_mapping.get(state, state[:3].upper()))
-        states_acronyms = ', '.join(states_cleaned[:5])  # Limit to first 5 states
-    else:
-        states_acronyms = 'Unknown'
+        states_full_list = [s.strip().rstrip('.') for s in states_raw.replace(' and ', ', ').split(',') if s.strip() and s.strip() != 'Not Specified']
+    
+    state_mapping = {
+        'Andhra Pradesh': 'AP', 'Arunachal Pradesh': 'AR', 'Assam': 'AS', 'Bihar': 'BR', 'Chhattisgarh': 'CG',
+        'Goa': 'GA', 'Gujarat': 'GJ', 'Haryana': 'HR', 'Himachal Pradesh': 'HP', 'Jharkhand': 'JH',
+        'Karnataka': 'KA', 'Kerala': 'KL', 'Madhya Pradesh': 'MP', 'Maharashtra': 'MH', 'Manipur': 'MN',
+        'Meghalaya': 'ML', 'Mizoram': 'MZ', 'Nagaland': 'NL', 'Odisha': 'OR', 'Punjab': 'PB', 'Rajasthan': 'RJ',
+        'Sikkim': 'SK', 'Tamil Nadu': 'TN', 'Telangana': 'TG', 'Tripura': 'TR', 'Uttar Pradesh': 'UP',
+        'Uttarakhand': 'UK', 'West Bengal': 'WB', 'Delhi': 'DL', 'Puducherry': 'PY', 'Jammu and Kashmir': 'JK',
+        'Ladakh': 'LA', 'Kashmir': 'JK'
+    }
+    states_short_list: List[str] = []
+    for s in states_full_list:
+        states_short_list.append(state_mapping.get(s, (s[:3].upper() if s else '')))
+    states_acronyms = ', '.join(states_short_list) if states_short_list else 'Unknown'
     
     # Extract stress information
     stress_types = extract_stress_types_from_queries(search_metadata)
@@ -117,14 +112,9 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
     seednet_url = seednet_fields_data.get('seednet_raw_source_url', '')
     seednet_variety_id = seednet_fields_data.get('seednet_raw_variety_id', '')
     
-    # Debug: Remove in production
-    # if seednet_available:
-    #     print(f"  DEBUG: Found Seednet match for {variety_name}: {seednet_variety_id} -> {seednet_url}")
-    
     # Build seednet fields dictionary for the output
     seednet_fields = {}
     if seednet_available:
-        # Extract all seednet fields, removing the 'seednet_raw_' prefix
         for key, value in seednet_fields_data.items():
             if key.startswith('seednet_raw_'):
                 clean_key = key[len('seednet_raw_'):]
@@ -134,6 +124,9 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
     total_search_results = 0
     if search_metadata and 'query_results' in search_metadata:
         total_search_results = sum(q.get('results_count', 0) for q in search_metadata['query_results'])
+    
+    # Include analysis_result if present for richer research details
+    analysis_result = variety.get('analysis_result') or {}
     
     # Build research data structure
     research_data = {
@@ -152,7 +145,8 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
         },
         'field_trials': len([q for q in search_metadata.get('query_results', []) if 'trial' in q.get('query', '').lower() and q.get('results_count', 0) > 0]),
         'commercial_availability': len([q for q in search_metadata.get('query_results', []) if 'seed' in q.get('query', '').lower() and 'availability' in q.get('query', '').lower() and q.get('results_count', 0) > 0]),
-        'enhancement_features': ['AI-Enhanced Search', 'Multi-query Analysis', 'Stress Tolerance Detection']
+        'enhancement_features': ['AI-Enhanced Search', 'Multi-query Analysis', 'Stress Tolerance Detection'],
+        'analysis_result': analysis_result
     }
     
     return {
@@ -163,6 +157,7 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
         'stress_tolerance': stress_tolerance,
         'key_attributes': ', '.join(stress_types) if stress_types else 'Standard variety',
         'states_acronyms': states_acronyms,
+        'states_full': states_full_list,
         'seasons': original_data.get('season', original_data.get('crop_season', 'Unknown')),
         'days_to_maturity': original_data.get('maturity_days', original_data.get('maturity_group', 'Unknown')),
         'evidence_quality': evidence_quality,

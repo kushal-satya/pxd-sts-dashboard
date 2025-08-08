@@ -32,19 +32,19 @@
     <!-- Statistics Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
       <div class="stat-card">
-        <div class="text-2xl font-bold text-gray-900" id="total-varieties">405</div>
+        <div class="text-2xl font-bold text-gray-900" id="total-varieties">165</div>
         <div class="text-sm text-gray-600">Total Varieties</div>
       </div>
       <div class="stat-card">
-        <div class="text-2xl font-bold text-gray-900" id="stress-tolerant">317</div>
+        <div class="text-2xl font-bold text-gray-900" id="stress-tolerant">131</div>
         <div class="text-sm text-gray-600">Stress Tolerant</div>
       </div>
       <div class="stat-card">
-        <div class="text-2xl font-bold text-gray-900" id="high-evidence">226</div>
+        <div class="text-2xl font-bold text-gray-900" id="high-evidence">96</div>
         <div class="text-sm text-gray-600">High Evidence Quality</div>
       </div>
       <div class="stat-card">
-        <div class="text-2xl font-bold text-gray-900" id="total-crops">130</div>
+        <div class="text-2xl font-bold text-gray-900" id="total-crops">73</div>
         <div class="text-sm text-gray-600">Different Crops</div>
       </div>
     </div>
@@ -81,14 +81,6 @@
         </div>
         
         <div class="filter-group">
-          <label for="stress-type-filter">Stress Types</label>
-          <input type="text" id="stress-search" placeholder="Search stress types..." class="text-xs border rounded px-2 py-1 mb-1 w-full">
-          <select id="stress-type-filter" multiple size="3" aria-label="Specific stress types">
-            <!-- Populated by JavaScript -->
-          </select>
-        </div>
-        
-        <div class="filter-group">
           <label for="evidence-filter">Evidence Quality</label>
           <select id="evidence-filter" multiple size="3" aria-label="Evidence quality filter">
             <option value="High">High Quality</option>
@@ -98,15 +90,49 @@
         </div>
         
         <div class="filter-group">
-          <label>Show/Hide Columns</label>
-          <div class="text-xs space-y-1 mt-1">
-            <label class="block"><input type="checkbox" data-col="crop" checked> Crop Type</label>
-            <label class="block"><input type="checkbox" data-col="variety" checked> Variety</label>
-            <label class="block"><input type="checkbox" data-col="year" checked> Year</label>
-            <label class="block"><input type="checkbox" data-col="stress" checked> Stress Tolerance</label>
-            <label class="block"><input type="checkbox" data-col="attributes" checked> Attributes</label>
-            <label class="block"><input type="checkbox" data-col="states" checked> States</label>
-            <label class="block"><input type="checkbox" data-col="seasons" checked> Seasons</label>
+          <label for="stress-type-filter">Type of Stress</label>
+          <select id="stress-type-filter" multiple size="5" aria-label="Type of stress filter">
+            <!-- Populated dynamically by JavaScript -->
+          </select>
+          <div class="text-xs text-gray-500 mt-1">AI-detected stress types</div>
+        </div>
+        
+        <div class="filter-group">
+          <label for="seednet-filter">Data Source</label>
+          <select id="seednet-filter" multiple size="3" aria-label="Data source filter">
+            <option value="seednet">Seednet Portal</option>
+            <option value="research">Research Only</option>
+            <option value="both">Both Sources</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="mt-4 flex items-center justify-between">
+        <button id="btn-reset" class="px-4 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-800 border transition-colors" aria-label="Reset filters">
+          Reset All Filters
+        </button>
+        <div class="text-sm text-gray-700" aria-live="polite">
+          <span id="filtered-count">0</span> of <span id="total-count">0</span> varieties • 
+          Last updated: <span id="last-updated">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced Table Controls -->
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <button id="btn-columns" class="px-3 py-2 border rounded text-sm hover:bg-gray-50 transition-colors" aria-haspopup="true" aria-expanded="false">
+            Configure Columns ▾
+          </button>
+          <div id="columns-menu" class="absolute left-0 mt-1 bg-white border rounded shadow-lg p-3 hidden text-sm z-20 min-w-48" role="menu" aria-label="Toggle columns">
+            <label class="block mb-2"><input type="checkbox" data-col="crop" checked> Crop Type</label>
+            <label class="block mb-2"><input type="checkbox" data-col="variety" checked> Variety Name</label>
+            <label class="block mb-2"><input type="checkbox" data-col="year" checked> Year of Release</label>
+            <label class="block mb-2"><input type="checkbox" data-col="stress" checked> Stress Tolerance</label>
+            <label class="block mb-2"><input type="checkbox" data-col="attributes" checked> Key Attributes</label>
+            <label class="block mb-2"><input type="checkbox" data-col="states" checked> States</label>
+            <label class="block mb-2"><input type="checkbox" data-col="seasons" checked> Seasons</label>
             <label class="block mb-2"><input type="checkbox" data-col="maturity" checked> Days to Maturity</label>
             <label class="block"><input type="checkbox" data-col="evidence" checked> Evidence Quality</label>
           </div>

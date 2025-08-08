@@ -17,70 +17,19 @@
 
   async function loadEnhancedData(){
     try {
-      console.log('Attempting to load data from:', JSON_PATH);
       const res = await fetch(JSON_PATH);
-      console.log('Fetch response status:', res.status, res.ok);
-      if (!res.ok) throw new Error(`HTTP ${res.status}: Enhanced data not found`);
+      if (!res.ok) throw new Error('Enhanced data not found');
       ALL_ITEMS = await res.json();
-      console.log('Data loaded successfully. Items count:', ALL_ITEMS.length);
       FILTERED = [...ALL_ITEMS];
       updateCountsLabel();
       setLastUpdated();
       const totalEl = document.getElementById('total-varieties');
       if (totalEl) totalEl.textContent = String(ALL_ITEMS.length);
     } catch(e){
-      console.error('Failed to load enhanced data, trying fallback...', e);
-      // Try fallback with original JSON files
-      try {
-        const [response1, response2] = await Promise.all([
-          fetch('sample_results_20250729_185047.json'),
-          fetch('sample_results_20250729_190724.json')
-        ]);
-        
-        if (response1.ok && response2.ok) {
-          const [data1, data2] = await Promise.all([
-            response1.json(),
-            response2.json()
-          ]);
-          
-          // Convert original format to enhanced format
-          const combinedData = [...data1, ...data2];
-          ALL_ITEMS = combinedData.map(item => {
-            const seednetData = item.original_data?.seednet_data || {};
-            return {
-              variety_id: item.variety_id || 'unknown',
-              crop: seednetData['Crop Name'] || 'Unknown',
-              variety_name: seednetData['Variety Name'] || 'Unknown',
-              year_of_release: seednetData['Year of Release'] || 'Unknown',
-              stress_tolerance: 'Unknown',
-              key_attributes: 'Basic attributes',
-              states_acronyms: 'Multiple',
-              seasons: 'Unknown',
-              days_to_maturity: seednetData['Maturity (in days)'] || null,
-              evidence_quality: 'Medium',
-              stress_types: [],
-              seednet_available: true
-            };
-          });
-          
-          console.log('Fallback data loaded successfully. Items count:', ALL_ITEMS.length);
-          FILTERED = [...ALL_ITEMS];
-          updateCountsLabel();
-          setLastUpdated();
-          const totalEl = document.getElementById('total-varieties');
-          if (totalEl) totalEl.textContent = String(ALL_ITEMS.length);
-        } else {
-          throw new Error('Fallback data also failed to load');
-        }
-      } catch(fallbackError) {
-        console.error('Fallback loading also failed', fallbackError);
-        ALL_ITEMS = [];
-        FILTERED = [];
-        updateCountsLabel();
-        // Show error to user
-        const totalEl = document.getElementById('total-varieties');
-        if (totalEl) totalEl.textContent = 'Error';
-      }
+      console.error('Failed to load enhanced data', e);
+      ALL_ITEMS = [];
+      FILTERED = [];
+      updateCountsLabel();
     }
   }
 
@@ -152,18 +101,55 @@
   function populateFilters(){
     fillMulti('crop-filter', unique(ALL_ITEMS.map(i=>i.crop)));
     
-    // Handle comma-separated states more efficiently
-    const states = unique(ALL_ITEMS.flatMap(i => {
-      const stateStr = String(i.states_acronyms || '');
-      return stateStr.split(',').map(s=>s.trim()).filter(s => s && s !== 'Unknown' && s.length <= 3);
-    }));
-    fillMulti('state-filter', states);
+    // Use full state names from states_full array, with fallback to acronyms
+    const stateMapping = {
+      'AP': 'Andhra Pradesh', 'AR': 'Arunachal Pradesh', 'AS': 'Assam', 'BR': 'Bihar', 'CG': 'Chhattisgarh',
+      'GA': 'Goa', 'GJ': 'Gujarat', 'HR': 'Haryana', 'HP': 'Himachal Pradesh', 'JH': 'Jharkhand',
+      'KA': 'Karnataka', 'KL': 'Kerala', 'MP': 'Madhya Pradesh', 'MH': 'Maharashtra', 'MN': 'Manipur',
+      'ML': 'Meghalaya', 'MZ': 'Mizoram', 'NL': 'Nagaland', 'OR': 'Odisha', 'PB': 'Punjab', 'RJ': 'Rajasthan',
+      'SK': 'Sikkim', 'TN': 'Tamil Nadu', 'TG': 'Telangana', 'TR': 'Tripura', 'UP': 'Uttar Pradesh',
+      'UK': 'Uttarakhand', 'WB': 'West Bengal', 'DL': 'Delhi', 'PY': 'Puducherry', 'JK': 'Jammu and Kashmir',
+      'LA': 'Ladakh'
+    };
+    
+    const statesSet = new Set();
+    ALL_ITEMS.forEach(item => {
+      // Try states_full first
+      if (item.states_full && Array.isArray(item.states_full)) {
+        item.states_full.forEach(state => {
+          if (state && state !== 'Unknown' && state !== 'Not Specified') {
+            statesSet.add(state);
+          }
+        });
+      } else if (item.states_acronyms) {
+        // Fallback to converting acronyms to full names
+        const stateStr = String(item.states_acronyms);
+        stateStr.split(',').map(s=>s.trim()).forEach(acronym => {
+          if (acronym && acronym !== 'Unknown' && acronym.length <= 3) {
+            const fullName = stateMapping[acronym] || acronym;
+            statesSet.add(fullName);
+          }
+        });
+      }
+    });
+    
+    fillMulti('state-filter', Array.from(statesSet).sort());
     
     // Populate stress type filter from actual data
     const allStressTypes = unique(ALL_ITEMS.flatMap(i => i.stress_types || []));
-    const stressTypeSelect = byId('stress-type-filter');
-    if (stressTypeSelect) {
-      stressTypeSelect.innerHTML = allStressTypes.map(type => `<option value="${type}">${type}</option>`).join('');
+    fillMulti('stress-type-filter', allStressTypes);
+    
+    // Setup stress type search functionality
+    const stressSearch = byId('stress-search');
+    if (stressSearch) {
+      stressSearch.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const options = byId('stress-type-filter').querySelectorAll('option');
+        options.forEach(option => {
+          const matches = option.textContent.toLowerCase().includes(query);
+          option.style.display = matches ? 'block' : 'none';
+        });
+      });
     }
   }
 
@@ -188,9 +174,26 @@
       const matchesQ = !q || i.variety_name.toLowerCase().includes(q) || i.crop.toLowerCase().includes(q) || (i.key_attributes||'').toLowerCase().includes(q);
       const matchesCrop = cropsSel.length===0 || cropsSel.includes(i.crop);
       
-      // Handle comma-separated states
-      const itemStates = String(i.states_acronyms||'').split(',').map(s=>s.trim()).filter(Boolean);
-      const matchesState = statesSel.length===0 || statesSel.some(s=> itemStates.includes(s));
+      // Handle both full state names and acronyms
+      const stateMapping = {
+        'AP': 'Andhra Pradesh', 'AR': 'Arunachal Pradesh', 'AS': 'Assam', 'BR': 'Bihar', 'CG': 'Chhattisgarh',
+        'GA': 'Goa', 'GJ': 'Gujarat', 'HR': 'Haryana', 'HP': 'Himachal Pradesh', 'JH': 'Jharkhand',
+        'KA': 'Karnataka', 'KL': 'Kerala', 'MP': 'Madhya Pradesh', 'MH': 'Maharashtra', 'MN': 'Manipur',
+        'ML': 'Meghalaya', 'MZ': 'Mizoram', 'NL': 'Nagaland', 'OR': 'Odisha', 'PB': 'Punjab', 'RJ': 'Rajasthan',
+        'SK': 'Sikkim', 'TN': 'Tamil Nadu', 'TG': 'Telangana', 'TR': 'Tripura', 'UP': 'Uttar Pradesh',
+        'UK': 'Uttarakhand', 'WB': 'West Bengal', 'DL': 'Delhi', 'PY': 'Puducherry', 'JK': 'Jammu and Kashmir',
+        'LA': 'Ladakh'
+      };
+      
+      let itemStateNames = [];
+      if (i.states_full && Array.isArray(i.states_full)) {
+        itemStateNames = i.states_full.filter(s => s && s !== 'Unknown' && s !== 'Not Specified');
+      } else if (i.states_acronyms) {
+        const itemStateAcronyms = String(i.states_acronyms).split(',').map(s=>s.trim()).filter(Boolean);
+        itemStateNames = itemStateAcronyms.map(acronym => stateMapping[acronym] || acronym);
+      }
+      
+      const matchesState = statesSel.length===0 || statesSel.some(s=> itemStateNames.includes(s));
       
       const matchesStress = stressSel.length===0 || stressSel.includes(i.stress_tolerance);
       const matchesEv = evSel.length===0 || evSel.includes(i.evidence_quality);
@@ -538,6 +541,130 @@
     return Array.from(new Set(a)).filter(Boolean).sort(); 
   }
   
+  function byId(id){ 
+    return document.getElementById(id); 
+  }
+
+  function setupEvents(){
+    // Event listeners
+    byId('search-box')?.addEventListener('input', filterData);
+    byId('crop-filter')?.addEventListener('change', filterData);
+    byId('state-filter')?.addEventListener('change', filterData);
+    byId('stress-filter')?.addEventListener('change', filterData);
+    byId('stress-type-filter')?.addEventListener('change', filterData);
+    byId('evidence-filter')?.addEventListener('change', filterData);
+    byId('page-size')?.addEventListener('change', renderTable);
+    byId('page-prev')?.addEventListener('click', ()=>{if (PAGE.index>1) PAGE.index--; renderTable();});
+    byId('page-next')?.addEventListener('click', ()=>{PAGE.index++; renderTable();});
+    byId('btn-export-csv')?.addEventListener('click', exportCSV);
+    byId('btn-reload')?.addEventListener('click', ()=>window.location.reload());
+    byId('btn-about')?.addEventListener('click', showAbout);
+
+    // Modal close
+    document.querySelector('.close')?.addEventListener('click', ()=>byId('variety-modal').style.display='none');
+    window.addEventListener('click', (e)=>{ if (e.target.classList.contains('modal')) e.target.style.display='none'; });
+
+    // Column visibility toggles
+    document.querySelectorAll('input[data-col]').forEach(cb=>{
+      cb.addEventListener('change', (e)=>{
+        VISIBLE[e.target.dataset.col] = e.target.checked;
+        renderTable();
+      });
+    });
+
+    // Table sorting
+    document.querySelectorAll('.sortable').forEach(th=>{
+      th.addEventListener('click', ()=>onSort(th.dataset.key));
+    });
+  }
+
+  function showAbout(){
+    const aboutContent = `
+      <div class="about-modal">
+        <h2 class="text-2xl font-bold mb-4" style="color: var(--pxd-primary);">About India's Seed Varieties Dashboard</h2>
+        
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2" style="color: var(--pxd-primary);">Overview</h3>
+          <p class="text-gray-700 mb-4">
+            Since 2008, we have been collecting and analyzing seed variety data from official government sources and research institutions. 
+            Our platform provides comprehensive information on stress-tolerant seed varieties to support farmers and agricultural decision-making.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="p-4 border rounded-lg" style="border-color: var(--pxd-secondary);">
+              <h4 class="font-semibold mb-2" style="color: var(--pxd-primary);">Data Sources</h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• Official Government Seednet Portal</li>
+                <li>• Central Seed Committee Records</li>
+                <li>• Research Institution Publications</li>
+                <li>• Academic Literature Database</li>
+              </ul>
+            </div>
+            
+            <div class="p-4 border rounded-lg" style="border-color: var(--pxd-secondary);">
+              <h4 class="font-semibold mb-2" style="color: var(--pxd-primary);">Key Features</h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• Dual-view system for official vs research data</li>
+                <li>• Advanced stress tolerance filtering</li>
+                <li>• Direct Seednet portal integration</li>
+                <li>• Evidence quality assessment</li>
+                <li>• Comprehensive search across 405+ varieties</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold mb-2" style="color: var(--pxd-primary);">AI Enhancement</h3>
+          <p class="text-gray-700 mb-2">
+            Our search and analysis capabilities are enhanced using Google Gemini 2.5 Flash for:
+          </p>
+          <ul class="text-sm text-gray-600 space-y-1 ml-4">
+            <li>• Intelligent query processing and expansion</li>
+            <li>• Evidence quality scoring</li>
+            <li>• Stress tolerance pattern recognition</li>
+            <li>• Research literature synthesis</li>
+          </ul>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2" style="color: var(--pxd-primary);">Official Resources</h3>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://seednet.gov.in/" target="_blank" rel="noopener" 
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-md text-white text-sm hover:opacity-90 transition-opacity"
+               style="background-color: var(--pxd-primary);">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+              </svg>
+              Government Seednet Portal
+            </a>
+            
+            <a href="https://www.icar.gov.in/" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 px-4 py-2 rounded-md text-white text-sm hover:opacity-90 transition-opacity"
+               style="background-color: var(--pxd-secondary);">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/>
+              </svg>
+              ICAR Official Site
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center pt-4 border-t border-gray-200">
+          <p class="text-sm text-gray-500">
+            Developed by Precision Development (PxD) • Data Research and AI Enhancement
+          </p>
+          <p class="text-xs text-gray-400 mt-1">
+            Powered by Google Gemini 2.5 Flash
+          </p>
+        </div>
+      </div>
+    `;
+    
+    byId('modal-body').innerHTML = aboutContent;
+    byId('variety-modal').style.display = 'block';
+  }
+
   function byId(id){ 
     return document.getElementById(id); 
   }
