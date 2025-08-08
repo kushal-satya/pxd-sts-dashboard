@@ -80,11 +80,21 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
     crop_type = original_data.get('crop_type', original_data.get('crop', 'Unknown'))
     year_of_release = original_data.get('extracted_year', original_data.get('year', ''))
     
-    # Extract state information - keep both full names and short form
-    states_raw = original_data.get('state_zone', original_data.get('state_zone_standardized', ''))
+    # Extract state information - prioritize recommended_states_standardized from analysis_result
+    analysis_result = variety.get('analysis_result', {})
+    variety_profile = analysis_result.get('variety_profile', {})
+    
+    # Use recommended_states_standardized first, then fallback to other sources
+    states_raw = (
+        variety_profile.get('recommended_states_standardized') or 
+        original_data.get('state_zone') or 
+        original_data.get('state_zone_standardized', '')
+    )
+    
     states_full_list: List[str] = []
-    if isinstance(states_raw, str):
-        states_full_list = [s.strip().rstrip('.') for s in states_raw.replace(' and ', ', ').split(',') if s.strip() and s.strip() != 'Not Specified']
+    if isinstance(states_raw, str) and states_raw:
+        # Clean and standardize state names
+        states_full_list = [s.strip().rstrip('.').title() for s in states_raw.replace(' and ', ', ').split(',') if s.strip() and s.strip() not in ['Not Specified', 'Unknown', '']]
     
     state_mapping = {
         'Andhra Pradesh': 'AP', 'Arunachal Pradesh': 'AR', 'Assam': 'AS', 'Bihar': 'BR', 'Chhattisgarh': 'CG',
@@ -125,28 +135,79 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
     if search_metadata and 'query_results' in search_metadata:
         total_search_results = sum(q.get('results_count', 0) for q in search_metadata['query_results'])
     
-    # Include analysis_result if present for richer research details
-    analysis_result = variety.get('analysis_result') or {}
+    # Process analysis_result for much richer research details
+    analysis_result = variety.get('analysis_result', {})
     
-    # Build research data structure
+    # Extract detailed stress tolerance information
+    stress_tolerance_details = analysis_result.get('stress_tolerance', {})
+    agronomic_performance = analysis_result.get('agronomic_performance', {})
+    genetics_qtl = analysis_result.get('genetics_and_qtl', {})
+    commercial_availability = analysis_result.get('commercial_availability', {})
+    
+    # Build comprehensive research data structure
     research_data = {
         'basic_info': {
             'crop': crop_type,
             'variety_name': variety_name,
             'data_source': original_data.get('data_source', 'enhanced_batch'),
             'year': year_of_release,
-            'institution': original_data.get('institution', 'Not specified')
+            'institution': variety_profile.get('institution', original_data.get('institution', 'Not specified'))
         },
         'search_results_summary': total_search_results,
-        'stress_tolerance_evidence': {stress: 1 for stress in stress_types},
-        'disease_pest_resistance': {
-            'disease': {'count': len([q for q in search_metadata.get('query_results', []) if 'disease' in q.get('query', '').lower() and q.get('results_count', 0) > 0])},
-            'pest': {'count': len([q for q in search_metadata.get('query_results', []) if 'pest' in q.get('query', '').lower() and q.get('results_count', 0) > 0])}
+        'stress_tolerance_detailed': {
+            'drought': {
+                'level': stress_tolerance_details.get('drought', {}).get('level', 'unknown'),
+                'details': stress_tolerance_details.get('drought', {}).get('details', ''),
+                'evidence_count': len(stress_tolerance_details.get('drought', {}).get('evidence_sources', []))
+            },
+            'heat': {
+                'level': stress_tolerance_details.get('heat', {}).get('level', 'unknown'),
+                'details': stress_tolerance_details.get('heat', {}).get('details', ''),
+                'evidence_count': len(stress_tolerance_details.get('heat', {}).get('evidence_sources', []))
+            },
+            'salinity': {
+                'level': stress_tolerance_details.get('salinity', {}).get('level', 'unknown'),
+                'details': stress_tolerance_details.get('salinity', {}).get('details', ''),
+                'evidence_count': len(stress_tolerance_details.get('salinity', {}).get('evidence_sources', []))
+            },
+            'flood': {
+                'level': stress_tolerance_details.get('flood', {}).get('level', 'unknown'),
+                'details': stress_tolerance_details.get('flood', {}).get('details', ''),
+                'evidence_count': len(stress_tolerance_details.get('flood', {}).get('evidence_sources', []))
+            },
+            'disease_resistance': {
+                'summary': stress_tolerance_details.get('disease_resistance', {}).get('summary', ''),
+                'evidence_count': len(stress_tolerance_details.get('disease_resistance', {}).get('evidence_sources', []))
+            },
+            'pest_resistance': {
+                'summary': stress_tolerance_details.get('pest_resistance', {}).get('summary', ''),
+                'evidence_count': len(stress_tolerance_details.get('pest_resistance', {}).get('evidence_sources', []))
+            }
         },
+        'agronomic_details': {
+            'yield': agronomic_performance.get('yield', ''),
+            'stability': agronomic_performance.get('stability', ''),
+            'adaptation': agronomic_performance.get('adaptation', ''),
+            'maturity_days': agronomic_performance.get('maturity_days', ''),
+            'plant_characteristics': agronomic_performance.get('plant_characteristics', ''),
+            'field_trials': agronomic_performance.get('field_trials', '')
+        },
+        'genetics_and_breeding': {
+            'genetic_markers': genetics_qtl.get('genetic_markers', ''),
+            'qtl_information': genetics_qtl.get('qtl_information', ''),
+            'molecular_mechanisms': genetics_qtl.get('molecular_mechanisms', '')
+        },
+        'commercial_info': {
+            'seed_corporations': commercial_availability.get('seed_corporations', ''),
+            'availability_status': commercial_availability.get('availability_status', ''),
+            'kvk': commercial_availability.get('kvk', ''),
+            'private_dealers': commercial_availability.get('private_dealers', '')
+        },
+        'stress_tolerance_evidence': {stress: 1 for stress in stress_types},
         'field_trials': len([q for q in search_metadata.get('query_results', []) if 'trial' in q.get('query', '').lower() and q.get('results_count', 0) > 0]),
-        'commercial_availability': len([q for q in search_metadata.get('query_results', []) if 'seed' in q.get('query', '').lower() and 'availability' in q.get('query', '').lower() and q.get('results_count', 0) > 0]),
+        'commercial_availability_searches': len([q for q in search_metadata.get('query_results', []) if 'seed' in q.get('query', '').lower() and 'availability' in q.get('query', '').lower() and q.get('results_count', 0) > 0]),
         'enhancement_features': ['AI-Enhanced Search', 'Multi-query Analysis', 'Stress Tolerance Detection'],
-        'analysis_result': analysis_result
+        'full_analysis_result': analysis_result
     }
     
     return {
@@ -172,14 +233,33 @@ def process_single_variety(variety: Dict, debug_index: int = -1) -> Dict[str, An
     }
 
 def load_enhanced_batches(data_dir: str) -> List[Dict]:
-    """Load all enhanced batch JSON files"""
+    """Load all enhanced batch JSON files dynamically"""
     all_varieties = []
     
-    # Find all enhanced batch files
+    # Find all enhanced batch files AND process all batch files that are marked as done
     pattern = os.path.join(data_dir, 'enhanced_batch_*.json')
     batch_files = sorted(glob.glob(pattern))
     
-    print(f"Found {len(batch_files)} enhanced batch files")
+    # Also check for processed_batches directory with .done files
+    processed_dir = os.path.join(os.path.dirname(data_dir), 'processed_batches')
+    if os.path.exists(processed_dir):
+        done_files = glob.glob(os.path.join(processed_dir, 'batch_*.done'))
+        batch_numbers = set()
+        for done_file in done_files:
+            basename = os.path.basename(done_file)
+            if basename.startswith('batch_') and basename.endswith('.done'):
+                batch_num = basename[6:-5]  # Extract number from batch_XXXX.done
+                batch_numbers.add(batch_num)
+        
+        # Add corresponding enhanced batch files for done batches
+        for batch_num in batch_numbers:
+            enhanced_file = os.path.join(data_dir, f'enhanced_batch_{batch_num}.json')
+            if os.path.exists(enhanced_file) and enhanced_file not in batch_files:
+                batch_files.append(enhanced_file)
+        
+        batch_files = sorted(batch_files)
+    
+    print(f"Found {len(batch_files)} enhanced batch files (including processed batches)")
     
     for batch_file in batch_files:
         print(f"Loading {os.path.basename(batch_file)}...")

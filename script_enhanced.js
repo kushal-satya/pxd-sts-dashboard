@@ -4,7 +4,7 @@
   let ALL_ITEMS = [];
   let FILTERED = [];
   let SORT = { key: null, dir: 'asc' };
-  let VISIBLE = { crop:true,variety:true,year:true,stress:true,attributes:true,states:true,seasons:true,maturity:true,evidence:true };
+  let VISIBLE = { crop:true,variety:true,year:true,stress:true,attributes:true,states:true,seasons:false,maturity:false,evidence:true };
   let PAGE = { size: 25, index: 1 };
 
   document.addEventListener('DOMContentLoaded', async () => {
@@ -386,25 +386,27 @@
 
   function renderResearchPanel(item) {
     const research = item.research_data || {};
+    const stressDetails = research.stress_tolerance_detailed || {};
+    const agronomic = research.agronomic_details || {};
     const stressEvidence = research.stress_tolerance_evidence || {};
     const stressTypes = Object.keys(stressEvidence).map(type => 
       `<span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded mr-1 mb-1">${type}</span>`
     ).join('');
     
     const enhancementFeatures = (research.enhancement_features || []).map(feature => 
-      `<span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-1 mb-1">${feature}</span>`
+      `<span class="inline-block text-white text-xs px-2 py-1 rounded mr-1 mb-1" style="background-color: var(--pxd-secondary);">${feature}</span>`
     ).join('');
 
     return `
-      <div class="bg-blue-50 rounded-lg p-4 mb-4 border border-blue-200">
+      <div class="rounded-lg p-4 mb-4 border" style="background-color: #f0f9ff; border-color: var(--pxd-secondary);">
         <div class="flex items-center gap-2 mb-3">
-          <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg>
-          <h3 class="font-semibold text-blue-800">AI-Enhanced Research Analysis</h3>
+          <svg class="w-5 h-5" style="color: var(--pxd-primary);" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg>
+          <h3 class="font-semibold" style="color: var(--pxd-primary);">AI-Enhanced Research Analysis</h3>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
-            <h4 class="font-medium text-blue-700 mb-2">Basic Information</h4>
+            <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Basic Information</h4>
             <div class="space-y-1 text-sm">
               <div><span class="text-gray-600">Crop:</span> ${research.basic_info?.crop || item.crop}</div>
               <div><span class="text-gray-600">Variety:</span> ${research.basic_info?.variety_name || item.variety_name}</div>
@@ -414,9 +416,9 @@
           </div>
           
           <div>
-            <h4 class="font-medium text-blue-700 mb-2">Research Summary</h4>
+            <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Research Summary</h4>
             <div class="space-y-1 text-sm">
-              <div class="text-3xl font-bold text-blue-600">${research.search_results_summary || 0}</div>
+              <div class="text-3xl font-bold" style="color: var(--pxd-secondary);">${research.search_results_summary || 0}</div>
               <div class="text-gray-600">Total research results found</div>
               <div class="text-sm text-gray-500">Across multiple academic databases</div>
             </div>
@@ -424,29 +426,55 @@
         </div>
         
         <div class="mb-4">
-          <h4 class="font-medium text-blue-700 mb-2">Stress Tolerance Evidence</h4>
-          <div class="mb-2">
-            ${stressTypes || '<span class="text-gray-500 text-sm">No stress tolerance evidence detected</span>'}
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-            <div class="bg-white p-2 rounded border">
-              <div class="font-medium text-gray-700">Disease Resistance</div>
-              <div class="text-lg font-bold text-primary-green">${research.disease_pest_resistance?.disease?.count || 0}</div>
-            </div>
-            <div class="bg-white p-2 rounded border">
-              <div class="font-medium text-gray-700">Pest Resistance</div>
-              <div class="text-lg font-bold text-primary-green">${research.disease_pest_resistance?.pest?.count || 0}</div>
-            </div>
+          <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Detailed Stress Tolerance Analysis</h4>
+          
+          ${Object.entries(stressDetails).map(([stressType, details]) => {
+            if (stressType === 'disease_resistance' || stressType === 'pest_resistance') {
+              return `
+                <div class="mb-3 p-3 bg-white border rounded-lg" style="border-color: var(--pxd-secondary);">
+                  <h5 class="font-semibold text-sm mb-1 capitalize" style="color: var(--pxd-primary);">${stressType.replace('_', ' ')}</h5>
+                  <div class="text-sm text-gray-700 mb-2">${details.summary || 'No specific information available'}</div>
+                  <div class="text-xs text-gray-500">Evidence sources: ${details.evidence_count || 0}</div>
+                </div>
+              `;
+            } else if (details.level || details.details) {
+              return `
+                <div class="mb-3 p-3 bg-white border rounded-lg" style="border-color: var(--pxd-secondary);">
+                  <h5 class="font-semibold text-sm mb-1 capitalize" style="color: var(--pxd-primary);">${stressType} Tolerance</h5>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="text-sm font-medium">Level:</span>
+                    <span class="px-2 py-1 rounded text-xs ${details.level === 'high' ? 'bg-green-100 text-green-800' : details.level === 'medium' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-600'}">${details.level || 'unknown'}</span>
+                  </div>
+                  ${details.details ? `<div class="text-sm text-gray-700 mb-2">${details.details}</div>` : ''}
+                  <div class="text-xs text-gray-500">Evidence sources: ${details.evidence_count || 0}</div>
+                </div>
+              `;
+            }
+            return '';
+          }).join('')}
+          
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm mt-4">
             <div class="bg-white p-2 rounded border">
               <div class="font-medium text-gray-700">Field Trials</div>
-              <div class="text-lg font-bold text-primary-green">${research.field_trials || 0}</div>
+              <div class="text-lg font-bold" style="color: var(--pxd-primary);">${research.field_trials || 0}</div>
             </div>
             <div class="bg-white p-2 rounded border">
-              <div class="font-medium text-gray-700">Commercial Availability</div>
-              <div class="text-lg font-bold text-primary-green">${research.commercial_availability || 0}</div>
+              <div class="font-medium text-gray-700">Commercial Searches</div>
+              <div class="text-lg font-bold" style="color: var(--pxd-primary);">${research.commercial_availability_searches || 0}</div>
             </div>
           </div>
         </div>
+        
+        ${agronomic.yield || agronomic.adaptation ? `
+        <div class="mb-4">
+          <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Agronomic Performance</h4>
+          <div class="grid grid-cols-1 gap-2">
+            ${agronomic.yield ? `<div class="p-2 bg-white rounded text-sm border"><span class="font-medium">Yield:</span> ${agronomic.yield}</div>` : ''}
+            ${agronomic.adaptation ? `<div class="p-2 bg-white rounded text-sm border"><span class="font-medium">Adaptation:</span> ${agronomic.adaptation}</div>` : ''}
+            ${agronomic.plant_characteristics ? `<div class="p-2 bg-white rounded text-sm border"><span class="font-medium">Plant Characteristics:</span> ${agronomic.plant_characteristics}</div>` : ''}
+          </div>
+        </div>
+        ` : ''}
         
         <div class="mb-4">
           <h4 class="font-medium text-blue-700 mb-2">AI Enhancement Features</h4>
@@ -572,6 +600,28 @@
       });
     });
 
+    // Dropdown functionality for column visibility
+    const dropdownBtn = byId('columns-dropdown-btn');
+    const dropdown = byId('columns-dropdown');
+    if (dropdownBtn && dropdown) {
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('hidden');
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && !dropdownBtn.contains(e.target)) {
+          dropdown.classList.add('hidden');
+        }
+      });
+      
+      // Prevent dropdown from closing when clicking inside
+      dropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
     // Table sorting
     document.querySelectorAll('.sortable').forEach(th=>{
       th.addEventListener('click', ()=>onSort(th.dataset.key));
@@ -669,3 +719,4 @@
     return document.getElementById(id); 
   }
 })();
+

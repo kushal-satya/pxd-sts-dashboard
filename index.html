@@ -97,29 +97,43 @@
           </select>
         </div>
         
-        <div class="filter-group">
-          <label>Show/Hide Columns</label>
-          <div class="text-xs space-y-1 mt-1">
-            <label class="block"><input type="checkbox" data-col="crop" checked> Crop Type</label>
-            <label class="block"><input type="checkbox" data-col="variety" checked> Variety</label>
-            <label class="block"><input type="checkbox" data-col="year" checked> Year</label>
-            <label class="block"><input type="checkbox" data-col="stress" checked> Stress Tolerance</label>
-            <label class="block"><input type="checkbox" data-col="attributes" checked> Attributes</label>
-            <label class="block"><input type="checkbox" data-col="states" checked> States</label>
-            <label class="block"><input type="checkbox" data-col="seasons" checked> Seasons</label>
-            <label class="block mb-2"><input type="checkbox" data-col="maturity" checked> Days to Maturity</label>
-            <label class="block"><input type="checkbox" data-col="evidence" checked> Evidence Quality</label>
-          </div>
-        </div>
-        
         <div class="text-sm text-gray-600">
           Click any row to view sources and research evidence
         </div>
       </div>
       
-      <button id="btn-export-csv" class="px-3 py-2 border rounded text-sm hover:bg-gray-50 transition-colors" aria-label="Export CSV">
-        Export Enhanced Data
-      </button>
+      <div class="flex justify-between items-center mt-4">
+        <div class="flex items-center gap-4">
+          <div class="relative">
+            <label for="column-visibility" class="text-sm font-medium text-gray-700 mr-2">Show/Hide Columns:</label>
+            <div class="relative inline-block">
+              <button id="columns-dropdown-btn" class="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-green">
+                <span>Columns</span>
+                <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="columns-dropdown" class="hidden absolute left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                <div class="py-1 text-xs space-y-1 p-2">
+                  <label class="flex items-center"><input type="checkbox" data-col="crop" checked class="mr-2"> Crop Type</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="variety" checked class="mr-2"> Variety</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="year" checked class="mr-2"> Year</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="stress" checked class="mr-2"> Stress Tolerance</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="attributes" checked class="mr-2"> Attributes</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="states" checked class="mr-2"> States</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="seasons" class="mr-2"> Seasons</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="maturity" class="mr-2"> Days to Maturity</label>
+                  <label class="flex items-center"><input type="checkbox" data-col="evidence" checked class="mr-2"> Evidence Quality</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button id="btn-export-csv" class="px-4 py-2 bg-primary-green text-white rounded-md text-sm hover:bg-dark-green transition-colors" aria-label="Export CSV">
+          Export Enhanced Data
+        </button>
+      </div>
     </div>
 
     <!-- Enhanced Table with Dual-View Indicators -->
