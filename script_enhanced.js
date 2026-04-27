@@ -11,6 +11,7 @@
     await loadEnhancedData();
     populateFilters();
     updateStats();
+    updateTableHeaders(); // Initialize column visibility
     filterData();
     setupEvents();
   });
@@ -468,13 +469,50 @@
           </div>
         </div>
         
-        ${agronomic.yield || agronomic.adaptation ? `
+        ${agronomic.yield || agronomic.adaptation || agronomic.field_trials ? `
         <div class="mb-4">
-          <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Agronomic Performance</h4>
+          <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Comprehensive Agronomic Performance</h4>
           <div class="grid grid-cols-1 gap-2">
-            ${agronomic.yield ? `<div class="p-2 bg-white rounded text-sm border"><span class="font-medium">Yield:</span> ${agronomic.yield}</div>` : ''}
-            ${agronomic.adaptation ? `<div class="p-2 bg-white rounded text-sm border"><span class="font-medium">Adaptation:</span> ${agronomic.adaptation}</div>` : ''}
-            ${agronomic.plant_characteristics ? `<div class="p-2 bg-white rounded text-sm border"><span class="font-medium">Plant Characteristics:</span> ${agronomic.plant_characteristics}</div>` : ''}
+            ${agronomic.yield ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Yield Potential:</span> ${agronomic.yield}</div>` : ''}
+            ${agronomic.adaptation ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Adaptation & Ecology:</span> ${agronomic.adaptation}</div>` : ''}
+            ${agronomic.plant_characteristics ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Plant Characteristics:</span> ${agronomic.plant_characteristics}</div>` : ''}
+            ${agronomic.maturity_days ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Maturity Period:</span> ${agronomic.maturity_days}</div>` : ''}
+            ${agronomic.field_trials ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Field Trial Results:</span> ${agronomic.field_trials}</div>` : ''}
+            ${agronomic.stability ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Yield Stability:</span> ${agronomic.stability}</div>` : ''}
+          </div>
+        </div>
+        ` : ''}
+        
+        ${research.full_analysis_result && research.full_analysis_result.breeder_and_contacts ? `
+        <div class="mb-4">
+          <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Breeder & Development Information</h4>
+          <div class="grid grid-cols-1 gap-2">
+            ${research.full_analysis_result.breeder_and_contacts.breeder ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Developed By:</span> ${research.full_analysis_result.breeder_and_contacts.breeder}</div>` : ''}
+            ${research.full_analysis_result.breeder_and_contacts.institution ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Institution:</span> ${research.full_analysis_result.breeder_and_contacts.institution}</div>` : ''}
+            ${research.full_analysis_result.breeder_and_contacts.publications ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Research Publications:</span> ${research.full_analysis_result.breeder_and_contacts.publications}</div>` : ''}
+          </div>
+        </div>
+        ` : ''}
+        
+        ${research.full_analysis_result && research.full_analysis_result.commercial_availability ? `
+        <div class="mb-4">
+          <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Commercial Availability</h4>
+          <div class="grid grid-cols-1 gap-2">
+            ${research.full_analysis_result.commercial_availability.availability_status ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Availability Status:</span> ${research.full_analysis_result.commercial_availability.availability_status}</div>` : ''}
+            ${research.full_analysis_result.commercial_availability.seed_corporations ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">Seed Corporations:</span> ${research.full_analysis_result.commercial_availability.seed_corporations}</div>` : ''}
+            ${research.full_analysis_result.commercial_availability.kvk ? `<div class="p-3 bg-white rounded text-sm border"><span class="font-medium">KVK Availability:</span> ${research.full_analysis_result.commercial_availability.kvk}</div>` : ''}
+          </div>
+        </div>
+        ` : ''}
+        
+        ${research.full_analysis_result && research.full_analysis_result.reference_links && research.full_analysis_result.reference_links.length > 0 ? `
+        <div class="mb-4">
+          <h4 class="font-medium mb-2" style="color: var(--pxd-primary);">Research References & Evidence Sources</h4>
+          <div class="max-h-40 overflow-y-auto bg-gray-50 p-3 rounded border">
+            ${research.full_analysis_result.reference_links.slice(0, 10).map(link => 
+              `<div class="mb-2"><a href="${link}" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 text-xs break-all">${link}</a></div>`
+            ).join('')}
+            ${research.full_analysis_result.reference_links.length > 10 ? `<div class="text-xs text-gray-500 mt-2">And ${research.full_analysis_result.reference_links.length - 10} more references...</div>` : ''}
           </div>
         </div>
         ` : ''}
@@ -604,6 +642,12 @@
       // Show all stress type options
       const stressOptions = byId('stress-type-filter')?.querySelectorAll('option');
       stressOptions?.forEach(option => option.style.display = 'block');
+    }
+    
+    // Close dropdown if open
+    const dropdown = byId('columns-dropdown');
+    if (dropdown) {
+      dropdown.classList.add('hidden');
     }
     
     // Reapply filters (which will show all data)
