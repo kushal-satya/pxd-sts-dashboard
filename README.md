@@ -17,6 +17,8 @@ The [`tables/`](tables/) folder holds the full dataset as CSV files and as one E
 | `tables/` | Download tables |
 | `.github/build/` | Scripts used to build `data/` and `tables/` (not needed to view the site) |
 
+**How the dashboard works, how to change it and how to update its data: [DASHBOARD.md](DASHBOARD.md).**
+
 To view it locally, run `python -m http.server 8000` in this folder and open http://localhost:8000.
 
 ## Notes
