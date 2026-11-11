@@ -1,0 +1,675 @@
+﻿record_id,crop,variety_name,stress,field,quote,stress_confirmation_level
+sugarcane--karan-11,Sugarcane,Karan 11,flood,Seednet: Adaptation and recommended ecology,The variety is highly suitable for rainfed conditions and waterlogged situations and low input situations,Single source
+sugarcane--karan-6,Sugarcane,Karan 6,drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS AND WATER LOGGING,Confirmed by 2+ sources
+sugarcane--karan-6,Sugarcane,Karan 6,flood,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS AND WATER LOGGING,Confirmed by 2+ sources
+barley--narendra-barley-1445,Barley,Narendra Barley 1445,salinity,Seednet: Adaptation and recommended ecology,Well suited to salt affected soil of U,Single source
+chickpea--advika-nc-7,Chickpea,Advika (NC 7),drought,Seednet: Agronomic Features,Most suitable for drought prone environments of CZ,Single source
+chickpea--jg-36,Chickpea,JG 36,heat,Seednet: Reaction to Stress,Tolerant to high temperature,Single source
+castor--k-8501-chandra-prabha,Castor,K-8501 (Chandra Prabha),drought,Seednet: Adaptation and recommended ecology,NORMAL SOWING IN RAINFED SITUATION OF UTTAR PRADESH TOLERANT TO DROUGHT SITUATION,Single source
+cotton--nirmal-12,Cotton,Nirmal-12,drought,Seednet: Reaction to Stress,HIGHLY TOLERANT TO DROUGHT CONDITIONS,Single source
+rice--ksheera,Rice,Ksheera,submergence,Seednet: Reaction to Stress,Tolerant to submergence (Score 5),Single source
+rice--ksheera,Rice,Ksheera,flood,Seednet: Agronomic Features,"Suitable for semi deep water ecosystem, low grain shattering",Single source
+groundnut--dheeraj,Groundnut,Dheeraj,heat,Seednet: Reaction to Stress,"WUE traits- high SCMR, low SLA, high heat tolerance, high RWC, higher chlorophyll stability index, higher root length and least reduction in yield in imposed mid-season stress conditions",Confirmed by 2+ sources
+rice--mrunalini,Rice,Mrunalini,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Confirmed by 2+ sources
+black-gram-urd--ipu-10-26,Black gram (urd),IPU 10-26,drought,Seednet: Reaction to Stress,Tolerant to drought stress conditions,Confirmed by 2+ sources
+black-gram-urd--ipu-13-1,Black gram (urd),IPU 13-1,drought,Seednet: Reaction to Stress,Tolerant to drought stress conditions,Single source
+rice--amara,Rice,Amara,flood,Seednet: Adaptation and recommended ecology,Irrigated ecosystem: suitable for Kharif season in BPH endemic areas and flood tolerant areas of Andhra Pradesh,Single source
+cassava-tapioca--tcms-5-pdp-cmr-1,Cassava (tapioca),TCMS-5/ PDP CMR-1,drought,Seednet: Reaction to Stress,It is drought tolerant variety,Single source
+mesta-kenaf--amv-7,Mesta (kenaf),AMV-7,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Confirmed by 2+ sources
+chilli--lca-625,Chilli,LCA-625,drought,Seednet: Reaction to Stress,Moderately tolerant to drought,Confirmed by 2+ sources
+chilli--lam-353,Chilli,LAM-353,drought,Seednet: Reaction to Stress,Moderately tolerant to drought,Single source
+pearl-millet--nandi-64,Pearl millet,Nandi-64,drought,Seednet: Adaptation and recommended ecology,"Drought tolerant, Resistant to lodging",Single source
+pearl-millet--nandi-65,Pearl millet,Nandi-65,drought,Seednet: Agronomic Features,DROUGHT TOLERANT 6,Single source
+proso-millet--tnau-164,Proso millet,TNAU-164,drought,Seednet: Reaction to Stress,Resistant to drought,Single source
+pearl-millet--hhb-223,Pearl millet,HHB-223,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+cotton--svpr-4,Cotton,SVPR 4,drought,Seednet: Reaction to Stress,TOLERANTES DROUGHT AND HIGH TEMPERATURE PREVAILING IN SUMMER SEASON,Confirmed by 2+ sources
+cotton--svpr-4,Cotton,SVPR 4,heat,Seednet: Reaction to Stress,TOLERANTES DROUGHT AND HIGH TEMPERATURE PREVAILING IN SUMMER SEASON,Confirmed by 2+ sources
+cowpea--hidrudaya,Cowpea,Hidrudaya,drought,Seednet: Agronomic Features,RESPOND TO FERTILIZER APPLICATION TOLERANT TO DROUGHT AND SUITABLE FOR RAISING IN SUMMER RICE FALLOWS OF ONATTUKARA LENGTH OF SEED (MM) : 4,Single source
+black-gram-urd--narmada,Black gram (urd),Narmada,drought,Seednet: Reaction to Stress,Tolerant to drought stress conditions,Single source
+napier-grass--co-bn-5,Napier grass,CO (BN) 5,drought,Seednet: Reaction to Stress,Withsatands sewage irrigation and moderately tolerant to drought,Single source
+wheat--phule-satwik,Wheat,Phule Satwik,drought,Seednet: Agronomic Features,Drought resistance and irrigation responsive Non-shattering (Resistance to shattering),Single source
+cauliflower--kashi-agahani,Cauliflower,Kashi Agahani,heat,Seednet: Reaction to Stress,It can withstand high temperature and high rainfall during its vegetative growth,Single source
+coconut--kera-bastar,Coconut,Kera Bastar,flood,Seednet: Agronomic Features,Tolerance to water logging and cyclonic winds,Single source
+coconut--kerakeralam,Coconut,Kerakeralam,drought,CSC minutes: special_traits,Moderately tolerant to drought,Single source
+coconut--kalpa-samrudhi,Coconut,Kalpa Samrudhi,drought,CSC minutes: special_traits,Reaction to environmental stress: Tolerant to drought,Single source
+coconut--kalpa-sankara-cgd-x-wct-hybrid,Coconut,Kalpa Sankara (CGD x WCT hybrid),drought,Seednet: Reaction to Stress,Tolerance to moisture stress gives better yield under rainfed conditions in farmer’s plots in the root (wilt)disease prevalent tract,Confirmed by 2+ sources
+wheat--pusa-tejas,Wheat,Pusa Tejas,heat,Seednet: Reaction to Stress,HI 8759 showed tolerance to heat stress which is evident from the good performance of the variety under both timely and late sown conditions,Single source
+cowpea--tnfc-0926,Cowpea,TNFC 0926,drought,Seednet: Agronomic Features,It posses moderate tolerance to drought,Single source
+oat--pant-forage-oat-4,Oat,Pant Forage Oat 4,drought,Seednet: Reaction to Stress,Adapted to low moisture conditions and moderately tolerant to other edaphic stresses,Single source
+oat--upo-06-1,Oat,UPO-06-1,drought,Seednet: Reaction to Stress,Tolerant to low moisture conditions and moderately tolerant to other edaphic stresses,Single source
+sorghum--csv-44f,Sorghum,CSV 44F,salinity,Seednet: Reaction to Stress,Salinity tolerant and performs very well upto 8ds/m,Single source
+groundnut--divya,Groundnut,Divya,drought,Seednet: Reaction to Stress,THE VARIETY HAS SHOWN DROUGHT TOLERANCE TO KERNEL WITH LEAST REDUCTION IN YIELD,Single source
+groundnut--jagtiala-palli-1,Groundnut,Jagtiala Palli-1,drought,Seednet: Reaction to Stress,Tolerant to early season drought with high Proline and high relative water content and quick regenerative Capacity,Single source
+groundnut--kadiri-amaravathi-k1535,Groundnut,Kadiri Amaravathi (K1535),drought,Seednet: Adaptation and recommended ecology,Best suited to drought prone rainfed Groundnut growing areas and PSND endemic districts under rainfed conditions,Single source
+groundnut--rars-t-1-groundnut,Groundnut,RARS-T-1 Groundnut,drought,Seednet: Reaction to Stress,TOLERANT TO EARLY SEASON DROUGHT WITH HIGH PROLINE AND HIGH RELATIVE WATER CONTENT AND QUICK REGENERATIVE CAPACITY,Single source
+horse-gram--bilasa-kulthi,Horse gram,Bilasa Kulthi,drought,Seednet: Reaction to Stress,Drought tolerance,Single source
+horse-gram--cridaharsha,Horse gram,Cridaharsha,drought,Seednet: Reaction to Stress,Resistant to drought,Confirmed by 2+ sources
+mustard-rapeseed--rh-0119,Mustard / rapeseed,RH 0119,heat,Seednet: Reaction to Stress,PROPOSED VARIETY RH 0119 (DHR 9701) WAS OBSERVED AS THERMO-TOLERANT AT AICRP CENTERS DURING 1001-02 TO 2002-03,Confirmed by 2+ sources
+mustard-rapeseed--cs-58,Mustard / rapeseed,CS-58,salinity,Seednet: Reaction to Stress,Highly salt tolerant,Confirmed by 2+ sources
+mustard-rapeseed--kesari-5111,Mustard / rapeseed,Kesari 5111,heat,Seednet: Agronomic Features,"Resistant to lodging and responsive to high levels pf nitrogen application, Ideal for early sown conditions due to tolerance to high temperature at seedling stage",Single source
+lentil--kota-masoor-1-iipl-607-1,Lentil,Kota Masoor-1 (IIPL 607-1),drought,Seednet: Reaction to Stress,Tolerant to drought and high temperature,Single source
+lentil--kota-masoor-1-iipl-607-1,Lentil,Kota Masoor-1 (IIPL 607-1),heat,Seednet: Reaction to Stress,Tolerant to drought and high temperature,Single source
+lentil--kota-masoor-3,Lentil,Kota Masoor 3,drought,Seednet: Reaction to Stress,Tolerant to drought and hhigh temperature,Confirmed by 2+ sources
+linseed--mau-azad-alsi-2,Linseed,Mau Azad Alsi-2,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+maize--kmh-25k45,Maize,KMH-25K45,drought,Seednet: Reaction to Stress,Drought tolerance,Single source
+maize--nk-6801,Maize,NK 6801,drought,Seednet: Reaction to Stress,Tolerant to moderate drought,Single source
+maize--kdmh-017,Maize,KDMH-017,drought,Seednet: Reaction to Stress,Tolerant to drought and water logging,Single source
+maize--kdmh-017,Maize,KDMH-017,flood,Seednet: Reaction to Stress,Tolerant to drought and water logging,Single source
+green-gram-mung--jaum0936,Green gram (mung),JAUM0936,drought,Seednet: Reaction to Stress,Drought Tolerant,Single source
+green-gram-mung--mungbean,Green gram (mung),Mungbean,salinity,CSC minutes: special_traits,Sodicity resistance (implied from name),Single source
+mustard-rapeseed--giriraj-ormru-31,Mustard / rapeseed,Giriraj (ORMRU 31),salinity,Seednet: Reaction to Stress,Tolerant to salinity,Single source
+niger--jawahar-niger-selection-28-jns-28,Niger,Jawahar Niger Selection 28 (JNS 28),drought,Seednet: Reaction to Stress,Field tolerance to moisture stress,Single source
+rice--sahbhagi-dhan,Rice,Sahbhagi Dhan,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+pearl-millet--jam-shakti,Pearl millet,Jam Shakti,drought,Seednet: Reaction to Stress,Water stress: Tolerant,Single source
+pearl-millet--jam-shakti,Pearl millet,Jam Shakti,salinity,Seednet: Reaction to Stress,Salt: Tolerant,Single source
+pearl-millet--moti-shakti,Pearl millet,Moti Shakti,drought,Seednet: Reaction to Stress,Water stress: Tolerant,Single source
+pearl-millet--moti-shakti,Pearl millet,Moti Shakti,salinity,Seednet: Reaction to Stress,Salt: Tolerant,Single source
+pearl-millet--nbh-5061,Pearl millet,NBH 5061,drought,Seednet: Agronomic Features,- Resistant to drought,Single source
+pearl-millet--nandi-61,Pearl millet,Nandi-61,drought,Seednet: Agronomic Features,DROUGHT TOLERANT 6,Single source
+pearl-millet--pb-1852,Pearl millet,PB 1852,drought,Seednet: Reaction to Stress,Tolerant to moisture stress,Single source
+pearl-millet--proagro-marutej,Pearl millet,Proagro Marutej,drought,Seednet: Reaction to Stress,"Tolerant to DM and Blast, Tolerant to moisture stress",Single source
+pearl-millet--rhb-154,Pearl millet,RHB-154,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+pearl-millet--rhb-177,Pearl millet,RHB-177,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+pearl-millet--mp-7792,Pearl millet,MP-7792,drought,Seednet: Agronomic Features,DROUGHT TOLERANT,Single source
+pearl-millet--nbh-4903-balwan-mh-2035-ocr-uncertain-printed-as-mh-2o3s,Pearl millet,"NBH 4903 (Balwan) (MH 2035 - OCR_uncertain, printed as 'MH 2o3s')",drought,Seednet: Agronomic Features,"Non lodging, Non shattering, Resistant to drought, Suitable for medium Sown conditions, Seed rate 4-6 kg/ha",Single source
+pigeon-pea--chhattisgarh-arhar-1,Pigeon pea,Chhattisgarh Arhar-1,drought,Seednet: Reaction to Stress,Drought tolerance,Single source
+proso-millet--pmv-442,Proso millet,PMV 442,drought,Seednet: Reaction to Stress,Drought tolerant under field conditions,Single source
+rice--91h97228,Rice,91H97228,drought,Seednet: Reaction to Stress,COMPARED TO CHECK VARIETIES MORE TOLERANT TO INTERMITTENT DROUGHT EFFECT CONDITIONS,Single source
+rice--bapatla-mahsuri,Rice,Bapatla Mahsuri,salinity,Seednet: Reaction to Stress,Tolerant to salinity (score 3),Single source
+rice--bapatla-mahsuri,Rice,Bapatla Mahsuri,flood,Seednet: Reaction to Stress,Tolerant to flash flood conditions for about 7-10 days,Single source
+rice--bapatla-mahsuri,Rice,Bapatla Mahsuri,submergence,Seednet: Reaction to Stress,Tolerant to flash flood conditions for about 7-10 days,Single source
+rice--bheema-dheera,Rice,Bheema/Dheera,flood,Seednet: Reaction to Stress,"Tolerates 10 days flash floods at tillering stage, stagnant flooding up to 30-50cm water depth, submergence during germination for 2 weeks from date of sowing",Single source
+rice--bheema-dheera,Rice,Bheema/Dheera,submergence,Seednet: Reaction to Stress,"Tolerates 10 days flash floods at tillering stage, stagnant flooding up to 30-50cm water depth, submergence during germination for 2 weeks from date of sowing",Single source
+rice--cr-1009-sub-1,Rice,CR 1009 Sub 1,submergence,CSC minutes: special_traits,"'Sub 1' designation (submergence tolerance gene, as implied by nomenclature",Confirmed by 2+ sources
+rice--cr-dhan-408-chakaakhi,Rice,CR Dhan 408 (Chakaakhi),submergence,Seednet: Reaction to Stress,One week tolerance to submergence at vegetative stage,Single source
+rice--chinsurah-nona-1,Rice,Chinsurah Nona-1,salinity,Seednet: Reaction to Stress,The variety is screened in vitro condition through laboratory based technique against salinity at seedling stage in scored 1(resistant) for EC 4 and 3 moderate resistant) for EC and growth and tillering nearly normal like resistant check AT401 at EC B ds/m,Single source
+rice--chinsurah-rice,Rice,Chinsurah Rice,submergence,Seednet: Reaction to Stress,TOLERANCE TO ABIOTIC STRESSES INCLUDING PARTIAL SUBMERGENCE,Single source
+rice--ir-64-sub-1,Rice,IR 64-Sub 1,submergence,Seednet: Reaction to Stress,Highly tolerant to 12-15 days of complete submergence under lowland condition,Single source
+rice--indam-100-012,Rice,Indam 100-012,salinity,Seednet: Reaction to Stress,Moderately tolerance to alkalinity and low level of inland salinity,Single source
+rice--inglongkiri-aaudr-9301-14-1,Rice,Inglongkiri (AAUDR 9301-14-1),drought,Seednet: Reaction to Stress,Drought tolerant,Confirmed by 2+ sources
+rice--kunaram-rice-1,Rice,Kunaram Rice-1,salinity,Seednet: Reaction to Stress,Tolerant to cold salinity stresses in the farmers field as per the farmer’s feedback,Single source
+rice--luna-sampad,Rice,Luna Sampad,salinity,Seednet: Reaction to Stress,TOLERANT TO COASTAL SALINITY (5,Confirmed by 2+ sources
+rice--nandyala-sona-ndlr-7,Rice,Nandyala Sona (NDLR-7),drought,Seednet: Reaction to Stress,Tolerant to water stress and suitable for late sown conditions,Confirmed by 2+ sources
+rice--nellore-sugandha,Rice,Nellore Sugandha,heat,Seednet: Reaction to Stress,The culture NLR 40054 showed moderately tolerance to heat,Single source
+rice--ouat-kalinga-rice-8-suryashree,Rice,OUAT Kalinga Rice 8 (Suryashree),heat,Seednet: Agronomic Features,a) Heat Tolerant,Confirmed by 2+ sources
+rice--pandu-ranga,Rice,Pandu Ranga,salinity,Seednet: Reaction to Stress,Tolerant to salinity,Single source
+rice--rajendranagar-vari-1,Rice,Rajendranagar Vari-1,salinity,Seednet: Reaction to Stress,Tolerant to alkalinity and inland salinity,Confirmed by 2+ sources
+rice--nandyala-sona-dlr-7,Rice,Nandyala Sona (DLR 7),drought,Seednet: Reaction to Stress,Tolerant to water stress and suitable for late sown conditions,Single source
+rice--sava-134,Rice,Sava 134,drought,Seednet: Reaction to Stress,Moderately tolerant to water shortage/ limited moisture strees,Single source
+rice--swarna-sub1,Rice,Swarna-Sub1,flood,Seednet: Reaction to Stress,TOLERANT TO FLASH FLOOD SUBMERGENCE,Confirmed by 2+ sources
+rice--swarna-sub1,Rice,Swarna-Sub1,submergence,Seednet: Reaction to Stress,TOLERANT TO FLASH FLOOD SUBMERGENCE,Confirmed by 2+ sources
+rice--sabour-ardhjal-brr-0007,Rice,Sabour Ardhjal (BRR 0007),drought,Seednet: Agronomic Features,High degree of tolerance to reproductive stage drought,Confirmed by 2+ sources
+rice--samba-sub-1,Rice,Samba Sub-1,submergence,Seednet: Reaction to Stress,Highly tolerant to submergence,Confirmed by 2+ sources
+rice--swarna-shakti-dhan,Rice,Swarna Shakti Dhan,drought,Seednet: Reaction to Stress,Tolerant to drought stress,Confirmed by 2+ sources
+rice--swarna-shusk-dhan,Rice,Swarna Shusk Dhan,drought,Seednet: Agronomic Features,"responsive, highly tolerance to drought and suitable",Confirmed by 2+ sources
+rice--trc-2014-8,Rice,TRC 2014-8,drought,Seednet: Reaction to Stress,Variety is developed from pre breeding lines for drought tolerance,Single source
+rice--us-380,Rice,US 380,drought,Seednet: Reaction to Stress,Tolerantes stress under drought condition,Single source
+rice-bean--him-shakti,Rice bean,Him Shakti,drought,Seednet: Reaction to Stress,"Moderately tolerant to water stress, thus an excellent legume for rainfed conditions and drought prone areas",Single source
+sorghum--csv-24ss,Sorghum,CSV 24SS,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS FOR SHORT PERIOD,Single source
+sorghum--kinnerea,Sorghum,Kinnerea,drought,Seednet: Reaction to Stress,Highly tolerant to drought,Single source
+sorghum--spssv-6,Sorghum,SPSSV 6,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS FOR SHORT PERIOD,Single source
+sorghum--telangana-jonna-1,Sorghum,Telangana Jonna 1,drought,Seednet: Reaction to Stress,The proposed variety is tolerance to terminal moisture stress,Single source
+soybean--nrc-128,Soybean,NRC 128,flood,Seednet: Reaction to Stress,Tolerance to water logging conditions,Confirmed by 2+ sources
+soybean--pant-soybean-23-ps-1523,Soybean,Pant Soybean 23 (PS 1523),drought,Seednet: Reaction to Stress,It is at par with the check varieties in terms of tolerance to drought as well as water logged conditions,Single source
+soybean--pant-soybean-23-ps-1523,Soybean,Pant Soybean 23 (PS 1523),flood,Seednet: Reaction to Stress,It is at par with the check varieties in terms of tolerance to drought as well as water logged conditions,Single source
+soybean--pant-soybean-24-ps-1477,Soybean,Pant Soybean 24 (PS 1477),drought,Seednet: Reaction to Stress,It can tolerate drought situation up to some extent,Single source
+soybean--raj-soya-18-pragya,Soybean,Raj Soya-18 (Pragya),drought,Seednet: Reaction to Stress,Moisture stress tolerant,Single source
+soybean--raj-soya-24,Soybean,Raj Soya-24,drought,Seednet: Reaction to Stress,Moisture stress tolerant at pod filling stage,Single source
+sugarcane--coc25,Sugarcane,CoC25,drought,Seednet: Agronomic Features,Tolerant to water stress condition 7,Single source
+sugarcane--covsi-03102,Sugarcane,CoVSI 03102,drought,Seednet: Reaction to Stress,Tolerant to drought,Confirmed by 2+ sources
+mustard-rapeseed--raj-vijay-toria-1,Mustard / rapeseed,Raj Vijay Toria-1,drought,Seednet: Reaction to Stress,Tolerant to drought conditions,Single source
+wheat--k-1317,Wheat,K-1317,drought,Seednet: Reaction to Stress,It shows strong tolerance against moisture stress,Single source
+wheat--karan-vandana,Wheat,Karan Vandana,heat,Seednet: Reaction to Stress,05 which shows its better tolerance to heat stress,Confirmed by 2+ sources
+wheat--mp-3211,Wheat,MP 3211,drought,Seednet: Reaction to Stress,Tolerance to moisture stress and high temperature as it was continuously tested in AICRP trial for three years at different location under one irrigation,Single source
+wheat--mp-3211,Wheat,MP 3211,heat,Seednet: Reaction to Stress,Tolerance to moisture stress and high temperature as it was continuously tested in AICRP trial for three years at different location under one irrigation,Single source
+wheat--mp-jw-1202,Wheat,MP (JW)1202,heat,Seednet: Reaction to Stress,MP 1202 has shown tolerance to heat stress prevailing in Madhya Pradesh,Confirmed by 2+ sources
+wheat--pusa-mangal,Wheat,Pusa Mangal,heat,Seednet: Reaction to Stress,Tolerant to heat stress,Single source
+wheat--sabour-nirjal,Wheat,Sabour Nirjal,drought,Seednet: Reaction to Stress,Tolerant to water stress condition,Single source
+wheat--sabour-shreshtha,Wheat,Sabour Shreshtha,heat,Seednet: Reaction to Stress,Late heat tolerant,Single source
+rice--mandakini,Rice,Mandakini,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+maize--nsch-12-misthi,Maize,NSCH-12 (Misthi),drought,Seednet: Reaction to Stress,Tolerant to moderate drought,Single source
+finger-millet--co-15,Finger millet,CO 15,drought,Seednet: Reaction to Stress,Tolerant to drought at field level,Single source
+groundnut--dh-257,Groundnut,DH 257,drought,Seednet: Reaction to Stress,The variety has drought tolerance as indicated by less reduction in pod yield at different moisture stress condition over control condition,Confirmed by 2+ sources
+groundnut--dh-256,Groundnut,Dh 256,drought,Seednet: Reaction to Stress,Tolerant to mid season drought stress,Confirmed by 2+ sources
+groundnut--greeshma,Groundnut,Greeshma,drought,Seednet: Reaction to Stress,"TOLERANT TO DROUGHT, HIGH TEMPERATURE AND AFLATOXIN",Confirmed by 2+ sources
+groundnut--greeshma,Groundnut,Greeshma,heat,Seednet: Reaction to Stress,"TOLERANT TO DROUGHT, HIGH TEMPERATURE AND AFLATOXIN",Confirmed by 2+ sources
+groundnut--kadiri-9,Groundnut,Kadiri-9,drought,Seednet: Reaction to Stress,TOLERANT TO EARLY AND LATE SEASON DROUGHT WITH HIGH PROLINE AND HIGH RELATIVE WATER CONTENT AND QUICK REGENERATIVE CAPACITY,Single source
+mustard-rapeseed--rgn-145,Mustard / rapeseed,RGN-145,heat,Seednet: Reaction to Stress,THIS VARIETY HAS A TOLERANCE TO HAVE TO FOR HIGH TEMPERATURES AT MATURITY AND PERFORMS WELL,Confirmed by 2+ sources
+groundnut--rg-425,Groundnut,RG 425,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+groundnut--vri-8,Groundnut,VRI-8,drought,Seednet: Reaction to Stress,Fairy tolerant to moisture stress and lesser susceptible to biotic stress,Single source
+horse-gram--pratap-kulthi-2,Horse gram,Pratap Kulthi-2,drought,Seednet: Reaction to Stress,BEING TOLERANT TO DROUGHT IT MAKES EFFICIENT UYSE OF AVAILABLE SOIL MOISTURE AND THRIVES WELL IN AREAS HAVING SCANTY RAINFALL,Single source
+mustard-rapeseed--cs-15000-1-1-1-4-2,Mustard / rapeseed,CS 15000-1-1-1-4-2,salinity,Seednet: Agronomic Features,Highly responsive to fertilizers and suitable for timely sown in Salt affected soils conditions with a seed rate of 5 kg/ ha,Single source
+mustard-rapeseed--kesri-5111,Mustard / rapeseed,Kesri 5111,heat,Seednet: Agronomic Features,"Resistant to lodging and responsive to high levels pf nitrogen application, Ideal for early sown conditions due to tolerance to high temperature at seedling stage",Single source
+mustard-rapeseed--pusa-mustard-25,Mustard / rapeseed,Pusa Mustard 25,heat,Seednet: Reaction to Stress,"Tolerant to salinity up to 12 dS/m, tolerant to high temperatures at seedling as well as at maturity",Single source
+mustard-rapeseed--pusa-mustard-25,Mustard / rapeseed,Pusa Mustard 25,salinity,Seednet: Reaction to Stress,"Tolerant to salinity up to 12 dS/m, tolerant to high temperatures at seedling as well as at maturity",Single source
+mustard-rapeseed--pusa-mustard-26,Mustard / rapeseed,Pusa Mustard 26,heat,Seednet: Reaction to Stress,POSSESS TERMINAL HEAT TOLERANCE AND ALSO TOLERANT TO HIGH TEMPERATURES TO SOME EXTENT AT SEEDLING STAGE,Confirmed by 2+ sources
+mustard-rapeseed--pant-rai-19,Mustard / rapeseed,Pant Rai-19,heat,Seednet: Reaction to Stress,"TOLERANT TO HIGH TEMPERATURE DURING EARLY STAGES, HENCE SUITABLE FOR SOWING IN SEPTEMBER",Confirmed by 2+ sources
+mustard-rapeseed--pusa-mustard-30,Mustard / rapeseed,Pusa Mustard 30,salinity,Seednet: Reaction to Stress,Tolerates salinity upto 12 dS/m and has lesser reduction in germination (%) and seedling dry weight,Single source
+mustard-rapeseed--pusa-mustard-30,Mustard / rapeseed,Pusa Mustard 30,heat,Seednet: Reaction to Stress,Variety was rated as moderately tolerant to terminal heat stress based on reduction in total dry weight at Hisar and Kanpur,Single source
+lentil--psl-9,Lentil,PSL-9,salinity,Seednet: Reaction to Stress,Tolerant in moderate salt affected soils (ECe~6,Confirmed by 2+ sources
+lucerne--alamdar-51,Lucerne,Alamdar-51,drought,Seednet: Reaction to Stress,Drought resistant due to long root system so suitable in warm condition,Confirmed by 2+ sources
+pearl-millet--nandi-72,Pearl millet,Nandi-72,heat,Seednet: Agronomic Features,Heat tolerant ii,Single source
+maize--jkmh-502,Maize,JKMH-502,drought,Seednet: Reaction to Stress,TOLERANT TO MODERATE DROUGHT,Single source
+maize--jawahar-maize-215,Maize,Jawahar Maize 215,drought,Seednet: Reaction to Stress,Tolerance to stem and root lodging drought and water logging conditions,Single source
+maize--jawahar-maize-215,Maize,Jawahar Maize 215,flood,Seednet: Reaction to Stress,Tolerance to stem and root lodging drought and water logging conditions,Single source
+maize--nmh-731,Maize,NMH 731,drought,Seednet: Reaction to Stress,TOLERANT TO MODERATE DROUGHT,Single source
+maize--nmh-803,Maize,NMH-803,drought,Seednet: Reaction to Stress,TOLERANT TO MODERATE DROUGHT,Confirmed by 2+ sources
+maize--nmh-920,Maize,NMH 920,drought,Seednet: Reaction to Stress,TOLERANT TO MODERATE DROUGHT,Confirmed by 2+ sources
+maize--nmh-713,Maize,NMH 713,drought,Seednet: Reaction to Stress,"Tolerant to moderate drought in Kharif, but irrigation is required in Rabi",Single source
+maize--nmh-4140,Maize,NMH 4140,drought,Seednet: Reaction to Stress,Tolerant to moderate water stress during grain filling stage and withstand delayed irrigations,Single source
+maize--nmh-4144,Maize,NMH 4144,drought,Seednet: Reaction to Stress,Tolerant to moderate water stress during grain filling stage and withstand irrigations,Single source
+maize--pac-740,Maize,PAC 740,drought,Seednet: Reaction to Stress,TOLERANT TO MODERATE DROUGHT,Single source
+pearl-millet--pusa-composite-612,Pearl millet,Pusa Composite-612,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+maize--s-6217,Maize,S 6217,drought,Seednet: Reaction to Stress,Tolerant to moderate drought,Confirmed by 2+ sources
+maize--omh-14-27-kalinga-raj,Maize,OMH 14-27 (Kalinga Raj),drought,Seednet: Reaction to Stress,Tolerant to drought,Single source
+maize--pusa-jawahar-hybrid-maize-1,Maize,Pusa Jawahar Hybrid Maize-1,drought,Seednet: Reaction to Stress,Hybrid appears to be tolerant to drought and water logging at early growth stages,Confirmed by 2+ sources
+maize--pusa-jawahar-hybrid-maize-1,Maize,Pusa Jawahar Hybrid Maize-1,flood,Seednet: Reaction to Stress,Hybrid appears to be tolerant to drought and water logging at early growth stages,Confirmed by 2+ sources
+niger--birsa-niger-3,Niger,Birsa Niger-3,drought,Seednet: Reaction to Stress,Drought Tolerant,Confirmed by 2+ sources
+rice--aau-ttb-dhan-40-dholi,Rice,AAU-TTB- Dhan-40 (Dholi),submergence,Seednet: Agronomic Features,"Non-lodging, non-shattering, responsive to fertilizer, suitable for normal planting and submergence tolerant",Single source
+jute--ankit,Jute,Ankit,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT AND WATER LOGGING,Single source
+jute--ankit,Jute,Ankit,flood,Seednet: Reaction to Stress,TOLERANT TO DROUGHT AND WATER LOGGING,Single source
+pearl-millet--balwan,Pearl millet,Balwan,drought,Seednet: Agronomic Features,"Non lodging, Non shattering, Resistant to drought, Suitable for medium Sown conditions, Seed rate 4-6 kg/ha",Single source
+rice--birsa-vikas-dhan-203,Rice,Birsa Vikas Dhan-203,drought,Seednet: Reaction to Stress,Drought tolerant,Single source
+rice--cr-dhan-414,Rice,CR Dhan 414,salinity,Seednet: Reaction to Stress,"Not susceptible to any major biotic stresses, Tolerant to anaerobic germination stress, osmotic stress, salinity stress",Single source
+rice--cr-dhan-500,Rice,CR Dhan 500,flood,Seednet: Reaction to Stress,TOLERANT TO WATER LOGGING,Single source
+rice--cr-dhan-415-kamesh,Rice,CR Dhan 415 (Kamesh),drought,Seednet: Reaction to Stress,Moderately drought tolerant,Single source
+rice--cr-dhan-410,Rice,CR Dhan 410,submergence,Seednet: Reaction to Stress,Tolerance to submergence for a week,Single source
+rice--cr-dhan-313,Rice,CR Dhan 313,heat,Seednet: Reaction to Stress,Tolerance to high temperature,Single source
+rice--cr-dhan-308,Rice,CR Dhan 308,heat,Seednet: Reaction to Stress,Tolerance to high temperature,Single source
+rice--chhattisgarh-madhuraj-dhan-55,Rice,Chhattisgarh Madhuraj Dhan-55,drought,Seednet: Reaction to Stress,Moderately tolerant to drought stress,Single source
+rice--drrh-3,Rice,DRRH-3,salinity,Seednet: Reaction to Stress,"It has resistance to coastal and inland salinity, phosphorus deficiency and iron toxicity tolerance",Single source
+rice--drr-dhan-52,Rice,DRR Dhan 52,drought,Seednet: Agronomic Features,"Lodging resistance, drought tolerant, heat tolerant suitable for direct seeding, seed rate 25-30 kg/ha",Single source
+rice--drr-dhan-52,Rice,DRR Dhan 52,heat,Seednet: Agronomic Features,"Lodging resistance, drought tolerant, heat tolerant suitable for direct seeding, seed rate 25-30 kg/ha",Single source
+rice--drr-dhan-54,Rice,DRR Dhan 54,drought,Seednet: Agronomic Features,"Lodging resistant, drought tolerant significant response under 150% RDF Nitrogen (180-40-50 kg NPK) suitable for direct for direct seeding, seed rate 25-30 kg/ha",Single source
+rice--cnr-2,Rice,CNR-2,submergence,Seednet: Reaction to Stress,The proposed variety registered tolerance to abiotic stresses particularly submergence which is a common factor for this eco system apart from biotic stresses mentioned earlier,Single source
+rice--narendra-usar-dhan-2008,Rice,Narendra Usar Dhan 2008,salinity,Seednet: Reaction to Stress,Tolerant to coastal salinity,Single source
+rice--narendra-usar-dhan-2008-2,Rice,Narendra Usar Dhan-2008,salinity,Seednet: Reaction to Stress,Tolerant to coastal salinity,Single source
+rice--nlr-40024,Rice,NLR 40024,heat,Seednet: Reaction to Stress,Tolerant to high temperatures and suitable for early kharif season,Single source
+maize--nmh-1242,Maize,NMH-1242,drought,Seednet: Reaction to Stress,Tolerant to moderate drought,Single source
+rice--phalguni,Rice,Phalguni,submergence,Seednet: Reaction to Stress,FIELD TOLERANCE TO SUBMERGENCE,Single source
+rice--rajendra-bhagwati,Rice,Rajendra Bhagwati,drought,Seednet: Reaction to Stress,Drought tolerant at early vegetative crop stage,Confirmed by 2+ sources
+rice--swarna-purvi-dhan-1,Rice,Swarna Purvi Dhan 1,drought,Seednet: Agronomic Features,tolerant to drought and suitable for direct seeded aerobic,Single source
+rice--swarna-purvi-dhan-2,Rice,Swarna Purvi Dhan 2,drought,Seednet: Agronomic Features,tolerant to drought and suitable for transplanting condition,Single source
+maize--sun-vaaman,Maize,Sun Vaaman,drought,Seednet: Reaction to Stress,Tolerant to drought,Single source
+rice--tripura-aush,Rice,Tripura Aush,drought,Seednet: Reaction to Stress,Drought tolerant,Single source
+rice--vl-dhan-157,Rice,VL Dhan 157,drought,Seednet: Reaction to Stress,Tolerant to drought,Single source
+pearl-millet--kbh-108,Pearl millet,KBH 108,drought,Seednet: Reaction to Stress,It is tolerant to stress due to high temperature and drought,Single source
+pearl-millet--kbh-108,Pearl millet,KBH 108,heat,Seednet: Reaction to Stress,It is tolerant to stress due to high temperature and drought,Single source
+pearl-millet--mandor-bajra-composite-2,Pearl millet,Mandor Bajra Composite 2,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+pearl-millet--nutrifced-pac-981,Pearl millet,Nutrifced (PAC-981),drought,Seednet: Reaction to Stress,Tolerant to biotic stress it can tolerate drought,Single source
+pearl-millet--hhb-216,Pearl millet,HHB-216,drought,Seednet: Reaction to Stress,Tolerant to drought,Single source
+pigeon-pea--warangal-kandi-1,Pigeon pea,Warangal Kandi-1,drought,Seednet: Reaction to Stress,Posses the potential to withstand moisture stress for short as per field observation,Single source
+rice--narendra-lalmati,Rice,Narendra Lalmati,drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TO DROUGHT,Single source
+rice--us-303,Rice,US 303,drought,Seednet: Reaction to Stress,Tolerantes stress under drought condition,Single source
+mustard-rapeseed--divya-33,Mustard / rapeseed,Divya 33,heat,Seednet: Reaction to Stress,This variety has a tolerance to high temperature as well as to salinity and performs well due to medium duration An aphid is a major problem for which it has low infestation as compared to prevailing varieties,Single source
+mustard-rapeseed--divya-33,Mustard / rapeseed,Divya 33,salinity,Seednet: Reaction to Stress,This variety has a tolerance to high temperature as well as to salinity and performs well due to medium duration An aphid is a major problem for which it has low infestation as compared to prevailing varieties,Single source
+mustard-rapeseed--rh-0406,Mustard / rapeseed,RH 0406,heat,Seednet: Reaction to Stress,Tolerant to high temperature and salinity at seeding stage,Single source
+mustard-rapeseed--rh-0406,Mustard / rapeseed,RH 0406,salinity,Seednet: Reaction to Stress,Tolerant to high temperature and salinity at seeding stage,Single source
+rice--reeta,Rice,Reeta,submergence,Seednet: Reaction to Stress,ONE WEEK TOLERANCE TO SUBMERGENCE,Single source
+barley--hbl-113,Barley,HBL-113,drought,Seednet: Agronomic Features,"RESISTANT TO LODGING : YES, DROUGHT RESISTANT : YES, RESISTANT TO SHATTERING",Single source
+barley--rd-2552,Barley,RD-2552,salinity,Seednet: Adaptation and recommended ecology,RECOMMENDED FOR CULTIVATION TIMELY SOWN IRRIGATED AND SALINITY/ALKALINITY CONDITION OF PLAIN ZONES,Confirmed by 2+ sources
+barley--narendra-barley-1-ndb-209,Barley,Narendra Barley-1 (NDB-209),salinity,Seednet: Adaptation and recommended ecology,WELL SUITED FOR SALINE ALKALINE SOILS (PH 8,Single source
+barley--narendra-barley-3-ndb-1020,Barley,Narendra Barley-3 (NDB-1020),salinity,Seednet: Adaptation and recommended ecology,WELL SUITED FOR SALINE AND SODIC SOILS(PH 8,Single source
+barley--rd-2660,Barley,RD 2660,drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS CONDITION,Single source
+barley--rd-2668,Barley,RD-2668,drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS CONDITIONS,Single source
+barley--ndb-1173,Barley,NDB-1173,salinity,Seednet: Reaction to Stress,HIGH DEGREE OF TOLERANCE TO SALINITY-ALKALINITY,Single source
+barley--rd-2715,Barley,RD-2715,drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS CONDITION,Single source
+rice--jal-lahri,Rice,JAL Lahri,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT AND GOOD DROUGHT RECOVERY,Single source
+rice--jal-lahri,Rice,JAL Lahri,submergence,Seednet: Agronomic Features,"ADEQUATE LODGING RESISTANCE, NO SHATTERING, GOOD FERTILIZER RESPONSE SUITABLE FOR EARLY AS WELL AS LATE SOWING/TRANSPLANTING PHOTOPERIOD SENSITIVE,10-12 DAYS OF SUBMERGENCE TOLERANCE, RESISTANCE TO WATER LODGING UPTO 100 CM",Single source
+rice--hkr-126,Rice,HKR-126,drought,Seednet: Agronomic Features,TOLERATES WATER STRESS,Single source
+rice--mahamaya-iet-10749,Rice,Mahamaya (IET-10749),drought,Seednet: Reaction to Stress,BOTH THESE TRAITS ENABLE THE NEW VARIETY TO TOLERATE AND EVADE DROUGHT SPEELS IN A BETTER WAY,Single source
+rice--pusa-834,Rice,Pusa-834,salinity,Seednet: Agronomic Features,SOIL SCIENTISTS OF IARI HAVE FOUND IT SUITABLE FOR SODIC SOIL PRONE TO ZINC DEFICIENCY BY VIRTUE OF EARLYNESS AND PHOTO IN SENSITIVE NATURE IT IS SUITABLE FOR BOTH EARLY AND LATE SOWING,Single source
+rice--iet-7564,Rice,IET-7564,drought,Seednet: Reaction to Stress,POSSESS BLAST TOLERANCE AND DROUGHT SUSTENANCE FOR 7-8 D,Single source
+rice--birsa-dhan-105,Rice,Birsa Dhan-105,drought,Seednet: Reaction to Stress,RESISTANT TO DROUGHT AND SUITABLE FOR UPLANDS OF C&S,Single source
+rice--birsa-dhan-107,Rice,Birsa Dhan-107,drought,Seednet: Reaction to Stress,RESISTANT TO DROUGHT,Confirmed by 2+ sources
+rice--birsa-dhan-106,Rice,Birsa Dhan-106,drought,Seednet: Reaction to Stress,RESISTANT TO DROUGHT AND SUITABLE FOR UPLANDS OF C&S,Confirmed by 2+ sources
+rice--jitendra-iet-10526,Rice,Jitendra (IET-10526),submergence,Seednet: Reaction to Stress,TOLERANT TO SUBMERGENCE UPTO 7 DAYS,Single source
+rice--purnendu-iet-10029,Rice,Purnendu (IET-10029),submergence,Seednet: Reaction to Stress,TOLERANT TO SUBMERGENCE - 7-10 DAYS,Single source
+rice--csr-13-iet-10348,Rice,CSR-13 (IET-10348),salinity,Seednet: Adaptation and recommended ecology,"SUITABLE FOR IRRIGATED ALKALINE ,INLAND AND COASTAL SALINE SOILS ACROSS THE ZONE",Confirmed by 2+ sources
+rice--sambha-sub-1-iet-21248,Rice,Sambha Sub-1 (IET 21248),submergence,Seednet: Reaction to Stress,Highly tolerant to submergence,Confirmed by 2+ sources
+rice--ir64-drt-1-iet-22836-rp-5208-ir-87707-445-b-b,Rice,IR64 Drt 1(IET 22836)(RP 5208 - IR-87707-445-B-B,drought,Seednet: Reaction to Stress,Tolerant to drought at vegetative and reproductive stages,Single source
+rice--csr-27-iet-13765-csr-88-ir-6,Rice,"CSR-27 (IET-13765,CSR-88-IR-6)",salinity,Seednet: Adaptation and recommended ecology,"RECOMMENDED FOR ALKALINE(SODIC) SOILS OF UP & HARYANA AND COASTAL SALINE SOILS OF MAHARASHTRA, GUJARAT, KERALA, TN AND WB",Confirmed by 2+ sources
+rice--golak-iet-11898,Rice,Golak (IET-11898),flood,Seednet: Reaction to Stress,TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--golak-iet-11898,Rice,Golak (IET-11898),submergence,Seednet: Reaction to Stress,TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--sunil-iet-11896,Rice,Sunil (IET 11896),drought,Seednet: Reaction to Stress,ABIOTIC : TOLERANT TO DROUGHT AT EARLY VEGETATIVE AND TOLERANT TO SUBMERGENCE AT DIFFERENT GROWTH STAGES,Single source
+rice--sunil-iet-11896,Rice,Sunil (IET 11896),submergence,Seednet: Reaction to Stress,ABIOTIC : TOLERANT TO DROUGHT AT EARLY VEGETATIVE AND TOLERANT TO SUBMERGENCE AT DIFFERENT GROWTH STAGES,Single source
+rice--sudhir-iet-10543,Rice,Sudhir (IET-10543),flood,Seednet: Reaction to Stress,TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--sudhir-iet-10543,Rice,Sudhir (IET-10543),submergence,Seednet: Reaction to Stress,TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--neeraja-iet-11865,Rice,Neeraja (IET-11865),submergence,Seednet: Reaction to Stress,"TOLERANT TO SUBMERGENCE, MODERATE ELONGATION AND KNEEING ABILITY",Single source
+rice--bhagirathi-iet-11272,Rice,Bhagirathi (IET-11272),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE STAGE AND ALSO TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--bhagirathi-iet-11272,Rice,Bhagirathi (IET-11272),flood,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE STAGE AND ALSO TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--bhagirathi-iet-11272,Rice,Bhagirathi (IET-11272),submergence,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE STAGE AND ALSO TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--narendra-usar-3,Rice,Narendra Usar-3,salinity,Seednet: Agronomic Features,"LODGING RESISTANT ,TOLERANT TO SHATTERING, EASY THRESHABILITY SUITABLE FOR TIMELY PLANTING, RESPONSIVE TO FERTILIZER, SUITABLE FOR MULTIPLE CROPPING SYSTEM AND FOR USAR SOIL",Single source
+rice--try-1,Rice,TRY 1,salinity,Seednet: Adaptation and recommended ecology,SUITABLE FOR GROWING IN SALT AFFECTED LOW LANDS OF TAMILNADU WITH PH UPTO 10,Single source
+rice--anjali-iet-16430-rr-347-166,Rice,"Anjali (IET-16430, RR-347-166)",drought,Seednet: Reaction to Stress,"DROUGHT REACTION : TOLERANT, BROWN SPOT REACTION : R, LEAF BLAST REACTION : MR, SHEATH ROT : MR,LEAF FOLDER REACTION : MR, WBPH REACTION : MR, STEM BORER REACTION : MR,GALLMIDGE BIOTYPE 1 MR, GALLMIDGE BIOTYPE 5 R",Single source
+rice--hybrid-lndam-200-022-lndam-200-022-iet-20710,Rice,Hybrid lndam 200-022 (lndam 200-022) (IET 20710),drought,Seednet: Reaction to Stress,Tolerant to Moisture Stress,Single source
+rice--iet-20329-csr-2k-242-csr-49,Rice,IET 20329 (CSR 2K 242) CSR 49,salinity,Seednet: Reaction to Stress,Tolerant to Alkali and some major pest and diseases,Single source
+rice--iet-23206-csr-12-b-23-csr-52,Rice,IET 23206 (CSR 12 B 23) CSR-52,salinity,Seednet: Reaction to Stress,Tolerant to Alkali/sodic stress and moderately resistance to some major pest and diseases,Single source
+rice--rajdeep-cn-1039-9,Rice,Rajdeep CN 1039-9,flood,Seednet: Reaction to Stress,The entry can tolerate stagnant flooding (40-70 cm),Single source
+rice--swarna-smriddhi-dhan-iet-24306,Rice,Swarna Smriddhi Dhan (IET 24306),drought,Seednet: Reaction to Stress,Tolerant to drought (reproductive stage) and submergence (vegetative stage),Confirmed by 2+ sources
+rice--swarna-smriddhi-dhan-iet-24306,Rice,Swarna Smriddhi Dhan (IET 24306),submergence,Seednet: Reaction to Stress,Tolerant to drought (reproductive stage) and submergence (vegetative stage),Confirmed by 2+ sources
+rice--janki,Rice,Janki,flood,Seednet: Adaptation and recommended ecology,THOUGH THE VARIETY HAS NOT BEEN TESTED UNDER AICRIP BUT STILL RECOMMENDED FOR NOTIFICATION BECAUSE THE TRIALS FOR DEEP WATER PADDY HAVE BEEN RECENTLY STARTED UNDER AIC RIP-,Single source
+rice--usar-1,Rice,Usar-1,salinity,Seednet: Adaptation and recommended ecology,RECOMMENDED FOR SALINE-ALKALINE AREAS,Single source
+rice--bhuvan-iet-7804,Rice,Bhuvan (IET-7804),drought,Seednet: Agronomic Features,DROUGHT - MODERATELY RESISTANT,Single source
+rice--ananga-iet-7433,Rice,Ananga (IET-7433),drought,Seednet: Agronomic Features,DROUGHT - MODERATELY RESISTANT,Single source
+rice--lalat-iet-9947,Rice,Lalat (IET-9947),drought,Seednet: Agronomic Features,DROUGHT - MODERATELY TOLERANT,Single source
+rice--heera-iet-10973,Rice,Heera (IET-10973),drought,Seednet: Adaptation and recommended ecology,"RECOMMENDED FOR RELEASE AND CULTIVATION IN THE DROUGHT PRONE/RAINFED UPLANDS AS A DIRECT SEEDED RROP IN ALL STATES AND PARTICULARLY FOR ORISSA, MADHYAPRADESH, BIHAR, WEST BENGAL, UTTAR PRADESH, ANDHRA PRADESH AND KARNATKA",Single source
+rice--amulya-iet-8989,Rice,Amulya (IET-8989),flood,Seednet: Reaction to Stress,CAN WITHSTAND WATER STAGNATION,Single source
+rice--amulya-iet-8989,Rice,Amulya (IET-8989),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE PHASE,Single source
+rice--nalini-iet-8987,Rice,Nalini (IET-8987),flood,Seednet: Reaction to Stress,CAN WITHSTAND WATER STAGNATION,Single source
+rice--nalini-iet-8987,Rice,Nalini (IET-8987),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE PHASE,Single source
+rice--sudha-tca-72-iet-8977,Rice,Sudha (TCA-72) (IET-8977),flood,Seednet: Adaptation and recommended ecology,SUITABLE FOR SHALLOW DEEP WATER CONDITION (100 CM WATER DEPTH) UNDER DIRECT SEEDED CONDITION,Single source
+rice--shaktiman-iet-7316,Rice,Shaktiman (IET-7316),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+rice--panvel-2,Rice,Panvel-2,salinity,Seednet: Adaptation and recommended ecology,SUITABLE FOR COASTAL SALINE SOIL OF KONKAN REGION,Single source
+rice--cst-7-1-iet-9341,Rice,CST-7-1 (IET-9341),salinity,Seednet: Adaptation and recommended ecology,"RECOMMENDED FOR RELEASE ADN CULTIVATION IN THE COASTAL SALINE SOILS OF ANDHRA PRADESH, ORISSA AND WEST BENGAL",Single source
+rice--lunisree,Rice,Lunisree,salinity,Seednet: Adaptation and recommended ecology,RECOMMENDED FOR RELEASE AND CULTIVATION TO THE COASTAL SALINE AREAS OF ORISSA WHERE SALINITY AND WATERLOGGING PROBLEMS CO- EXISTS,Single source
+rice--nlr-145,Rice,NLR-145,drought,Seednet: Agronomic Features,WITHSTANDS MOISTURE STRESS AT VEGETATIVE STAGE,Single source
+rice--narendra-8002-iet-15848,Rice,Narendra-8002 (IET-15848),submergence,Seednet: Reaction to Stress,"MODERATE SUBMERGENCE TOLERANCE (4-5 DAYS) AND IS ALSO TOLERANT TO STAGNATION OFF WATER, TESTED UNDER SHUTTLE BREEDING PROGRAMME AND ON FARM IN RAINFED LOW LAND ECOLOGY (WATER DEPTH (30-50 CM)",Single source
+rice--dhanrasi-iet-15358,Rice,Dhanrasi (IET 15358),flood,Seednet: Reaction to Stress,Tolerant to water logged condition,Single source
+rice--upahar-or-1234-12-1-iet-17318,Rice,Upahar(OR 1234-12-1) (IET 17318),flood,Seednet: Adaptation and recommended ecology,RECOMMENDED FOR SHALLOW AND SEMI-DEEP WATER LOWLANDS,Single source
+rice--shusk-samrat-ndr-1045-2-iet-17458,Rice,Shusk Samrat (NDR 1045-2) (IET-17458),drought,Seednet: Reaction to Stress,Moderately drought tolerant,Confirmed by 2+ sources
+rice--ajay-crhr-7-iet-18166,Rice,Ajay (CRHR-7) (IET-18166),flood,Seednet: Reaction to Stress,"THE HYBRID CAN TOLERATE EXCESS STAGNANT WATER FOR 10-15 DAYS, AT VEGETATIVE STAGE",Confirmed by 2+ sources
+rice--barani-deep-ndr-1025-2-iet-13194,Rice,Barani Deep (NDR 1025-2) (IET-13194),drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TO DROUGHT,Single source
+rice--tunga-iet-13901,Rice,Tunga (IET-13901),submergence,Seednet: Agronomic Features,TOLERANT TO TEMPORARY WATER SUBMERGENCE,Single source
+rice--ketekijoha-iet-18669,Rice,Ketekijoha (IET 18669),submergence,Seednet: Reaction to Stress,TOLERATES SUBMERGENCE,Single source
+rice--virender-iet-17901-rr-347-2,Rice,Virender (IET-17901) (RR 347-2),drought,Seednet: Reaction to Stress,this variety is tolerant to drought conditions,Confirmed by 2+ sources
+rice--bhutnath-csrc-s-5-2-2-5-iet-12855-11354,Rice,Bhutnath (CSRC(S) 5-2-2-5 (IET 12855/11354),salinity,Seednet: Reaction to Stress,Salt tolerance (Ecc): 6,Single source
+rice--bhutnath-csrc-s-5-2-2-5-iet-12855-11354,Rice,Bhutnath (CSRC(S) 5-2-2-5 (IET 12855/11354),flood,Seednet: Reaction to Stress,most suited to shallow water but can tolerate semi-deep water 30-45 cm also,Single source
+rice--csr-23-csr-89ir-5-iet-13769,Rice,CSR-23 (CSR-89IR-5)(IET-13769),salinity,Seednet: Adaptation and recommended ecology,"RECOMMENDED FOR RELEASE AND CULTIVATION FOR ALKALINE SOIL OF UP, HARYANA, GUJARAT, KERALA, TAMILNADU AND WEST BENGAL",Confirmed by 2+ sources
+rice--csrc-s-2-1-7-iet-13428,Rice,CSRC (S) 2-1-7 (IET-13428),salinity,Seednet: Reaction to Stress,SALT TOLERANCE AND ALSO TOLERANT TEMPORARY WATER LOGGING,Single source
+rice--csrc-s-2-1-7-iet-13428,Rice,CSRC (S) 2-1-7 (IET-13428),flood,Seednet: Reaction to Stress,SALT TOLERANCE AND ALSO TOLERANT TEMPORARY WATER LOGGING,Single source
+rice--pmk-r-3,Rice,PMK (R)-3,drought,Seednet: Reaction to Stress,HIGHLY TOLERANT TO DROUGHT UNDER FIELD CONDITION,Single source
+rice--vtl-6,Rice,VTL-6,salinity,Seednet: Reaction to Stress,TOLERANT TO SALINITY (8-10 DS/M) ACIDITY AND WATER STAGNATION,Single source
+rice--vtl-6,Rice,VTL-6,flood,Seednet: Reaction to Stress,TOLERANT TO SALINITY (8-10 DS/M) ACIDITY AND WATER STAGNATION,Single source
+rice--hpr-1156-iet-16007,Rice,HPR-1156 (IET-16007),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+rice--jarava-iet-15420,Rice,Jarava (IET-15420),salinity,Seednet: Reaction to Stress,"TOLERANT TO HIGH LEVEL OF SALINITY, PHOSPHORUS AND ZINC DEFICIENCY AND IRON AND ALUMINUM TOXICITY",Confirmed by 2+ sources
+rice--arize-tej-hri-169-iet-21411,Rice,Arize Tej (HRI 169) (IET 21411),drought,Seednet: Reaction to Stress,TOLERANT TO INTERMITTENT DROUGHT,Single source
+rice--pnph-24-iet-21406,Rice,PNPH 24 (IET 21406),drought,Seednet: Reaction to Stress,THE HYBRID HAS TOLERANCE TO DROUGHT,Single source
+rice--jaldbi-iet-17153,Rice,Jaldbi (IET-17153),flood,Seednet: Adaptation and recommended ecology,RECOMMENDED FOR DIRECT SEEDING IN RAINFED SHALLOW & SEMI-DEEP WATER ECOSYSTEM PREVALENT ESPECIALLY IN SURGUJA KORIA AND ADJOINING DISTRICTS OF C,Single source
+rice--rmd-r-1,Rice,RMD (R) 1,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+rice--csr-36-naina-iet-17340,Rice,CSR-36 (Naina) (IET-17340),salinity,Seednet: Reaction to Stress,"IT HAS HIGH-LEVEL TOLERANCE TO ALKALINITY, MODERATELY TOLERANCE TO ZN DEFICIENCY",Single source
+rice--csr-36-naina-iet-17340,Rice,CSR-36 (Naina) (IET-17340),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS FOR SHORT PERIOD,Single source
+rice--lunasuwarna-iet-18697,Rice,Lunasuwarna (IET 18697),salinity,Seednet: Reaction to Stress,TOLERANT TO SALINITY (5,Single source
+rice--tejaswani-or-1912-22,Rice,Tejaswani (OR 1912-22),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+rice--cr-dhan-40-iet-19253,Rice,CR Dhan 40 (IET 19253),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+rice--gontra-bidhan-1-iet-17430,Rice,Gontra Bidhan-1 (IET 17430),drought,Seednet: Reaction to Stress,CAN WITHSTAND INITIAL MOISTURE STRESS,Single source
+rice--jaldi-dhan-6-iet-14359,Rice,Jaldi Dhan-6 (IET 14359),drought,Seednet: Adaptation and recommended ecology,"RECOMMENDED FOR DROUGHT-PRONE RAINFED UPLAND AREAS, CONTINGENCY CROPS AFTER NATURAL CALAMITY, PRE/POST FLOOR CROP IN FLOOD-PRONE AREAS OF ORISSA STATE",Single source
+rice--nua-kalajeera-iet-18393,Rice,Nua Kalajeera (IET 18393),submergence,Seednet: Reaction to Stress,FIELD TOLERANCE TO SUBMERGENCE,Single source
+rice--phule-samrudhi,Rice,Phule Samrudhi,submergence,Seednet: Reaction to Stress,FIELD TOLERANCE TO SUBMERGENCE,Single source
+rice--dehangi-aaudr-9313-14-3-iet-18243-ic-574471,Rice,Dehangi (AAUDR 9313-14-3) IET 18243 IC-574471,submergence,Seednet: Reaction to Stress,FIELD TOLERANCE TO SUBMERGENCE,Single source
+rice--cr-dhan-10-iet-18312,Rice,CR Dhan-10 (IET 18312),submergence,Seednet: Reaction to Stress,FIELD TOLERANCE TO SUBMERGENCE,Single source
+rice--cr-dhan-70-iet-11904,Rice,CR Dhan-70 (IET-11904),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE STAGE AND ALSO TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--cr-dhan-70-iet-11904,Rice,CR Dhan-70 (IET-11904),flood,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE STAGE AND ALSO TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--cr-dhan-70-iet-11904,Rice,CR Dhan-70 (IET-11904),submergence,Seednet: Reaction to Stress,DROUGHT TOLERANT AT EARLY VEGETATIVE STAGE AND ALSO TOLERANT TO SUBMERGENCE AND WATER LOGGING,Single source
+rice--cr-sugandh-dhan-3-iet-18395,Rice,CR sugandh Dhan-3 (IET 18395),flood,Seednet: Reaction to Stress,TOLERATES FLOODING FOR SHORT PERIOD (3-4 DAYS),Single source
+rice--manaswini-iet-19005,Rice,Manaswini (IET 19005),flood,Seednet: Reaction to Stress,TOLERATES FLOODING FOR SHORT PERIOD(3-4 DAYS),Single source
+rice--amal-mana-iet-14199-18250,Rice,Amal-Mana (IET-14199/18250),salinity,Seednet: Reaction to Stress,Salt tolerant (6,Confirmed by 2+ sources
+rice--amal-mana-iet-14199-18250,Rice,Amal-Mana (IET-14199/18250),flood,Seednet: Adaptation and recommended ecology,Recommended for costal saline areas with shallow to semi-deep water situation,Confirmed by 2+ sources
+rice--narendra-mayank-ndr-9830144-iet-18055,Rice,Narendra Mayank (NDR-9830144)(IET-18055),flood,Seednet: Reaction to Stress,Good submergence tolerance and rapid post flood recovery growth,Confirmed by 2+ sources
+rice--narendra-mayank-ndr-9830144-iet-18055,Rice,Narendra Mayank (NDR-9830144)(IET-18055),submergence,Seednet: Reaction to Stress,Good submergence tolerance and rapid post flood recovery growth,Confirmed by 2+ sources
+rice--narendra-jal-pushp-ndr-9830135-iet-17972,Rice,Narendra Jal Pushp (NDR-9830135)(IET-17972),flood,Seednet: Reaction to Stress,7% and also tolerant to water stagnation (30-35 cm) for longer duration,Confirmed by 2+ sources
+rice--narendra-dhan-ndr-9830132,Rice,Narendra Dhan (NDR-9830132),drought,Seednet: Reaction to Stress,Moderate tolerance to 10-12 days of complete submergence and is also tolerant to drought under rainfed consitions,Single source
+rice--narendra-dhan-ndr-9830132,Rice,Narendra Dhan (NDR-9830132),submergence,Seednet: Reaction to Stress,Moderate tolerance to 10-12 days of complete submergence and is also tolerant to drought under rainfed consitions,Single source
+wheat--up-2338,Wheat,UP-2338,heat,Seednet: Reaction to Stress,LATE HEAT TOLERANCE,Single source
+wheat--k-9107,Wheat,K-9107,heat,Seednet: Reaction to Stress,TOLERANT TO HEAT,Single source
+wheat--k-8962,Wheat,K-8962,heat,Seednet: Reaction to Stress,TOLERANT TO HEAT AT THE TIME FO GERMINATION DEVELOPMENT AND FILLING OF THE GRAIN,Single source
+wheat--kaushambi-hw-2045,Wheat,Kaushambi (HW-2045),heat,Seednet: Reaction to Stress,"IT POSSESSES A HIGH DEGREE OF BIOTIC STRESSES ONE OF THE PARENTS INVLOVED IN THE PEDIGREE OF HW 2045 IS A PROVEN THERMO TOLERANT GENOTYPE CULTIVATED UNDER TIMELY, LATE AND VERY LATE SOWN CONDITIONS",Single source
+wheat--gw-322,Wheat,GW-322,drought,Seednet: Reaction to Stress,"GW 322 HAVE GIVEN HIGHEST YIELD UNDER LATE SOWING AS WELL AS WITH ONE, TWO ANE THREE IRRIGATIONS INDICATING ITS TOLERANCE TO TERMINAL HEAT AND DROUGHT RESPECTIVELY",Single source
+wheat--gw-322,Wheat,GW-322,heat,Seednet: Reaction to Stress,"GW 322 HAVE GIVEN HIGHEST YIELD UNDER LATE SOWING AS WELL AS WITH ONE, TWO ANE THREE IRRIGATIONS INDICATING ITS TOLERANCE TO TERMINAL HEAT AND DROUGHT RESPECTIVELY",Single source
+wheat--pbw-34,Wheat,PBW-34,drought,Seednet: Agronomic Features,"IT IS RESISTANT TO LODGING, DROUGHT, FROST AND SHATTERING",Single source
+wheat--pragati-dwr-39,Wheat,Pragati (DWR-39),drought,Seednet: Agronomic Features,"RESISTANT TO LODGING DROUGHT, FROST AND SHATTERING FERTILIZER RESPONSIVENESS SUITABLE TO LATE SOWN OR EARLY SOWN CONDITIONS, SEED RATE ETC",Single source
+wheat--kundan-dl-153-2,Wheat,Kundan (DL-153-2),drought,Seednet: Agronomic Features,"VARIETY IS HIGHLY RESISTANT TO LODGING, GOOD DROUGHT RESISTANT AND ALSO NON-SHATTERING TYPE",Single source
+wheat--hw-741,Wheat,HW-741,drought,Seednet: Agronomic Features,"RESISTANT TO LODGING, DROUGHT, FROST & SHATTERING",Single source
+wheat--hp-1493,Wheat,HP-1493,drought,Seednet: Reaction to Stress,SUITED TO DROUGHT STRESS CONDITION,Single source
+wheat--krl-1-4,Wheat,KRL-1-4,salinity,Seednet: Adaptation and recommended ecology,RECOMMENDED FOR RELEASE FOR CULTIVATION IN SALT EFFECTED SOILS OF NORTH WEST PLAIN ZONE AND NORTH PLAIN ZONE,Confirmed by 2+ sources
+wheat--amrita-hi-1500,Wheat,Amrita (HI 1500),drought,Seednet: Reaction to Stress,High resistance to drought and frost,Single source
+wheat--shatabdi-k-0307,Wheat,Shatabdi (K-0307),heat,Seednet: Reaction to Stress,Tolerant to heat & abiotic stresses,Single source
+wheat--pusa-wheat-107-hd-2888,Wheat,Pusa Wheat-107 (HD-2888),drought,Seednet: Reaction to Stress,GOOD DEGREE OF TOLERANCE TO MOISTURE STRESS,Confirmed by 2+ sources
+wheat--dbw-14,Wheat,DBW-14,heat,Seednet: Reaction to Stress,DBW 14 has shown tolerance to late heat stress prevailing in the Northeastern india,Confirmed by 2+ sources
+wheat--pusa-wheat-105-hd-2833,Wheat,Pusa Wheat-105 (HD-2833),heat,Seednet: Reaction to Stress,IT POSSESSES HIGH DEGREE OF RESISTANCE TO BIOTIC STRESSES AND MODERATE DEGREE OF TOLERANCE TO LATE HEAT STRESS,Single source
+wheat--harshita-hi-1531,Wheat,Harshita (HI-1531),drought,Seednet: Reaction to Stress,High resistance to drought and frost,Single source
+wheat--hi8627-malav-kirti,Wheat,HI8627 (Malav Kirti),drought,Seednet: Reaction to Stress,THERMO-INSENSITIVE HAVING HIGH RESISTANCE TO DROUGHT,Single source
+wheat--mp-4010,Wheat,MP-4010,heat,Seednet: Reaction to Stress,"MP- 4010 HAS GIVEN HIGHEST YIELD UNDER LATE PLANTING ACCOMPANIED BY NON- SIGNIFICANT YIELD REDUCTION UNDER VERY LAT PLANTING ,INDICATING ITS TOLERANCE TO TERMINAL HEAT",Single source
+wheat--urja-hp-2664,Wheat,Urja (HP-2664),heat,Seednet: Reaction to Stress,HD 2864 HAS SHOWN TOLERANCE TO HEAT STRESS,Single source
+wheat--shalimar-wheat-1-skw-196,Wheat,Shalimar Wheat-1 (SKW-196),heat,Seednet: Reaction to Stress,"TOLERANT TO INTERMITTENT STRESSES OF HIGH TEMPERATURE, INTENSE SOLAR RADIATION AND MOISTURE COMMONLY ENCOUNTERED IN TEMPERATE ZONE",Single source
+wheat--pusa-wheat-111-hd-2932,Wheat,Pusa Wheat-111(HD-2932),heat,Seednet: Reaction to Stress,TOLERANCE TO HEAT STRESS,Single source
+wheat--poshan-hi8663,Wheat,Poshan(HI8663),drought,Seednet: Reaction to Stress,GOOD RESISTANCE TO DROUGHT AND HEAT,Single source
+wheat--poshan-hi8663,Wheat,Poshan(HI8663),heat,Seednet: Reaction to Stress,GOOD RESISTANCE TO DROUGHT AND HEAT,Single source
+wheat--purna-hi-1544,Wheat,Purna(HI-1544),drought,Seednet: Reaction to Stress,THERMO-INSENSITIVE HAVING HIGH RESISTANCE TO DROUGHT,Confirmed by 2+ sources
+wheat--mp-1203,Wheat,MP-1203,heat,Seednet: Reaction to Stress,MP 1203 has shown tolerance to heat stress,Single source
+wheat--pbw-590,Wheat,PBW-590,heat,Seednet: Agronomic Features,Suitable for late sown conditions indicating more flexibility for sowing time as well as tolerance to terminal heat stress,Single source
+wheat--mpo-jw-1215-mpo-1215,Wheat,MPO(JW) 1215 (MPO 1215),heat,Seednet: Reaction to Stress,MPO 1215 has shown tolerance to heat stress prevailing in the Central zone,Single source
+wheat--dbw-39,Wheat,DBW 39,heat,Seednet: Reaction to Stress,DBW 39 has shown high yielding potential under late sown condition that reflects its better terminal heat resistance,Single source
+wheat--pusa-gautami-hd-3086-2,Wheat,Pusa Gautami (HD) 3086 ),heat,Seednet: Reaction to Stress,Variety has shown tolerance to terminal heat stress,Single source
+barnyard-millet--vl-madira-207,Barnyard millet,VL Madira 207,drought,Seednet: Reaction to Stress,"ALL THE YIELD EVALUATION TRIALS WERE CONDUCTED UNDER RAINFED CONDITIONS, THEREFORE, VL MADIRA 207 IS HIGHLY SUITED FOR STRESS CONDITION WHERE DROUGHT IS A COMMON PHENOMENON",Single source
+barnyard-millet--co-kv-2,Barnyard millet,CO(KV)2,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT UNDER FIELD CONDITIONS AND ESCAPES DROUGHT DUE TO EARLINESS,Single source
+proso-millet--tnau-151,Proso millet,TNAU-151,drought,Seednet: Reaction to Stress,RESISTANT TO DROUGHT,Single source
+proso-millet--tnau-145,Proso millet,TNAU-145,drought,Seednet: Reaction to Stress,Resistant to drought,Single source
+finger-millet--chilika-oeb-10,Finger millet,Chilika (OEB-10),drought,Seednet: Reaction to Stress,CAN TOLERATE DROUGHT SPELL OF 10-15 DAYS,Single source
+finger-millet--ratnagiri-pr-1044,Finger millet,Ratnagiri (PR-1044),drought,Seednet: Agronomic Features,"RESPONDS TO FERTILIZERS, DROUGHT TOLERANT, UNIFORM MATURITY",Single source
+finger-millet--try-1,Finger millet,TRY-1,salinity,Seednet: Adaptation and recommended ecology,TOLERANT TO SODIC SOILS WITH A PH/RANGE OF 8,Confirmed by 2+ sources
+foxtail-millet--gavari-sr-11,Foxtail millet,Gavari (SR-11),drought,Seednet: Reaction to Stress,"BI\EING TOLERANT TO DROUGHT, IT MAKES EFFICIENT USE OF AVAILABLE SOIL MOISTURE AND THRIVES WELL IN AREAS HAVING SCANTY RAINFALL",Single source
+foxtail-millet--atl-1-tnsi-331,Foxtail millet,ATL 1 (TNSi 331),drought,Seednet: Reaction to Stress,Tolerant to drought,Confirmed by 2+ sources
+kodo-millet--jawahar-kodo-155-rbk-155,Kodo millet,Jawahar Kodo-155 (RBK-155),drought,Seednet: Reaction to Stress,RESISTANT TO DROUGHT,Single source
+kodo-millet--jawahar-kodo-48-dps-48,Kodo millet,Jawahar Kodo-48 (DPS-48),drought,Seednet: Reaction to Stress,IT POSSESSES ABILITY TO TOLERATE THE DROUGHT BEING EARLY IN MATURITY,Confirmed by 2+ sources
+kodo-millet--jawahar-kodo-41,Kodo millet,Jawahar Kodo-41,drought,Seednet: Agronomic Features,DROUGHT-MODERATELY RESISTANT,Single source
+kodo-millet--jawahar-kodo-62,Kodo millet,Jawahar Kodo-62,drought,Seednet: Agronomic Features,DROUGHT-RESISTANCE,Single source
+kodo-millet--psc-1,Kodo millet,PSC-1,drought,Seednet: Agronomic Features,DROUGHT-MODERATELY RESISTANT,Single source
+kodo-millet--jawahar-kodo-76,Kodo millet,Jawahar Kodo-76,drought,Seednet: Adaptation and recommended ecology,NO LODGING AND SHATTERING RESPONSIVE TO FERTILIZER TOLERANT TO DROUGHT CONDITION SUITABLE TO HILLY AND SLOPY AREAS HAVING LOW MOISTURE RETENTIVE CAPACITY,Confirmed by 2+ sources
+kodo-millet--jawahar-kodo-13-jk-13,Kodo millet,Jawahar Kodo 13 (JK-13),drought,Seednet: Reaction to Stress,Resistant to drought,Single source
+kodo-millet--jawarhar-kodo-439,Kodo millet,Jawarhar Kodo 439,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+maize--ssm-510,Maize,SSM-510,drought,Seednet: Agronomic Features,DROUGHT : FAIRLY TOLERANT,Single source
+maize--kh-528,Maize,KH-528,drought,Seednet: Agronomic Features,RESISTANCE TO LODGING - YES DROUGHT - FAIRLY TOLERANT SHATTERING - N,Single source
+maize--dhm-109-eh-40097,Maize,DHM-109 (EH-40097),drought,Seednet: Reaction to Stress,CAN TOLERATE DROUGHT SPELL OF 15-25 DAYS IN VEGETATIVE STAGE AND 10-15 DAYS IN REPRODUCTIVE STAGE,Single source
+maize--kh-598,Maize,KH-598,drought,Seednet: Agronomic Features,"RESISTANCE TO LODGING : YES, DROUGHT : FAIRLY TOLERANT",Single source
+maize--dhm-105-eh-40184,Maize,DHM-105 (EH-40184),drought,Seednet: Reaction to Stress,MODERATELY TOLERANT TO WATER STRESS,Single source
+maize--madhuri-sweet-corn,Maize,Madhuri (Sweet Corn),drought,Seednet: Reaction to Stress,MODERATELY TOLERANT TO WATER STRESS,Single source
+maize--varun-synthetic-b-41,Maize,Varun (Synthetic B-41),drought,Seednet: Reaction to Stress,MODERATELY TOLERANT TO WATERSTRESS,Single source
+maize--eh-40127-dmh-107,Maize,EH-40127 (DMH-107),drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS,Single source
+maize--pusa-early-hybrid-makka-1-eh-202892,Maize,Pusa Early Hybrid Makka-1(EH-202892),flood,Seednet: Reaction to Stress,RESISTANT TO TEMPORAL WATER LOGGING SITUATIONS,Single source
+maize--pusa-early-hybrid-makka-2-eh-203492,Maize,Pusa Early Hybrid Makka-2 (EH-203492),drought,Seednet: Reaction to Stress,RESISTANT TO MOISTURE STRESS,Single source
+maize--jh-3459,Maize,JH-3459,drought,Seednet: Reaction to Stress,"THE HYBRID HAS GOT RESISTANCE TO ABIOTIC STRESSES IN GENERAL AND DROUGHT STRESS TOLERANCE IN PARTICULAR, RESULTING IN SUPERIOR PERFORMANCE UNDER RAINFED CONDITION",Single source
+maize--pusa-early-hybrid-makka-3-ah-58,Maize,Pusa Early Hybrid Makka-3 (AH-58),heat,Seednet: Reaction to Stress,TOLERANCE TO HIGH TEMPERATURE,Single source
+maize--narmada-moti-ic-9001,Maize,Narmada Moti (IC-9001),drought,Seednet: Reaction to Stress,IT WAS OBSERVED TO BE MODERATELY TOLERANT TO WATER STRESS UNDER RAINFED NATURAL CONDITIONS,Single source
+maize--priya-sweetcorn,Maize,Priya Sweetcorn,drought,Seednet: Reaction to Stress,MODERATELY TOLERANT MOISTURE STRESS,Single source
+maize--jkmh-1701,Maize,JKMH-1701,drought,Seednet: Reaction to Stress,Tolerant to moderate drought,Single source
+maize--d-994,Maize,D-994,flood,Seednet: Agronomic Features,RESISTANCE TO LODGING AND HIGHLY TOLERANT TO WATER LOGGED CONDITIONS,Single source
+little-millet--prc-3,Little millet,PRC-3,drought,Seednet: Agronomic Features,DROUGHT-MODERATELY RESISTANT,Single source
+little-millet--tarini-olm-203,Little millet,Tarini (OLM-203),drought,Seednet: Reaction to Stress,CAN TOLERANT DROUGHT SPELL OF 15-25 DAYS IN VEGETATIVE STAGE AND 10-15 DAYS IN REPRODUCTIVE STAGE,Single source
+little-millet--kolab-olm-36,Little millet,Kolab (OLM-36),drought,Seednet: Reaction to Stress,CAN TOLERATE DROUGHT SPELL OF 15-20 DAYS AT VEGETATIVE AND 10 DAYS AT REPRODUCTIVE STAGES,Single source
+little-millet--jawahar-kutki-36,Little millet,Jawahar Kutki-36,drought,Seednet: Adaptation and recommended ecology,"SUITABLE FOR SOLE & INTER-CROPPING, LODGING MEDIUM, RESISTANT TO DROUGHT, RESPONSIVE TO NPK APPLICATION, SEED RATE - 10 KG/HA",Single source
+little-millet--tnpsu-177-atl-1,Little millet,TNPsu 177 (ATL 1),drought,Seednet: Reaction to Stress,Tolerant to drought at field level,Confirmed by 2+ sources
+pearl-millet--x-6-mh-140,Pearl millet,X-6 (MH-140),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT,Single source
+pearl-millet--gk-1004-mh-662,Pearl millet,GK-1004 (MH-662),drought,Seednet: Adaptation and recommended ecology,HIGHLY DROUGHT RESISTANT,Single source
+pearl-millet--pac-903-ici-903-mh-552,Pearl millet,"PAC-903 (ICI-903, MH-552)",drought,Seednet: Adaptation and recommended ecology,"RECOMMENDED FOR AREAS WITH SHORT SPAN OF RAINFALL/LOW MOISTURE RETENTION, MAHARASHTRA, AP, TN AND KARNATAKA",Confirmed by 2+ sources
+pearl-millet--pusa-composite-383-mp-383,Pearl millet,Pusa Composite-383 (MP-383),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+pearl-millet--rhb-121-mh-892,Pearl millet,RHB-121 (MH-892),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+pearl-millet--icms-7703,Pearl millet,ICMS-7703,drought,Seednet: Agronomic Features,DROUGHT AND SALINITY-TOLERANT TO DROUGHT,Single source
+pearl-millet--icms-7703,Pearl millet,ICMS-7703,salinity,Seednet: Agronomic Features,DROUGHT AND SALINITY-TOLERANT TO DROUGHT,Single source
+pearl-millet--hhb-67,Pearl millet,HHB-67,drought,Seednet: Reaction to Stress,HIGHLY TOLERANT TO MOISTURE STRESS,Single source
+pearl-millet--ghb-719-mh-1236,Pearl millet,GHB-719 (MH-1236),drought,Seednet: Reaction to Stress,DROUGHT : HIGHLY TOLERANT,Single source
+pearl-millet--ghb-719-mh-1236,Pearl millet,GHB-719 (MH-1236),salinity,Seednet: Reaction to Stress,SALT : TOLERANT,Single source
+pearl-millet--ghb-526-msh-105,Pearl millet,GHB-526 (MSH-105),salinity,Seednet: Reaction to Stress,Salt: Highly Tolerant,Single source
+pearl-millet--ghb-558-mh-946,Pearl millet,GHB-558 (MH-946),drought,Seednet: Reaction to Stress,Drought: Tolerant 2,Confirmed by 2+ sources
+pearl-millet--ghb-558-mh-946,Pearl millet,GHB-558 (MH-946),salinity,Seednet: Reaction to Stress,Salt: Tolerant,Confirmed by 2+ sources
+pearl-millet--nandi-62-mh-1274-nmh-68,Pearl millet,Nandi-62(MH 1274) (NMH 68),drought,Seednet: Agronomic Features,DROUGHT TOLERANT,Single source
+pearl-millet--ghb-577,Pearl millet,GHB-577,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+pearl-millet--hhb-117,Pearl millet,HHB-117,drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS,Single source
+pearl-millet--hhb-67-improved,Pearl millet,HHB-67 Improved,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+pearl-millet--hhb-197-mh-1302,Pearl millet,HHB-197 (MH-1302),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+pearl-millet--ghb-757-mh1328,Pearl millet,GHB-757 (MH1328),drought,Seednet: Reaction to Stress,DROUGHT : HIGH TOLERANT,Confirmed by 2+ sources
+pearl-millet--ghb-757-mh1328,Pearl millet,GHB-757 (MH1328),salinity,Seednet: Reaction to Stress,SALT : TOLERANT,Confirmed by 2+ sources
+pearl-millet--ghb732-mh-1307,Pearl millet,GHB732 (MH-1307),drought,Seednet: Reaction to Stress,DROUGHT : HIGH TOLERANT,Single source
+pearl-millet--ghb732-mh-1307,Pearl millet,GHB732 (MH-1307),salinity,Seednet: Reaction to Stress,SALT : TOLERANT,Single source
+pearl-millet--nandi-52-mh-1078-nmh-45,Pearl millet,Nandi-52 (MH-1078) (NMH-45),drought,Seednet: Agronomic Features,DROUGHT TOLERANT,Single source
+pearl-millet--ghb-744-mh-1272,Pearl millet,GHB-744 (MH-1272),drought,Seednet: Reaction to Stress,DROUGHT : HIGH TOLERANT,Single source
+pearl-millet--ghb-744-mh-1272,Pearl millet,GHB-744 (MH-1272),salinity,Seednet: Reaction to Stress,SALT : TOLERANT,Single source
+pearl-millet--proagro-9555-msh-16-pb-727,Pearl millet,Proagro 9555 (MSH 16) (PB 727),heat,Seednet: Reaction to Stress,TOLERANT TO HIGH TEMPERATURE,Single source
+pearl-millet--gk-1051-mh-1385,Pearl millet,GK 1051 (MH 1385),drought,Seednet: Reaction to Stress,Resistant to drought,Single source
+pearl-millet--nandi-70-msh-224-nmh-73,Pearl millet,Nandi-70 (MSH 224) (NMH 73),heat,Seednet: Agronomic Features,HEAT TOLERANT,Single source
+pearl-millet--pratap-mh-1642,Pearl millet,Pratap (MH 1642),drought,Seednet: Agronomic Features,RESISTANT TO DROUGHT,Single source
+sorghum--csh-15-r-sph-677,Sorghum,CSH-15 R (SPH-677),drought,Seednet: Reaction to Stress,RESISTANT TO MOISTURE STRESS IN RABI,Single source
+sorghum--jawahar-jowar-938,Sorghum,Jawahar Jowar-938,drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TO MOISTURE STRESS,Single source
+sorghum--jksh-22-jksh-161,Sorghum,JKSH-22 (JKSH-161),drought,Seednet: Agronomic Features,DROUGHT : HIGHLY TOLERANT,Single source
+sorghum--csh-17-sph-660,Sorghum,CSH-17 (SPH-660),drought,Seednet: Reaction to Stress,RESISTANT TO MOISTURE STRESS,Single source
+sorghum--csv-216-phule-yashoda-spv-1359,Sorghum,"CSV-216 (Phule Yashoda, SPV-1359)",drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+sorghum--rajasthan-chari-2-su-45,Sorghum,Rajasthan Chari-2 (SU-45),drought,Seednet: Agronomic Features,DROUGHT-TOLERANT,Single source
+sorghum--nandyala-tella-jonna-2,Sorghum,Nandyala Tella Jonna-2,drought,Seednet: Reaction to Stress,DROUGHT TOLERANT TYPE,Single source
+sorghum--csh-22ss-nssh-104,Sorghum,CSH-22SS(NSSH-104),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS FOR SHORT PERIOD,Single source
+sorghum--csh-23-sph-1290,Sorghum,CSH-23(SPH-1290),drought,Seednet: Reaction to Stress,RESISTANT TO MOISTURE STRESS,Single source
+sorghum--haryana-chari-6-s-308,Sorghum,Haryana Chari-6(S-308),drought,Seednet: Reaction to Stress,IT CAN TOLERATE TO DROUGHT CONDITIONS,Single source
+sorghum--csh-21-mlsh-151-sph-1342-f,Sorghum,CSH-21(MLSH-151)(SPH-1342)(F),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+black-gram-urd--melghat-aku-4,Black gram (urd),Melghat (AKU-4),drought,Seednet: Reaction to Stress,RESISTANT TO WATER STRESS EXPERIENCED IN RABI URID AND HENCE SUITABLE TO GROWN ON RESIDUAL MOISTURE,Single source
+black-gram-urd--wbu-108,Black gram (urd),WBU-108,flood,Seednet: Reaction to Stress,CAN WITHSTAND WATERLOGGED CONDITION,Single source
+black-gram-urd--goutam-wbu-105,Black gram (urd),Goutam (WBU-105),flood,Seednet: Reaction to Stress,CAN WITHSTAND WATERLOGGED CONDITION ON AND LATE SOWN CONDITION IN POST-KHARIF SEASON i,Single source
+black-gram-urd--sulata-wbu-109,Black gram (urd),Sulata (WBU 109),flood,Seednet: Reaction to Stress,CAN WITHSTAND WATERLOGGED CONDITIONS,Single source
+chickpea--hirwa-chaffa-akgs-1,Chickpea,Hirwa Chaffa (AKGS-1),drought,Seednet: Reaction to Stress,BETTER DROUGHT RESISTANCE THAN CHAFFA OR PHULE G-5,Single source
+chickpea--karnal-chana-1-csg-8962,Chickpea,Karnal Chana-1 (CSG-8962),salinity,Seednet: Adaptation and recommended ecology,AND RAJASTHAN ALSO SUITABLE FOR 1000-MEDIUM SALT STRESS ENVIRONMENT,Single source
+chickpea--gulak-1-gulabi-akola-1,Chickpea,GULAK-1 (Gulabi AKOLA-1),drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TO DROUGHT,Single source
+chickpea--pdg-4,Chickpea,PDG-4,drought,Seednet: Adaptation and recommended ecology,Recommended for cultivation under limited moisture conditions in Punjab except sub-mountainous zone,Confirmed by 2+ sources
+chickpea--pusa-kabuli-gram-128-pusa-shubhra-bgd-128,Chickpea,Pusa Kabuli Gram 128(Pusa Shubhra)/BGD 128,drought,Seednet: Reaction to Stress,BETTER ADAPTED TO DROUGHT AND PRODUCED HIGH & STABLE YIELD UNDER RAINFED CONDITONS,Single source
+chickpea--aadhar-rsg-963,Chickpea,Aadhar(RSG-963),drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TO DROUGHT,Confirmed by 2+ sources
+chickpea--pusa-2024,Chickpea,Pusa 2024,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT AND COLD,Confirmed by 2+ sources
+chickpea--lam-shanaya-lbeg-7,Chickpea,LAM SHANAYA (LBeG 7),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT CONDITIONS,Single source
+chickpea--jawahar-gram-226-jg-226,Chickpea,Jawahar Gram-226 (JG-226),drought,Seednet: Reaction to Stress,SPECIALLY SUITED TO MOISTURE STRESS,Single source
+cowpea--v-240,Cowpea,V-240,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+cowpea--upc-607,Cowpea,UPC-607,drought,Seednet: Reaction to Stress,Tolerant to drought and moderately tolerant to other edapic stresses,Single source
+cowpea--upc-618,Cowpea,UPC-618,drought,Seednet: Reaction to Stress,Tolerant to drought and moderately tolerant to oth,Single source
+cowpea--upc-622,Cowpea,UPC 622,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT AND MODERATELY TOLERANT TO OTHER EDAPHIC STRESSES,Single source
+cowpea--it-38956-1,Cowpea,IT-38956-1,drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS AND HENCE SUITABLE FOR DRY LANDS,Single source
+cowpea--hissar-cowpea-46-hc-98-46,Cowpea,Hissar Cowpea-46 (HC 98-46),drought,Seednet: Reaction to Stress,Cowpea has relatively higher drought tolerance than other legume crops,Single source
+green-gram-mung--ganga-8-gangotri,Green gram (mung),Ganga-8 (Gangotri),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT,Single source
+green-gram-mung--pkv-mung-8802,Green gram (mung),PKV Mung-8802,drought,Seednet: Reaction to Stress,MODERATELY TOLERANT TO WATER STRESS,Single source
+green-gram-mung--trombay-pesara-tm-96-2,Green gram (mung),Trombay Pesara(TM 96-2),drought,Seednet: Reaction to Stress,TOLERANT TO HIGH SOIL MOISTURE STRESS,Single source
+green-gram-mung--obgg-52,Green gram (mung),OBGG-52,drought,Seednet: Reaction to Stress,THE VARIETY CAN WITHSTAND MOISTURE STRESS TO A LARGE EXTENT,Single source
+horse-gram--maru-kulthi-1,Horse gram,Maru Kulthi-1,drought,Seednet: Reaction to Stress,THE VARIETY PL-SELECTION IS DROUGHT RESISTANT GIVING HIGHER YIELD AS COMPARED TO OTHER VARIETIES AND LOCAL,Single source
+horse-gram--crida-1-18r,Horse gram,CRIDA-1-18R,drought,Seednet: Agronomic Features,Tolerant to shattering and drought,Confirmed by 2+ sources
+horse-gram--cridalatha-crhg-4,Horse gram,Cridalatha (CRHG-4),drought,Seednet: Reaction to Stress,The variety showed tolerance to drought as in test yeas the crop faced moisture stress and inspite has recorded high yields,Single source
+lentil--sheri-dpl-62,Lentil,Sheri DPL-62,flood,Seednet: Reaction to Stress,TOLERANT TO TEMPPRARY WATER LOGGING,Single source
+lentil--subrata-wbl-58,Lentil,Subrata (WBL-58),drought,Seednet: Reaction to Stress,THE VARIETY CAN WITHSTAND AND DROUGHT AT THE POST FLOWING STAGE,Single source
+lentil--malaviya-vishwanath-hul-57,Lentil,Malaviya Vishwanath (HUL-57),drought,Seednet: Reaction to Stress,"SINCE THE MUTANT VARIETY HAS BEEN ISOLATED FROM DRY LAND CONDITIONS THEREFORE, IT HAS INHERENT RESISTANCE TO ABIOTIC STRESS (DROUGHT)",Confirmed by 2+ sources
+lentil--moitree-wbl-77,Lentil,Moitree WBL-77),drought,Seednet: Reaction to Stress,It can stand terminal drought and sustainable for delay sowing,Single source
+rajmash-kidney-bean--cazri-moth-1-czm-79,Rajmash (kidney bean),CAZRI Moth-1 (CZM-79),drought,Seednet: Reaction to Stress,"RESISTANT TO DROUGHT AND HEAT ,,CAN STAND IN FIELD FOR 2 TO 3 WEEKS WITHOUT RAIN AT HIGH AT MOSPHERIC TEMRATURE AROUND 35 DEGREE CELSIUS",Single source
+rajmash-kidney-bean--cazri-moth-1-czm-79,Rajmash (kidney bean),CAZRI Moth-1 (CZM-79),heat,Seednet: Reaction to Stress,"RESISTANT TO DROUGHT AND HEAT ,,CAN STAND IN FIELD FOR 2 TO 3 WEEKS WITHOUT RAIN AT HIGH AT MOSPHERIC TEMRATURE AROUND 35 DEGREE CELSIUS",Single source
+pea--ambika-im-9102,Pea,Ambika (IM-9102),drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TO DROUGHT,Single source
+pigeon-pea--pusa-992,Pigeon pea,Pusa-992,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS CONDITIONS,Single source
+groundnut--vemana-k-134,Groundnut,Vemana (K-134),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+groundnut--icg-10-icgv-87160,Groundnut,ICG-10 (ICGV-87160),drought,Seednet: Reaction to Stress,CAN TOLERATE MID-SEASON DROUGHT,Confirmed by 2+ sources
+groundnut--icgs-37,Groundnut,ICGS-37,drought,Seednet: Reaction to Stress,DROUGHT - TOLERANT TO END-OF-SEASON DROUGHT,Single source
+groundnut--abhaya-tpt-25,Groundnut,Abhaya (TPT-25),drought,Seednet: Reaction to Stress,IT IS TOLERANT TO EARLY SEASON AND MID-SEASON MOISTURE STRESS CONDITIONS,Confirmed by 2+ sources
+groundnut--tmv-gn-13,Groundnut,TMV (Gn)13,drought,Seednet: Reaction to Stress,IT IS TOLERANT TO EARLY SEASON AND MID-SEASON MOISTURE STRESS CONDITIONS,Confirmed by 2+ sources
+groundnut--ak-265,Groundnut,AK-265,drought,Seednet: Reaction to Stress,DROUGHT TOLERANT,Confirmed by 2+ sources
+groundnut--tg-37-a,Groundnut,TG-37-A,drought,Seednet: Reaction to Stress,TOLERANCE TO MOISTURE STRESS,Confirmed by 2+ sources
+groundnut--tg-51,Groundnut,TG-51,drought,Seednet: Reaction to Stress,TOLERANCE TO DROUGHT,Confirmed by 2+ sources
+groundnut--kadiri-harithandhra-k-1319,Groundnut,Kadiri Harithandhra (K 1319),drought,Seednet: Reaction to Stress,5% in MLTG over 9 locations for 3 years over a drought tolerant variety Vemana,Confirmed by 2+ sources
+mustard-rapeseed--aravali-rn-393,Mustard / rapeseed,Aravali (RN-393),drought,Seednet: Reaction to Stress,BEING A RAIN FED VARIETY CAN TOLERATE MOISTURE STRESS,Single source
+mustard-rapeseed--vaibhav-rk-1418,Mustard / rapeseed,Vaibhav (RK-1418),drought,Seednet: Agronomic Features,", THIS VARIETY HAS PROVED ITS SUPERIORITY OVER NATIONAL CHECK VARUNA AND KRANTI UNDER RAINFED CONDITION SO IT VERY WELL TOLERATES MOISTURE STRESS CONDITIONS",Single source
+mustard-rapeseed--narendra-rai-ndr-8501,Mustard / rapeseed,Narendra Rai (NDR-8501),salinity,Seednet: Reaction to Stress,IT IS TOLERANT TO SALINE/ALKALINE SOILS,Single source
+mustard-rapeseed--vasundhara,Mustard / rapeseed,Vasundhara,heat,Seednet: Reaction to Stress,OBSERVED AS THERMO-TOLERANT,Single source
+mustard-rapeseed--nrcdr-02,Mustard / rapeseed,NRCDR-02,heat,Seednet: Reaction to Stress,"TOLERANT TO SALINITY, HIGH TEMPERATURE AT THE TIME OF SOWING AND TERMINAL STRESS ALSO",Single source
+mustard-rapeseed--nrcdr-02,Mustard / rapeseed,NRCDR-02,salinity,Seednet: Reaction to Stress,"TOLERANT TO SALINITY, HIGH TEMPERATURE AT THE TIME OF SOWING AND TERMINAL STRESS ALSO",Single source
+mustard-rapeseed--agrani-sej-2,Mustard / rapeseed,Agrani (SEJ-2),drought,Seednet: Reaction to Stress,BEING A VERY EARLY MATURING VARIETY CAN TOLERATE MOISTURE STRESS,Single source
+mustard-rapeseed--pusa-vijay-npj-93,Mustard / rapeseed,Pusa Vijay (NPJ-93),salinity,Seednet: Reaction to Stress,IT IS TOLERANT TO SALINITY UP TO 12DS/M,Single source
+mustard-rapeseed--pusa-mustard-22-let-17,Mustard / rapeseed,Pusa Mustard 22 (LET-17),heat,Seednet: Reaction to Stress,RESISTANT TO HIGH TEMPERATURE AT SEEDLING STAGE,Single source
+mustard-rapeseed--pusa-mustard-22-let-17,Mustard / rapeseed,Pusa Mustard 22 (LET-17),salinity,Seednet: Reaction to Stress,IT IS TOLERANT TO SALINITY UP TO 12 dS/M,Single source
+mustard-rapeseed--pro-5222-bayer-mustard-5222,Mustard / rapeseed,Pro 5222 Bayer Mustard 5222,heat,Seednet: Reaction to Stress,Tolerant to terminal heat stress,Single source
+linseed--sheela-lck-9211,Linseed,Sheela (LCK 9211),drought,Seednet: Agronomic Features,ITS ALSO WITHSTANDS MOISTURE STRESS,Single source
+linseed--nl-97,Linseed,NL-97,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT AS SEEN FROM HIGH PRODUCTIVITY IN RAINFED TRIALS (BREEDING & AGRONONY TRIALS),Single source
+linseed--garima-lhck-39,Linseed,Garima (LHCK-39),drought,Seednet: Agronomic Features,", TOLERANT TO MOISTURE STRESS AS WELL",Single source
+linseed--shubhra-lhck-21,Linseed,Shubhra (LHCK-21),drought,Seednet: Agronomic Features,", WITHSTANDS MOISTURE STRESS ALSO",Confirmed by 2+ sources
+linseed--binwa-kl-210,Linseed,Binwa (KL-210),drought,Seednet: Reaction to Stress,WITHSTANDS MOISTURE STRESS,Single source
+linseed--indira-alsi-32-rlc-81,Linseed,Indira Alsi-32 (RLC-81),drought,Seednet: Reaction to Stress,SUITABLE FOR RAINFED AS WELL AS WATER STRESS CONDITIONS,Single source
+linseed--sharda-lms-4-27,Linseed,Sharda (LMS-4-27),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+niger--birsa-niger-1,Niger,Birsa Niger-1,drought,Seednet: Reaction to Stress,DROUGHT TOLERANT,Single source
+niger--jnc-6,Niger,JNC-6,drought,Seednet: Reaction to Stress,TOLERANT MOISTURE STRESS UNDER RAINFED CONDITION,Single source
+niger--jsn-9,Niger,JSN-9,drought,Seednet: Reaction to Stress,TOLERATES MOISTURE STRESS UNDER RAINFED CONDITION,Single source
+niger--brisa-niger-1-bns-10,Niger,Brisa Niger-1 (BNS-10),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT,Single source
+mustard-rapeseed--geeta-rb-9901-rb-24,Mustard / rapeseed,Geeta (RB-9901 (RB-24),drought,Seednet: Reaction to Stress,Resistant to drought (suitable for rainfed conditi,Confirmed by 2+ sources
+mustard-rapeseed--vasundhra-rh-9304,Mustard / rapeseed,Vasundhra (RH 9304),heat,Seednet: Reaction to Stress,Proposed variety RH 9304(Vasundhra) was observed as Thermotolerant,Single source
+mustard-rapeseed--rgn-13,Mustard / rapeseed,RGN-13,heat,Seednet: Agronomic Features,30% Special character : Highly resistant to frost at maturity Resistant to high temperatures at the time of germination Moderately tolerant to salinity,Single source
+mustard-rapeseed--rgn-13,Mustard / rapeseed,RGN-13,salinity,Seednet: Agronomic Features,30% Special character : Highly resistant to frost at maturity Resistant to high temperatures at the time of germination Moderately tolerant to salinity,Single source
+safflower--phule-kusum-jlsf-414,Safflower,Phule Kusum (JLSF-414),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Confirmed by 2+ sources
+safflower--pbns-40-non-spiny,Safflower,PBNS-40 (Non-Spiny),drought,Seednet: Reaction to Stress,DROUGHT TOLERANCE EFFICIENCY 81,Single source
+sesame--rt-127,Sesame,RT-127,drought,Seednet: Adaptation and recommended ecology,VARIETY HAS TOLERANCE AGAINST DROUGHT AS WELL AS DISEASE & PEST,Confirmed by 2+ sources
+sesame--jawahar-til-pkds-11-venket,Sesame,Jawahar Til PKDS-11(Venket),drought,Seednet: Agronomic Features,"lodging to be tolerant to excess water drought : it has a degree of tolerance to water stress , shattering: it matures uniformly thus willo avoid to shattering response to fertilizer : N : 60, P 40, K 20 zoso4 kg/ha 20",Single source
+sesame--nirmala-os-sel-164,Sesame,Nirmala (OS-Sel-164),drought,Seednet: Agronomic Features,"Lodging Resistant Drought: Tolerant capsule shattering : Late shattering types, if harvest is delyed for 6-8 days after maturity, the capsules open upto 25% from the tip (delayed shattering)",Single source
+sesame--prachi-orm-17,Sesame,Prachi (ORM-17),drought,Seednet: Agronomic Features,DROUGHT : TOLERANT,Single source
+sesame--rajasthan-til-346-rt-346,Sesame,Rajasthan Til-346 (RT 346),drought,Seednet: Reaction to Stress,IT HAS DROUGHT TOLERANCE INBUILT CAPABILITIES AND WELL SUITED TO ARID & SEMI ARID AREAS,Single source
+soybean--jawahar-soybean-335-js-335,Soybean,Jawahar Soybean-335 (JS-335),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS CONDITIONS SINCE JS,Confirmed by 2+ sources
+soybean--macs-450,Soybean,MACS-450,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+soybean--ahilya-4-nrc-37,Soybean,Ahilya-4 (NRC-37),drought,Seednet: Reaction to Stress,NRC 37 HAS SHOWN TOLERANCE TO BOTH DROUGHT AND EXCESSIVE MOISTURE STRESSES AND RECORDED CONSISTENTLY HIGH YIELDS OVER YEARS WHEN ABNORMAL WEATHER CONDITION PREVAILED,Single source
+soybean--js-93-05-jawahar-soybean-93-05,Soybean,JS-93-05 (Jawahar Soybean 93-05),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS CONDITIONS AND PERFORMS BETTER THAN OTHER VARIETIES IN CASE OF EARLY CESSATION OF RAINS DUE TO EARLINESS,Single source
+soybean--monetta-ec-2587,Soybean,Monetta (EC-2587),drought,Seednet: Agronomic Features,"RESISTANCE TO LODGING, DROUGHT, FROST AND SHATTERING, FERTILIZER RESPONSE, SUITABILITY FOR EARLY OR LATE SOWN CONDITIONS, SEED RATE, ETC",Single source
+soybean--pratap-soya-2-rks-18,Soybean,Pratap Soya-2(RKS-18),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT AND GAVE GOOD YIELD UNDER STRESS CONDITIONS,Single source
+soybean--jawahar-soybean-97-52-js-97-52,Soybean,Jawahar Soybean 97-52 (JS 97-52),drought,Seednet: Reaction to Stress,TOLERANT TO EXCESSIVE MOISTURE STRESS CONDITIONS,Confirmed by 2+ sources
+sunflower--jwalamukhi-pscl-5015,Sunflower,Jwalamukhi (PSCL-5015),drought,Seednet: Reaction to Stress,PSCL 5015 (JAWALAMUKHI) IS TOLERANT TO STRESS CONDITIONS LIKE DROUGHT,Single source
+sunflower--mlsfh-47-ah-11-34,Sunflower,MLSFH-47 (AH-11-34),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+sunflower--drsf-113,Sunflower,DRSF-113,heat,Seednet: Reaction to Stress,PHYSIOLOGICAL ANALYSIS FOR HIGH TEMPERATURE TOLERANCE INDICATED THAT DRSF-113 RECORDED CONSISTENTLY HIGHER TOLERANCE FOR THREE YEARS AND HENCE CONCLUDED AS STRESS TOLERANT GENOTYPE,Single source
+sunflower--prosun-09-pro-009,Sunflower,Prosun-09 (Pro-009),drought,Seednet: Reaction to Stress,TOLERANT TO EARLY MOISTURE STRESS,Single source
+sunflower--drsf-108,Sunflower,DRSF-108,drought,Seednet: Reaction to Stress,DSRF-108 BEING MEDIUM DURATION TYPE TOLERATES MOISTURE STRESS BETTER THAN SHORT DURATION TYPES,Single source
+mustard-rapeseed--pt-507,Mustard / rapeseed,PT-507,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT (YIELDED 17,Single source
+coconut--kalpa-mitra-ind-022s-ccs-5,Coconut,Kalpa Mitra (IND 022S) (CCS-5),drought,Seednet: Reaction to Stress,Relatively tolerant to drought,Confirmed by 2+ sources
+coconut--kalpa-dhenu-ind-006s-ccs-6,Coconut,Kalpa Dhenu (IND 006S) (CCS-6),drought,Seednet: Reaction to Stress,Relatively tolerant to drought,Confirmed by 2+ sources
+coconut--keraleralam-ind-069-ccs-9,Coconut,Keraleralam (IND-069)(CCS-9),drought,Seednet: Reaction to Stress,Moderately tolerant to drought,Single source
+cotton--hd-107,Cotton,HD-107,drought,Seednet: Agronomic Features,"RESISTANT TO LODGING, CAN TOLERATE TO PARTIAL DROUGHT, SUITABLE FOR SOWING IN SECOND FORTNIGHT OF APRIL TO WHOLE MAY @ 5KG SEED/ACRE",Single source
+cotton--pkv-hyb-3-cahh-468,Cotton,PKV-HYB-3 (CAHH-468),drought,Seednet: Agronomic Features,DROUGHT : DROUGHT TOLERANT WITH COMPARATIVE BETTER WITHSTAND UNDER LONG DROUGHTY SEASON AS COMPARED TO OTHER HYBRIDS EXCEPT PKV HY-2,Single source
+cotton--pkv-rajat-akh-84635,Cotton,PKV Rajat (AKH-84635),drought,Seednet: Agronomic Features,DROUGHT : TOLERANT TO DROUGHT,Single source
+cotton--nh-452,Cotton,NH-452,drought,Seednet: Agronomic Features,DROUGHT : TOLERANT,Single source
+cotton--pa-183,Cotton,PA-183,drought,Seednet: Agronomic Features,DROUGHT : DROUGHT RESISTANT AS COMPARED TO NAMDEO AND SIMILAR TO EKENATH,Single source
+cotton--rch-2,Cotton,RCH-2,drought,Seednet: Reaction to Stress,EMMENTLY ADAPTED TO EXTREMES OF CLIMATIC CONDITIONS LIKE DROUGHT HIGH RAIN FALL AND FLOODS,Single source
+cotton--l-604,Cotton,L-604,drought,Seednet: Agronomic Features,POSSES DROUGHT TOLERANCE WITH HIGH RELATIVE WATER CONTENT AND HIGH CHLOROPHYLL STABILITY INDEX,Single source
+cotton--l-604,Cotton,L-604,salinity,Seednet: Agronomic Features,THIS VARITY HAS SHOWN SALINE TOLERANCE WITH HGH MEAN SALINITY INDEX OF GERMINATION AND SEEDLING SURIVAL WHEN IT IS TESTED UNDER DIFFERENT EC LEVELS,Single source
+cotton--lahh-4-a-13,Cotton,LAHH-4 (A 13),drought,Seednet: Agronomic Features,88 Q/HA IN THE HYBRID LAHH-4 UNDER DROUGHT SITUATION AND IT IS ON PAR WITH THE DROUGHT RESISTANT VARIETY LK 861 DURING 1996-97 SEASON TRIALS,Single source
+cotton--g-cot-18,Cotton,G COT.18,salinity,Seednet: Agronomic Features,RESISTANCE TO SALINITY : TOLERANT,Single source
+cotton--pratima-cnh-120-mb,Cotton,Pratima (CNH 120 MB),drought,Seednet: Reaction to Stress,ABIOTIC-TOLERANT TO MOISTURE STRESS (PERFORMED WELL UNDER RAINFED CONDITION),Single source
+cotton--ncs-145-bunny-nchh-145,Cotton,NCS-145-Bunny (NCHH-145),drought,Seednet: Reaction to Stress,IT CAN WITHSTAND WATER STRESS CONDITIONS AS WELL AS EXCESSSIVE RAINS,Single source
+cotton--ds-1,Cotton,DS-1,drought,Seednet: Agronomic Features,RESISTANT TO LODGING AND DROUGHT: COMPLETES LIFE CYCLE BEFORE THE ONSET OF FROST,Confirmed by 2+ sources
+cotton--mech-4,Cotton,MECH-4,drought,Seednet: Agronomic Features,RESISTANCE TO DROUGHT - CAN WITHSTAND LONG DRY SPELLS,Single source
+cotton--ajeet-33-ahh-90-2,Cotton,Ajeet-33 (AHH-90-2),flood,Seednet: Agronomic Features,Resistant to water logging field condition: Tolerant,Single source
+cotton--navinya-6-nach-6,Cotton,Navinya-6 (NACH-6),drought,Seednet: Reaction to Stress,Highly tolerant to drought conditions,Single source
+cotton--swadeshi-1-adch-1,Cotton,Swadeshi-1 (ADCH-1),drought,Seednet: Agronomic Features,"Resistant to drought : Resistant, Suitability for early sowing : Suitable, Fertilizer responsiveness : Gives good response to recommended fertilizer does",Single source
+cotton--sumangala-cwrok-165,Cotton,Sumangala (CWROK 165),salinity,Seednet: Reaction to Stress,TOLERANT TO SALINITY STRESS AT INITIAL STAGE OF GROWTH,Single source
+cotton--hybrid-kalyan-cshh-238,Cotton,Hybrid Kalyan (CSHH-238),drought,Seednet: Reaction to Stress,Abiotic : Tolerant to moisture stress,Single source
+cotton--pkv-dh-1-akdh-7,Cotton,PKV DH-1 (AKDH-7),drought,Seednet: Agronomic Features,DROUGHT : BEING DIPLOID RESISTANT TO DROUGHT,Single source
+cotton--pa-255-parbhani-turab,Cotton,PA-255 (Parbhani Turab),drought,Seednet: Agronomic Features,TOLERANT TO DROUGHT AS COMPARED TO PA-183,Single source
+cotton--shresth-cshh-198,Cotton,Shresth (CSHH-198),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Single source
+cotton--hybrid-cshh-243,Cotton,Hybrid CSHH-243,drought,Seednet: Reaction to Stress,RESISTANT TO CICUV & TOLERANT TO SUCKING PESTS ABIOTIC- TOLERANT TO MOISTURE STRESS,Single source
+jute--bidhan-pat-3-d-110,Jute,Bidhan Pat-3 (D-110),drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TO WATER STRESS,Single source
+jute--kom-62-revati,Jute,KOM-62 (Revati),flood,Seednet: Adaptation and recommended ecology,THE VARIETY IS SUITABLE FOR MEDIUM AND UP-LAND CANT WITHSTAND WATER LOGGING AND DOES NOT HAVE PRE-MATURITY FLOWER IF SOWN IN EARLY MARCH,Single source
+jute--jrc-532-c-532,Jute,JRC-532 (C-532),drought,Seednet: Reaction to Stress,DROUGHT RESISTANT AT EARLY STAGE OF GROWTH AND CAN TOLERATE WATER LOGGING AT LATER STAGE OF GROWTH,Confirmed by 2+ sources
+jute--jrc-532-c-532,Jute,JRC-532 (C-532),flood,Seednet: Reaction to Stress,DROUGHT RESISTANT AT EARLY STAGE OF GROWTH AND CAN TOLERATE WATER LOGGING AT LATER STAGE OF GROWTH,Confirmed by 2+ sources
+jute--aauoj-1-tarun,Jute,AAUOJ-1 (Tarun),drought,Seednet: Reaction to Stress,"TOLERANT TO WATER STAGNATION AFTER ESTABLISHMENT OF CROP (45-60 DAYS OF CROP AGE AS WELL AS TOLERANT TO DROUGHT SITUATION AS EVIDENT FROM BETTER PERFORMANCE OF THIS VARIETY IN THE FRONTLINE DEMONSTRATION CONDUCTED DURING KHARIF, 2006 AT DIFFERENT LOCATIONS OF NAGAON DISTRICT WHERE UNPRECEDENTED DROU",Single source
+jute--aauoj-1-tarun,Jute,AAUOJ-1 (Tarun),flood,Seednet: Reaction to Stress,"TOLERANT TO WATER STAGNATION AFTER ESTABLISHMENT OF CROP (45-60 DAYS OF CROP AGE AS WELL AS TOLERANT TO DROUGHT SITUATION AS EVIDENT FROM BETTER PERFORMANCE OF THIS VARIETY IN THE FRONTLINE DEMONSTRATION CONDUCTED DURING KHARIF, 2006 AT DIFFERENT LOCATIONS OF NAGAON DISTRICT WHERE UNPRECEDENTED DROU",Single source
+jute--ncj-28-10-aaucj-2-kkhyati,Jute,NCJ-28-10 AAUCJ-2 (Kkhyati),flood,Seednet: Reaction to Stress,Tolerant to water logged condition,Single source
+sunnhemp--narendra-sanai-1,Sunnhemp,Narendra Sanai-1,salinity,Seednet: Reaction to Stress,TOLERANT TO PARTICULARLY RETAINED SALINE-ALKALINE CONDITIONS,Single source
+senji--white-senji-hfws-55,Senji,White Senji (HFWS 55),drought,Seednet: Reaction to Stress,RESISTANT TO DROUGHT,Single source
+napier-grass--narendra-chara-bajra-2-ndfb-2,Napier grass,Narendra Chara Bajra-2 (NDFB-2),salinity,Seednet: Reaction to Stress,TOLERANCE TO SALINE SODIC SOILS,Confirmed by 2+ sources
+napier-grass--ndfb-3-narendra-chara-bajra-3,Napier grass,NDFB-3(Narendra Chara Bajra-3),salinity,Seednet: Reaction to Stress,TOLERANCE TO SALINE AND SODIO SOIL,Single source
+dinanath-grass--bundel-dinanath-2,Dinanath grass,Bundel Dinanath-2,drought,Seednet: Reaction to Stress,DROUGHT TOLERANT,Single source
+cluster-bean-guar--bundel-guar-2,Cluster bean (guar),Bundel Guar-2,drought,Seednet: Reaction to Stress,REASONABLY TOLERANT TO DROUGHT CONSIDERATION,Single source
+cluster-bean-guar--rgc-197,Cluster bean (guar),RGC-197,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT CONDITIONS,Single source
+cluster-bean-guar--rgc-936,Cluster bean (guar),RGC-936,drought,Seednet: Adaptation and recommended ecology,"RECOMMENDED FOR RELEASE AND CULTIVATION FOR DROUGHT PRONE AREAS OF RAJASTHAN, GUJARAT AND HARYANA",Single source
+cluster-bean-guar--guar-karan-rgc-1038,Cluster bean (guar),Guar Karan (RGC-1038),drought,Seednet: Reaction to Stress,This variety is tolerant to drought conditions,Single source
+cluster-bean-guar--surya-rgm-112,Cluster bean (guar),Surya (RGM-112),drought,Seednet: Reaction to Stress,DROUGHT TOLERANT,Single source
+cluster-bean-guar--guar-kranti-rgc-1031,Cluster bean (guar),Guar Kranti (RGC-1031),drought,Seednet: Reaction to Stress,THIS VARIETY IS TOLERANT TO DROUGHT CONDITIONS,Single source
+cluster-bean-guar--rajasthan-guar-1038-rgc-1038,Cluster bean (guar),Rajasthan Guar-1038 (RGC-1038),drought,Seednet: Reaction to Stress,SUITABLE UNDER RAIN FED SITUATIONS AND THIS VARIETY IS TOLERANT TO DROUGHT CONDITIONS,Confirmed by 2+ sources
+cluster-bean-guar--hg-870,Cluster bean (guar),HG 870,drought,Seednet: Reaction to Stress,Cowpea has relatively higher drought tolerance than other legume crops,Single source
+oat--narendra-jayee-1-ndo-1,Oat,Narendra Jayee-1 (NDO-1),salinity,Seednet: Reaction to Stress,Tolerance to saline sodic soils,Single source
+rice-bean--bidhan-1-bc-15-k-1,Rice bean,Bidhan-1 (BC-15/K-1),drought,Seednet: Reaction to Stress,DROUGHT AND COLD TOLERANT AND MODERATELY TOLERANT TO WATER LOGGED CONDITION FOR A SHORT PERIOD,Confirmed by 2+ sources
+rice-bean--bidhan-1-bc-15-k-1,Rice bean,Bidhan-1 (BC-15/K-1),flood,Seednet: Reaction to Stress,DROUGHT AND COLD TOLERANT AND MODERATELY TOLERANT TO WATER LOGGED CONDITION FOR A SHORT PERIOD,Confirmed by 2+ sources
+setaria-grass--setaria-92,Setaria grass,Setaria-92,drought,Seednet: Agronomic Features,TOLERANT TO DROUGHT COLD AND FROST,Single source
+cenchrus-anjan-buffel-grass--bundel-anjan-1,Cenchrus (anjan / buffel grass),Bundel Anjan-1,drought,Seednet: Reaction to Stress,DROUGHT HARDY AND COLD TOLERANT,Confirmed by 2+ sources
+cenchrus-anjan-buffel-grass--jaisalmeri-sewan-rlsb-11-50,Cenchrus (anjan / buffel grass),Jaisalmeri Sewan (RLSB-11-50),drought,Seednet: Reaction to Stress,RAINFED DROUGHT TOLERANT CROP,Single source
+red-clover--prc-3,Red clover,PRC-3,drought,Seednet: Reaction to Stress,RESISTANT TO COLD AND DROUGHT,Single source
+sugarcane--uttara-2,Sugarcane,Uttara,drought,Seednet: Reaction to Stress,MODERATELY RESISTANT TOM DROUGHT,Single source
+sugarcane--kalyani-co-87025,Sugarcane,Kalyani (CO 87025),drought,Seednet: Reaction to Stress,RESISTANT TO DROUGHT,Confirmed by 2+ sources
+sugarcane--kalyani-co-87025,Sugarcane,Kalyani (CO 87025),flood,Seednet: Reaction to Stress,TOLERANT TO WATER LOGGING,Confirmed by 2+ sources
+sugarcane--dhanush-co-91010,Sugarcane,Dhanush (CO 91010),drought,Seednet: Reaction to Stress,"MODERATELY RESISTANT TO DROUGHT, MODERATELY SUSCEPTIBLE TO SALINITY",Single source
+sugarcane--nayana-co-86032,Sugarcane,Nayana (CO 86032),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+sugarcane--coor-03151,Sugarcane,CoOr 03151,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+sugarcane--coor-03151,Sugarcane,CoOr 03151,flood,Seednet: Adaptation and recommended ecology,THE VARIETY IS SUITABLE FOR BLACK SOILS AND RED SOILS UNDER IRRIGATED/WATER LOGGED,Confirmed by 2+ sources
+sugarcane--moti-co-87268,Sugarcane,Moti (CO 87268),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT WATER LOGGING AND HIGH SOIL,Single source
+sugarcane--moti-co-87268,Sugarcane,Moti (CO 87268),flood,Seednet: Reaction to Stress,TOLERANT TO DROUGHT WATER LOGGING AND HIGH SOIL,Single source
+sugarcane--sarayu-co-87263,Sugarcane,Sarayu (CO 87263),drought,Seednet: Reaction to Stress,"TOLERANT TO DROUGHT AND WATER LOGGING ,SUITABLE FOR RAINFED CONDITIONS",Confirmed by 2+ sources
+sugarcane--sarayu-co-87263,Sugarcane,Sarayu (CO 87263),flood,Seednet: Reaction to Stress,"TOLERANT TO DROUGHT AND WATER LOGGING ,SUITABLE FOR RAINFED CONDITIONS",Confirmed by 2+ sources
+sugarcane--co-m-7714-krishna-co-m-88121,Sugarcane,CO M 7714 (Krishna)/CO M 88121,drought,Seednet: Agronomic Features,TOLERANT TO DROUGHT,Single source
+sugarcane--pramod-b-o-128,Sugarcane,Pramod (B.O. 128),salinity,Seednet: Reaction to Stress,"TOLERANT TO WATER LOGGING RAINFED, SALINE AND LOW INPUT MANAGEMENT CONDITIONS",Confirmed by 2+ sources
+sugarcane--pramod-b-o-128,Sugarcane,Pramod (B.O. 128),flood,Seednet: Reaction to Stress,"TOLERANT TO WATER LOGGING RAINFED, SALINE AND LOW INPUT MANAGEMENT CONDITIONS",Confirmed by 2+ sources
+sugarcane--cosi-sc-6,Sugarcane,Cosi (SC) 6,drought,Seednet: Agronomic Features,VERY GOOD RATOONER AND SUITABLE FOR EARLY SEASON TOLERANT TO EARLY DROUGHT AND LATE WATER LOGGING CONDITION,Confirmed by 2+ sources
+sugarcane--cosi-sc-6,Sugarcane,Cosi (SC) 6,flood,Seednet: Agronomic Features,VERY GOOD RATOONER AND SUITABLE FOR EARLY SEASON TOLERANT TO EARLY DROUGHT AND LATE WATER LOGGING CONDITION,Confirmed by 2+ sources
+sugarcane--karan-1-co-98014,Sugarcane,Karan-1 (Co.98014),drought,Seednet: Reaction to Stress,Tolerance to water logging and water stress,Confirmed by 2+ sources
+sugarcane--karan-1-co-98014,Sugarcane,Karan-1 (Co.98014),flood,Seednet: Reaction to Stress,Tolerance to water logging and water stress,Confirmed by 2+ sources
+sugarcane--damodar-co-99004,Sugarcane,Damodar (Co.99004),salinity,Seednet: Reaction to Stress,Salinity : Tolerant,Confirmed by 2+ sources
+sugarcane--co-pant-97222,Sugarcane,Co Pant 97222,drought,Seednet: Reaction to Stress,Tolerant to drought,Confirmed by 2+ sources
+sugarcane--co-pant-97222,Sugarcane,Co Pant 97222,flood,Seednet: Reaction to Stress,Resistant/tolerant to water-logging,Confirmed by 2+ sources
+sugarcane--co-pant-97222,Sugarcane,Co Pant 97222,salinity,Seednet: Reaction to Stress,Tolerant to salinity,Confirmed by 2+ sources
+sugarcane--pant-90223-co-pant-90223,Sugarcane,Pant-90223 (Co Pant 90223),drought,Seednet: Reaction to Stress,TOLERANT TO COLD DROUGHT AND WATER LODGING,Single source
+sugarcane--moti-co-87268-2,Sugarcane,MOTI (Co.87268),drought,Seednet: Adaptation and recommended ecology,"Recommended for release and for cultivation in Eastern Uttar Pradesh and Bihar, it is suitable for sowing for early drought and late water logging conditions",Single source
+sugarcane--moti-co-87268-2,Sugarcane,MOTI (Co.87268),flood,Seednet: Adaptation and recommended ecology,"Recommended for release and for cultivation in Eastern Uttar Pradesh and Bihar, it is suitable for sowing for early drought and late water logging conditions",Single source
+sugarcane--sarada-93a-145,Sugarcane,Sarada (93A 145),salinity,Seednet: Adaptation and recommended ecology,"IT IS SUITABLE FOR IRRIGATED, RAINFED, WATER LODGED AND SALINE-ALKALINE CONDITIONS",Single source
+sugarcane--shyama-co94008,Sugarcane,Shyama (Co94008),drought,Seednet: Reaction to Stress,DROUGHT- MODERATELY RESISTANT,Single source
+sugarcane--shyama-co94008,Sugarcane,Shyama (Co94008),salinity,Seednet: Reaction to Stress,SALINITY - TOLERANT,Single source
+sugarcane--cose-96434-jalpari,Sugarcane,Cose-96434 (Jalpari),flood,Seednet: Reaction to Stress,TOLERANT TO WATER LOGGING CONDITION,Single source
+sugarcane--coc-sc-23-coc-01-61,Sugarcane,COC (Sc) 23 (COC 01-61),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Confirmed by 2+ sources
+sugarcane--birendra-colk-94184,Sugarcane,Birendra (CoLK 94184),drought,Seednet: Reaction to Stress,"TOLERANT TO DROUGHT, WATER LODGING AND LOW TEMPERATURE",Confirmed by 2+ sources
+sugarcane--sulabh-co-2001-13,Sugarcane,Sulabh (CO-2001-13),drought,Seednet: Reaction to Stress,"Tolerant to water stress, water logging and salinity",Confirmed by 2+ sources
+sugarcane--sulabh-co-2001-13,Sugarcane,Sulabh (CO-2001-13),salinity,Seednet: Reaction to Stress,"Tolerant to water stress, water logging and salinity",Confirmed by 2+ sources
+sugarcane--sulabh-co-2001-13,Sugarcane,Sulabh (CO-2001-13),flood,Seednet: Reaction to Stress,"Tolerant to water stress, water logging and salinity",Confirmed by 2+ sources
+sugarcane--co-0232,Sugarcane,CO-0232,drought,Seednet: Reaction to Stress,Torerant to water logging and early drought,Single source
+sugarcane--co-0232,Sugarcane,CO-0232,flood,Seednet: Reaction to Stress,Torerant to water logging and early drought,Single source
+sugarcane--co-2001-15,Sugarcane,CO-2001-15,drought,Seednet: Reaction to Stress,"Tolerant to water stress, water logging and salinity",Confirmed by 2+ sources
+sugarcane--co-2001-15,Sugarcane,CO-2001-15,salinity,Seednet: Reaction to Stress,"Tolerant to water stress, water logging and salinity",Confirmed by 2+ sources
+sugarcane--co-2001-15,Sugarcane,CO-2001-15,flood,Seednet: Reaction to Stress,"Tolerant to water stress, water logging and salinity",Confirmed by 2+ sources
+sugarcane--co-0238,Sugarcane,CO-0238,drought,Seednet: Reaction to Stress,"Tolerant to winter (low temperature), water stress and water logging",Single source
+sugarcane--co-0238,Sugarcane,CO-0238,flood,Seednet: Reaction to Stress,"Tolerant to winter (low temperature), water stress and water logging",Single source
+sugarcane--co-0233,Sugarcane,CO-0233,drought,Seednet: Reaction to Stress,Tolerant to water logging and early drought,Confirmed by 2+ sources
+sugarcane--co-0233,Sugarcane,CO-0233,flood,Seednet: Reaction to Stress,Tolerant to water logging and early drought,Confirmed by 2+ sources
+cauliflower--pusa-sharad-sel-309-1-2,Cauliflower,Pusa Sharad (Sel.-309-1-2),heat,Seednet: Adaptation and recommended ecology,IT CAN WITHSTAND HIGH TEMPERATURE AND HIGH RAINALL DURIN,Single source
+cauliflower--pusa-early-synthetic,Cauliflower,Pusa Early Synthetic,heat,Seednet: Reaction to Stress,IT CAN WITHSTAND HIGH TEMPERATURE & RAINFALL,Single source
+cucumber--swarna-ageti,Cucumber,Swarna Ageti,drought,Seednet: Reaction to Stress,TOLERANCE TO DROUGHT,Single source
+muskmelon--kashi-madhu-ivmm-3,Muskmelon,Kashi Madhu (IVMM-3),heat,Seednet: Reaction to Stress,HIGH TEMPERATURE TOLERANT,Single source
+sponge-gourd--swarna-prabha-chsg-1,Sponge gourd,Swarna Prabha (CHSG-1),heat,Seednet: Reaction to Stress,TOLERANT TO HIGH TEMPERATURE,Single source
+brinjal-eggplant--utkal-mathuri-bb-44,Brinjal (eggplant),Utkal Mathuri (BB-44),drought,Seednet: Reaction to Stress,IT CAN RESISTANT UNDER DROUGHT SITUATION,Single source
+brinjal-eggplant--plr-1,Brinjal (eggplant),PLR-1,drought,Seednet: Reaction to Stress,MODERATELY TOLERANT TO DROUGHT CONDITIONS,Single source
+brinjal-eggplant--swarna-shobha-habr-4,Brinjal (eggplant),Swarna Shobha (HABR-4),heat,Seednet: Reaction to Stress,TOLERANT TO HIGH TEMPERATURE,Single source
+brinjal-eggplant--swarna-ajay-habh-3,Brinjal (eggplant),Swarna Ajay (HABH-3),heat,Seednet: Reaction to Stress,HIGH TEMPERATURE TOLERANT,Single source
+brinjal-eggplant--kashi-sandesh-vrbhr-1,Brinjal (eggplant),Kashi Sandesh (VRBHR-1),heat,Seednet: Reaction to Stress,HIGH TEMPERATURE TOLERANT,Single source
+brinjal-eggplant--swarna-neelima-habh-17,Brinjal (eggplant),Swarna Neelima(HABH-17),drought,Seednet: Reaction to Stress,Relatively tolerant to drought,Single source
+brinjal-eggplant--hisar-shyamal,Brinjal (eggplant),Hisar Shyamal,drought,Seednet: Reaction to Stress,H 8 IS TOLERANT TO DROUGHT,Single source
+chilli--lam-334,Chilli,Lam-334,drought,Seednet: Adaptation and recommended ecology,WIDELY ADAPTABLE DROUGHT TOLERANT AND CONFRIENDLY,Single source
+chilli--prasanth-lca-334,Chilli,Prasanth (LCA-334),drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+okra-bhindi--kashi-bhairo-dvr-3,Okra (bhindi),Kashi Bhairo (DVR-3),heat,Seednet: Reaction to Stress,TOLERANT TO SLIGHTLY LOWER AND HIGH TEMPERATURE,Single source
+okra-bhindi--kashi-pragati-vro-6,Okra (bhindi),Kashi Pragati (VRO-6),heat,Seednet: Reaction to Stress,TOLERANT TO SLIGHTLY LOWER AND HIGH TEMPERATURE,Confirmed by 2+ sources
+okra-bhindi--kashilika-iivr-11,Okra (bhindi),KashiLika (IIVR-11),heat,Seednet: Reaction to Stress,TOLERANT TO SLIGHTLY LOWER AND HIGH TEMPERATURE,Single source
+okra-bhindi--selection-2,Okra (bhindi),Selection-2,drought,Seednet: Agronomic Features,"RESISTANCE TO LODGING-YES, DROUGHT RESISTANCE-TO SOME EXTENT, FROST RESISTANCE-NO, FERTILIZER RESPONSE-YES, SUITABILITY FOR EARLY OR LATE SOWN-YES, CAN BE SOWN AS SUMMER AND KHARIF CROP ROUND THE YEAR IN GANGETIC PLAIN",Single source
+tomato--swarna-sampada-hath-3,Tomato,Swarna Sampada (HATH-3),heat,Seednet: Reaction to Stress,HIGH TEMPERATURE TOLERANT,Single source
+tomato--mani-leima,Tomato,Mani Leima,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS CONDITIONS,Single source
+tomato--utkal-kumari-bt-10,Tomato,Utkal Kumari (BT-10),salinity,Seednet: Reaction to Stress,TOLERANT TO SALINITY AND IT CAN BE GROWN IN PATHA AREA UNDER NON-IRRIGATED CONDITION AS EARLY CROP,Single source
+amaranth--annapurna-ic-42258-1,Amaranth,Annapurna(IC-42258-1),drought,Seednet: Agronomic Features,"RESISTANT-LODGING, DROUGHT RESISTANCE-FROST HARDY, FROST RESISTANCE-FROST HARDY, SUITABILITY-EARLY SOWING (1st OR 2nd OF JUNE)",Single source
+sweet-potato--rajendra-sakarkand-5-x-5,Sweet potato,Rajendra Sakarkand-5 (X-5),drought,Seednet: Agronomic Features,"RESISTANCE TO FLOOD, DROUGHT, FROST AND OTHER ENVIRONMENTS, FERTILIZERS RESPONSIVENESS AND SUITABILITY FOR EARLY OR LATE PLANTED CONDITIONS, RATE OF PLANTING MATERIAL",Single source
+sweet-potato--rajendra-sakarkand-5-x-5,Sweet potato,Rajendra Sakarkand-5 (X-5),flood,Seednet: Agronomic Features,"RESISTANCE TO FLOOD, DROUGHT, FROST AND OTHER ENVIRONMENTS, FERTILIZERS RESPONSIVENESS AND SUITABILITY FOR EARLY OR LATE PLANTED CONDITIONS, RATE OF PLANTING MATERIAL",Single source
+carrot--shalimar-carrot-1-skau-c-50,Carrot,Shalimar Carrot-1 (SKAU-C-50),drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS CONDITIONS,Confirmed by 2+ sources
+rajmash-kidney-bean--arun-ipr-98-3-1,Rajmash (kidney bean),Arun (IPR 98-3-1),heat,Seednet: Reaction to Stress,TOLERANT TO COLD AND HEAT STRESS,Single source
+sesame--rt-372,Sesame,RT-372,drought,Seednet: Reaction to Stress,Tolerant to drought,Single source
+sesame--rajasthan-til-351,Sesame,Rajasthan Til 351,drought,Seednet: Reaction to Stress,IT HAS DROUGHT TOLERANCE INBUILT CAPABILITIES AND WELL SUITED TO ARID AND SEMI ARID AREAS,Single source
+setaria-grass--him-palam-setaria-grass-2,Setaria grass,Him Palam Setaria Grass 2,drought,Seednet: Reaction to Stress,"Tolerant to drought, cold and frost",Single source
+sorghum--csh-31r,Sorghum,CSH 31R,drought,Seednet: Reaction to Stress,Tolerant to drought,Single source
+sorghum--csv-37,Sorghum,CSV-37,drought,Seednet: Reaction to Stress,Little tolerance to moisture stress,Single source
+sorghum--csv-27,Sorghum,CSV 27,drought,Seednet: Reaction to Stress,TOLERANT TO MOISTURE STRESS,Confirmed by 2+ sources
+sorghum--csv-26,Sorghum,CSV 26,drought,Seednet: Reaction to Stress,TOLERANT TO TERMINAL DROUGHT,Confirmed by 2+ sources
+sorghum--csv-42,Sorghum,CSV 42,drought,Seednet: Reaction to Stress,Moderately tolerance to moisture stress,Single source
+soybean--nrc-136,Soybean,NRC 136,drought,Seednet: Reaction to Stress,NRC 136 has shown tolerance drought stress,Confirmed by 2+ sources
+soybean--pratap-soya-45,Soybean,Pratap Soya 45,drought,Seednet: Agronomic Features,Responsive to high fertility under irrigated condition and also suitable for water stress condition,Single source
+soybean--rks-24,Soybean,RKS-24,drought,Seednet: Agronomic Features,RESPONSIVE TO HIGH FERTILITY UNDER IRRIGATED CONDITION AND ALSO SUITABLE FOR WATER STRESS CONDITIONS,Single source
+soybean--rsc-10-46,Soybean,RSC 10-46,drought,Seednet: Reaction to Stress,Tolerant to drought condition,Single source
+soybean--rsc-10-52,Soybean,RSC 10-52,drought,Seednet: Reaction to Stress,Tolerant to drought condition,Single source
+sugarcane--co-0218,Sugarcane,Co-0218,drought,Seednet: Reaction to Stress,"TOLERANT TO WATER STRESS, WATER LOGGING AND SALINITY",Single source
+sugarcane--co-0218,Sugarcane,Co-0218,salinity,Seednet: Reaction to Stress,"TOLERANT TO WATER STRESS, WATER LOGGING AND SALINITY",Single source
+sugarcane--co-0218,Sugarcane,Co-0218,flood,Seednet: Reaction to Stress,"TOLERANT TO WATER STRESS, WATER LOGGING AND SALINITY",Single source
+sugarcane--co-0237,Sugarcane,Co 0237,flood,Seednet: Reaction to Stress,TOLERANT TO WATER LOGGING,Single source
+sugarcane--co-0403,Sugarcane,Co 0403,drought,Seednet: Reaction to Stress,MODERATELY TOLERANT TO DROUGHT,Single source
+sugarcane--co-06027,Sugarcane,Co 06027,drought,Seednet: Reaction to Stress,Tolerant to drought and salinity,Confirmed by 2+ sources
+sugarcane--co-06027,Sugarcane,Co 06027,salinity,Seednet: Reaction to Stress,Tolerant to drought and salinity,Confirmed by 2+ sources
+sugarcane--co-06034,Sugarcane,Co 06034,flood,Seednet: Adaptation and recommended ecology,The variety is highly suitable for rainfed conditions and waterlogged situations and low input situations,Single source
+sugarcane--haryana-ganna-128,Sugarcane,Haryana Ganna 128,drought,Seednet: Reaction to Stress,TOLERANT TO WATER STRESS AND WATER LODGING,Single source
+sugarcane--kanakamahalakshmi,Sugarcane,Kanakamahalakshmi,drought,Seednet: Reaction to Stress,"INDICATE AVAILABLE INFORMATION ON TOLERANCE OF DROUGHT, WATER LOGGING, SALINITY : N/A",Single source
+sugarcane--kanakamahalakshmi,Sugarcane,Kanakamahalakshmi,salinity,Seednet: Reaction to Stress,"INDICATE AVAILABLE INFORMATION ON TOLERANCE OF DROUGHT, WATER LOGGING, SALINITY : N/A",Single source
+sugarcane--kanakamahalakshmi,Sugarcane,Kanakamahalakshmi,flood,Seednet: Reaction to Stress,"INDICATE AVAILABLE INFORMATION ON TOLERANCE OF DROUGHT, WATER LOGGING, SALINITY : N/A",Single source
+pearl-millet--pac-909,Pearl millet,PAC 909,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+tall-fescue-grass--ec-178182,Tall fescue grass,EC 178182,drought,Seednet: Reaction to Stress,"TOLERANT TO DROUGHT, ACIDIC AND OBSERVED IN THIS VARIETY",Single source
+pearl-millet--hhb-226,Pearl millet,HHB 226,drought,Seednet: Reaction to Stress,TOLERANT TO DROUGHT,Single source
+rice--jagjeevan,Rice,Jagjeevan,salinity,Seednet: Reaction to Stress,"IT HAS RESISTANCE TO COASTAL AND INLAND SALINITY, PHOSPHORUS DEFICIENCY AND IRON TOXICITY TOLERANCE",Single source
+mustard-rapeseed--raj-vijay-toria-3,Mustard / rapeseed,Raj Vijay Toria 3,drought,Seednet: Reaction to Stress,Tolerant to drought conditions,Single source
+wheat--dbw-107,Wheat,DBW 107,heat,Seednet: Reaction to Stress,DBW 107 comes under resistant category (heat susceptibility index of 0,Single source
+wheat--dbw-88,Wheat,DBW 88,heat,Seednet: Reaction to Stress,Cultivar has shown good yield potential under late sown condition that reflects its better terminal heat tolerance,Confirmed by 2+ sources
+wheat--hd-2967,Wheat,HD 2967,heat,Seednet: Reaction to Stress,It has been reflected tolerance to terminal heat tolerance based on lw heat susceptibility index for physiological and yield related traits,Confirmed by 2+ sources
+wheat--hd-3043,Wheat,HD 3043,drought,Seednet: Reaction to Stress,HD 3043 HAS SHOWN TOLERANCE TO DROUGHT STRESS,Confirmed by 2+ sources
+wheat--hi-1633-pusa-vani,Wheat,HI 1633 (Pusa Vani),heat,Seednet: Reaction to Stress,Hl 1633 showed tolerance to terminal heat stress' which is evident from the good performance of the variety in respect to check varieties under various sowing conditions',Single source
+wheat--hpw-349,Wheat,HPW 349,drought,Seednet: Reaction to Stress,Tolerance to moisture-stress conditions,Confirmed by 2+ sources
+wheat--krl-210,Wheat,KRL-210,salinity,Seednet: Reaction to Stress,KRL 210 HAS GOT TOLERANCE TO SALINE (EC) : 6-6,Confirmed by 2+ sources
+wheat--krl-213,Wheat,KRL-213,salinity,Seednet: Reaction to Stress,KRL 213 HAS BEEN SPECIFICALLY BRED FOR SALT TOLERANCE TO SALINE (EC 6,Confirmed by 2+ sources
+wheat--pusa-wheat-3249,Wheat,Pusa Wheat 3249,heat,Seednet: Agronomic Features,The variety gave highest average 1000-grain weight under different sowing dates indicating its ability to tolerate different sowing dates indicating its ability to tolerate terminal heat tolerance indicating its ability to toerate terminal heat tolerance,Single source
+wheat--pusa-wheat-1621,Wheat,Pusa Wheat 1621,heat,Seednet: Reaction to Stress,HI 1628 showed tolerance to terminal heat stress which is evident from good performance of the variety in respect to check varieties under late sown condition,Single source
+wheat--pusa-wheat-8802,Wheat,Pusa Wheat 8802,heat,Seednet: Reaction to Stress,HI 8802 showed tolerance to terminal heat stress which is evident from good performance of the variety in respect to check varieties under late sown condition,Confirmed by 2+ sources
+wheat--pusa-wheat-8805,Wheat,Pusa Wheat 8805,heat,Seednet: Reaction to Stress,HI 8805 showed tolerance to terminal heat stress which is evident from good performance of the variety in respect to check varieties under late sown condition,Single source
+wheat--wh-1025,Wheat,WH 1025,drought,Seednet: Agronomic Features,"Semi dwarf, high tillering, high yielding and resistant to lodging and drought stress and under low input areas",Confirmed by 2+ sources
